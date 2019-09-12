@@ -1,0 +1,254 @@
+
+вопрос по периоду дат
+$userRecords = Model::where([['dateFrom','>=', $dateFrom],['dateTo','<=', $dateTo]])->get();  в контроллере
+
+Форма отправки довнолафд
+@extends('layouts.base')
+
+@section('content')
+
+{!! Form::open(['url' => 'downald_profile'], ['enctype' => 'multipart/form-data'], ['files'=>'true']) !!}
+
+
+  {{csrf_field()}}
+  <div class="form-group">
+     <div class="col-7">
+ {!! Form::label('pasport', 'Копія паспорта (1, 2 та 11 – 13 стор., сімейний стан, діти)') !!}
+ {!! Form::file('pasport', null, ['class' => 'col-3']) !!}
+    
+  </div>
+ <div class="form-group">
+     <div class="col-7">
+
+
+ {!! Form::label('diplom', 'Копія диплома про вищу освіту (обидві сторони)') !!}
+ {!! Form::file('diplom', null, ['class' => 'col-3']) !!}
+   </div>
+ 
+  <div class="form-group">
+     <div class="col-7">
+   {!! Form::label('ident_code', 'Копія ідентифікаційного коду платника податків') !!}
+ {!! Form::file('ident_code', null, ['class' => 'col-3']) !!} 
+  </div>
+  <div class="form-group">
+     <div class="col-7">
+   
+ {!! Form::label('diplom_compl', 'Копія додатку до диплому з прорахованим середнім балом за навчання у ВУЗі') !!}
+ {!! Form::file('diplom_compl', null, ['class' => 'col-3']) !!} 
+</div>
+
+<div class="form-group">
+     <div class="col-7">
+
+ {!! Form::label('certificate', 'Копії сертифікатів ліцензійного іспиту „Крок -1” та „Крок – 2” (обидві сторони в кожному)') !!}
+ {!! Form::file('certificate', null, ['class' => 'col-3']) !!} 
+</div>
+
+<div class="form-group">
+     <div class="col-7">
+
+
+ {!! Form::label('health_book', 'Копія санітарної книжки з результатами обстеження або довідка санепідемстанції з результатами бак. посіву та обстеження органів грудної клітини (ФЛГ)') !!}
+ {!! Form::file('health_book', null, ['class' => 'col-3']) !!}      
+   
+    
+</div>
+
+
+ <button type="submit" class="btn btn-warning">Відправити</button>
+</form>
+
+
+
+
+
+
+@endsection
+
+rjynhjkktt 
+ public function store(DownloadProfile $postModel, DownloadProfile $request) //валидация данных в файле app/Http/Requests/ArticlesAddRequest.php и сохранение данных формы
+  {
+    $artcl = $postModel->create($request->all());//записываем в базу
+
+    $file = $request->file('image_file');
+    $filename = $file->getClientOriginalName();
+    $file->move('../images', $filename);//папка для загрузки изображения
+
+    if($filename)
+    {
+      $article = DownloadProfile::find($artcl->id);
+                        $article->image = 'images/'.$filename;
+                        $article->save();
+    
+
+    return redirect()->route('download_profile');
+  }
+  
+
+
+Тут давайте писать
+
+Пишите первый вопрос
+
+1. Хочу сделать таблицу, чтоб затянуть в базу и иметь возможность корректировать, пробую но не пойму как корректировать в админке таблицу
+
+Еще раз - какие модели вы мосдали для этой таблицы ?
+
+
+3 штуки
+
+удаляйте и модели и миграции и таблицы из БД
+все 3
+все
+
+а модели ?
+все
+
+айяйяйяй названия файлов с моделями и названия классов должны быть с большой буквы   да виновата
+
+исправите потом
+
+Ну вот как то так 
+
+Я также пробывала, но в админке была ошибка, я правильно понимаю, что важноуказать longtext   если ті вставляешь таблицу?
+
+И что значит 'internal-surgigal-curriculum'
+
+
+и как он в странице понимает по єтой записи   {!! $pageData->content !!} в какой таблице взять данніе, єто в controllere задается?
+
+да longText - тип поля в БД для хранения большого текста
+'internal-surgigal-curriculum' - это url страницы - уникальный
+
+$this->data['pageData'] = Page::where('slug', 'internal-surgigal-curriculum')->first(); - данные получаются по этому же Url
+
+тут правда он именно как url не используется но можно и так оставить
+
+закрепить, если на странице я захочу вівести данніе с какой то тоблиці, то нужно написать $this->data['а тут название таблиці'] = Page::where('slug', 
+
+нет тут название переменной для фронтенда в как он понимает к какой таблице идти
+
+Не к втаблице - а к модели а модель уже привязаня к таблице
+
+каждая к своей
+
+как вы создаете модель php artisan make:model Page -m 
+мовсдее алльл ил+мирация = таблица в бд
+я поняла, аллилуя..дошло
+
+аллилуйя
+
+и  последнее бістро спрошу, как привильно настроить форму отправки, просто направьте, я вот сделал 2 вида формі 
+
+
+Тут давайте писать
+
+Пишите первый вопрос
+
+1. Хочу сделать таблицу, чтоб затянуть в базу и иметь возможность корректировать, пробую но не пойму как корректировать в админке таблицу
+
+Вот так 
+
+инпуты в документации
+
+можно и вручную добавть как обычно <input type= и т.д.
+
+обработка
+
+вот 
+
+
+я конечно с формой вообще не туда пошла.. спасибо большое
+у меня может и остались мелкие вопросі я вам и потом позадаю в вайбере, спасибо огромное
+
+не за что
+пишите вопросы - отвечу потом
+
+
+{{ Form::open(array('url' => 'inputforms')) }}
+    
+    {{ Form::label('username', 'Name') }}
+
+    {{ Form::text('username') }}
+
+    {{ Form::submit('Click Me!') }}
+{{ Form::close() }}
+
+
+  
+<form method="post" action="akademiya">
+  <table class="table table-bordered">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">№ пп</th>
+        <th scope="col">I. Курація хворих (діагноз)</th>
+        <th scope="col">№ карти стац. хворого</th>
+        <th scope="col">Дати спостереження (початок та кінець курації)
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td> {{ Form::text('diagnoses') }}</td>
+        <td> {{ Form::text('num_card') }}</td>
+
+        <td><input type="date" id="date" name="date"/></td>
+      </tr>
+      <button type="submit" class="btn btn-primary btn-lg btn-block">    {{ Form::submit('Відправити') }}
+</button>
+      {{ Form::close() }}
+
+    </tbody>
+  </table>
+</form>
+
+
+
+{{!! Form::open(array('url' => 'inputforms', 'method'=>'post', 'action'=>'inputformsController')) !!}}
+    
+  
+<form method="post" action="akademiya">
+  <table class="table table-bordered">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">№ пп</th>
+        <th scope="col">I. Курація хворих (діагноз)</th>
+        <th scope="col">№ карти стац. хворого</th>
+        <th scope="col">Дати спостереження (початок та кінець курації)
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td> {{ Form::text('diagnoses') }}</td>
+        <td> {{ Form::text('num_card') }}</td>
+
+        <td><input type="apdate" id="apdate" name="apdate"/></td>
+      </tr>
+      <button type="submit" class="btn btn-primary btn-lg btn-block">    {{ Form::submit('Відправити') }}
+</button>
+
+      {{ Form::close() }}
+
+
+
+<label for="num">№ пп</label>
+
+<input type ="text" class="" id="num" name ="num">
+
+<label for="diagnoses">I. Курація хворих (діагноз)</label>
+
+<textarea class="" id="diagnoses" name ="diagnoses"></textarea>
+
+
+<label for="num_card">№ карти стац. хворого</label>
+
+<input type ="text" class="" id="num_card" name ="num_card">
+
+<label for="num_card">Дати спостереження (початок та кінець курації)</label>
+
+<input type ="date" class="" id="apdate" name ="apdate">
+    
+ <button type="submit" class="btn btn-primary btn-lg btn-block">Відправити</button>
