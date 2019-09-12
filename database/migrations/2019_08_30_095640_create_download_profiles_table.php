@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDownaldProfilesTable extends Migration
+class CreateDownloadProfilesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,16 @@ class CreateDownaldProfilesTable extends Migration
      */
     public function up()
     {
-        Schema::create('downald_profiles', function (Blueprint $table) {
+        Schema::create('download_profiles', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('id_student');
-            $table->string('pasport');
-            $table->string('diplom');
-            $table->string('ident_code');
-            $table->string('diplom_compl');
-            $table->string('certificate');
-            $table->string('health_book');
-            $table->string('foto');
+            $table->string('pasport')->nullable();
+            $table->string('diplom')->nullable();
+            $table->string('ident_code')->nullable();
+            $table->string('diplom_compl')->nullable();
+            $table->string('certificate')->nullable();
+            $table->string('health_book')->nullable();
+            $table->string('foto')->nullable();
              $table->timestamps();
     
         });

@@ -50,7 +50,6 @@ Route::get('/surgerycoursen', 'FirstController@Surgerycoursen');
 
 
 
-
 Route::get('/inputforms', 'InputformsController@Formindex')->name('inputforms');
 Route::post('/inputforms', 'InputformsController@postAction')->name('akademiya');
 
@@ -75,7 +74,7 @@ Route::post('/user_profile', 'ProfileController@userAction')->name('akademiya');
 
 
 Route::get('/download_profile', 'DownloadController@downloadAction');
-Route::post('/download_profile', 'DownloadController@downloadIndex');
+Route::post('/download_profile', 'DownloadController@downloadIndex')->name('download_profile');
 
 
 //Route::get('/student', 'StudentController@showAction');
