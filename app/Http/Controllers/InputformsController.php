@@ -13,7 +13,8 @@ class InputformsController extends Controller
 {
     public function Formindex()
     {
-        return view('inputforms');
+         $check = 'true';  //Эта переменная из students  чтоб запустился base
+        return view('inputforms',compact('check'));
     }
 
     public function postAction(Request $request)
@@ -21,22 +22,28 @@ class InputformsController extends Controller
         $currentUser = Auth::user();
 
         $validateData = $request->validate([
-            'diagnoses' => 'required|max:255',
+            'diagnoses' => 'required',
             'num_card' => 'required|:unique:inputforms',
-            'apdate' => 'required'
+            'apdate' => 'required',
+            'direction'=>'required',
+            'fio' => 'required|max:255'
         ]);
 
         $data = $request->all();
 
         $inputForms = new Inputforms();
 
+        $inputForms->fio = $request->get('fio');
         $inputForms->diagnoses = $request->get('diagnoses');
         $inputForms->num_card = $request->get('num_card');
         $inputForms->apdate = $request->get('apdate');
+        $inputForms->apdate_end = $request->get('apdate_end');
+        $inputForms->comm = $request->get('comm');
+        $inputForms->direction = $request->get('direction');
         $inputForms->id_student = $currentUser->id;
 
-
         $inputForms->save();
+        
         return view('inputforms');
     }
 

@@ -2,65 +2,68 @@
 
 @section('content')
 
-<ul class="nav justify-content-end">
-  <li class="nav-item">
-    <a class="nav-link active" href="{{asset('archive')}}">Архив</a>
-  </li>
-  </ul>
-<h1>Облік роботи, яка виконувалась інтерном на заочному циклі</h1>
+<h3>Облік роботи, яка виконувалась інтерном на заочному циклі</h3>
 <p>
-	{!! Form::open(['url' => 'formssurgery']) !!}
- 
-       <!-- SELECT2 EXAMPLE -->
-        <div class="card card-primary">
+</p>
+
+<form role="form" method="post" action="{{asset('formssurgery')}}" >
+  {{ csrf_field() }}
+
+ @component('layouts.napravleniya')
+
+<div class="was-validated">
+   @endcomponent
+
+	  <!-- SELECT2 EXAMPLE -->
+    
   <div class="card card-warning">
+    <div class="card-header">
+       <h3 class="card-title">Облік роботи</h3>
+         <div class="card-tools">
+           <a class="btn btn-tool" href="{{asset('archive_surgery')}}">Архив</a>
+              <button type="button" class="btn btn-tool" data-widget="collapse"><i class="fas fa-plus"></i></button>
 
-          <div class="card-header">
-            <h3 class="card-title">Облік роботи</h3>
-
-            <div class="card-tools">
-              <button type="button" class="btn btn-tool" data-widget="collapse"><i class="fas fa-minus"></i></button>
-              <button type="button" class="btn btn-tool" data-widget="remove"><i class="fas fa-remove"></i></button>
-            </div>
-          </div>
+         </div>
+    </div>
           <!-- /.card-header -->
-          <div class="card-body">
-            <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
+<div class="card-body">
+   <div class="row">
+     <div class="col-3">
+       <label>Дата</label>
+       <input type="date" class="form-control" name="apdate">
+     </div>
 
+<div class="col-4">         
 {!! Form::label('num_card', '№ карти стац. хворого') !!}
-                                
+                             
 {!! Form::text('num_card', null, ['class' => 'form-control select2']) !!}
-                </div>
-                <!-- /.form-group -->
-                <div class="form-group">
-                 {!! Form::label('viewsurgery', 'Види хірургічних втручань
-') !!}
-{!! Form::textarea('viewsurgery', null, ['class' => 'form-control select2']) !!}
-                  
-                   
-                </div>
-                <!-- /.form-group -->
-              </div>
-              <!-- /.col -->
-            
-                <!-- /.form-group -->
-                <div class="form-group">
-                   {!! Form::label('type_work', 'Вид участі') !!}
-                   <select name="type_work" class="form-control select2" style="width: 100%;">
-                    <option>Асистенція</option>
-                    <option>Самостійно</option>
-                    <option>Етапи операції</option>
-                    </select>
-                </div>
-                </div>
+</div>
+
+
+<div class="col-4">
+<label>№ операції</label>
+<input type="text" class="form-control" name="num_surgery">
+</div>              
+</div>
+<!-- /.form-group -->
+
+<label>Вид участі</label>
+<select name="type_work" class="form-control select2" style="width: 100%;">
+<option>Асистенція</option>
+<option>Самостійно</option>
+<option>Етапи операції</option>
+</select>
+
+<label>Види хірургічних втручань</label>
+<textarea class="form-control" name="viewsurgery" rows="6"></textarea>
+
+<!-- /.form-group -->
+
+  
                    {!! Form::submit('Відправити', ['class' => 'btn btn-secondary btn-lg btn-block']) !!}
                 <!-- /.form-group -->
-              </div>
-              <!-- /.col -->
-            </div>
-            <!-- /.row -->
+                </div>
+  
    {{ Form::close() }}          
 
  

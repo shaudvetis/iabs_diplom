@@ -39,6 +39,11 @@ Route::get('/skillsplan', 'SkillsplanController@Planoperindex');
 
 Route::get('/topclasses', 'TopclassesController@Mainindex');
 
+Route::get('/cherevnaocho', 'CherevnaochoController@getCherevna');
+Route::post('/cherevnaocho', 'CherevnaochoController@postCherevna');
+
+
+
 Route::get('/teacher', 'TeacherController@Teacherindex');
 
 Route::get('/firstgrade', 'FirstController@Firstindex');
@@ -47,43 +52,110 @@ Route::get('/firstcoursen', 'FirstController@Firstcoursen');
 
 Route::get('/surgerycoursen', 'FirstController@Surgerycoursen');
 
+Route::get('/lectures', 'LecturesController@getLectures');
+Route::post('/lectures', 'LecturesController@updateLectures');
 
 
 
 Route::get('/inputforms', 'InputformsController@Formindex')->name('inputforms');
 Route::post('/inputforms', 'InputformsController@postAction')->name('akademiya');
 
+Route::get('/inputformsday', 'InputformsdayController@Formindex')->name('inputformsday');
+Route::post('/inputformsday', 'InputformsdayController@postAction')->name('inputformsday');
+Route::get('/archive_inputday', 'InputformsdayController@getInputDay');
+
 
 Route::get('/formssurgery', 'FormssurgeryController@Formssurgery')->name('formssurgery');
-Route::post('/formssurgery', 'FormssurgeryController@postsurgery')->name('akademiya');
+Route::post('/formssurgery', 'FormssurgeryController@postsurgery')->name('formssurgery');
+Route::get('/archive_surgery', 'FormssurgeryController@archiveSurgery');
+
+Route::get('/formssurgeryday', 'FormssurgerydayController@Formindex')->name('formssurgeryday');
+Route::post('/formssurgeryday', 'FormssurgerydayController@postAction')->name('formssurgeryday');
+Route::get('/archive_surgeryday', 'FormssurgerydayController@archiveSargeryday');
+
+Route::get('/formspractice', 'FormspracticeController@Practicegetsurgery')->name('formspractice');
+Route::post('/formspractice', 'FormspracticeController@Practicesurgery')->name('formspractice');
+Route::get('/archiv_practice', 'FormspracticeController@archivPractice');
 
 
+Route::get('/formspracticeday', 'FormspracticedayController@Practicegetsurgery')->name('formspractice');
+Route::post('/formspracticeday', 'FormspracticedayController@Practicesurgery')->name('formspractice');
+Route::get('/archiva_practiceday', 'FormspracticedayController@practiceday');
 
-Route::get('/formspractice', 'FormspracticeController@Practicegetsurgery')->name('akademiya');
+Route::get('/nightworkday', 'FormsdayController@Getsurgery')->name('nightworkday');
+Route::post('/nightworkday', 'FormsdayController@Postsurgery')->name('nightworkday');
+Route::get('/archive_nightday', 'FormsdayController@archiveNightday');
+Route::post('/nightpractic', 'FormsdayController@getPractic');
+Route::get('/archive_nightpractice', 'FormsdayController@archiveNightpract');
 
-Route::post('/formspractice', 'FormspracticeController@Practicesurgery')->name('akademiya');
+
+Route::get('/nightwork', 'FormsnightController@Nightsurgery')->name('nightwork');
+Route::post('/nightwork', 'FormsnightController@Worksurgery')->name('nightwork');
+Route::get('/archiv_nightwork', 'FormsnightController@archivNight');
+
+Route::get('/students', 'StudentsController@indexAction');
 
 
-
-
-Route::get('/students', 'StudentController@indexAction');
 Route::post('/students/diagnoz', 'StudentsController@studentAction');
 Route::get('/archive', 'ArchiveController@ArchiveAction');
-Route::get('/user_profile', 'ProfileController@profileAction');
-Route::post('/user_profile', 'ProfileController@userAction')->name('akademiya');
 
+
+Route::get('/user_profile', 'ProfileController@profileAction');
+Route::post('/user_profile', 'ProfileController@userAction')->name('user_profile');
+
+Route::get('/user_profile_edit', 'EditController@indexEdit');
+Route::post('/user_profile_edit', 'EditController@updateEdit');
+
+Route::post('/user_profile_update/{userprofile}', 'ProfileController@userUpdate')->name('user_profile_update');
+//Єтот роут связвает админа и студента с обновлением
+
+Route::get('/profile_print', 'PrintController@printProfile');
+//роут печати данных
+//Route::post('/user_profile_update/{userprofile}', 'ProfileController@internUpdate')->name('user_profile_update');
 
 Route::get('/download_profile', 'DownloadController@downloadAction');
 Route::post('/download_profile', 'DownloadController@downloadIndex')->name('download_profile');
+Route::post('/add_string', 'DownloadController@add_string');
+Route::get('/studentsextr', 'StudentsextrController@studentextrdIndex')->name('studentsextr');
 
+Route::get('/atestat_profile', 'AtestatController@getAtestat')->name('atestat_profile');
+Route::post('/atestat_profile', 'AtestatController@updateAtestat')->name('atestat_profile');
+Route::get('/intern.read_literatyre', 'intern\ReadController@getLiteratyre');
+Route::post('/intern.read_literatyre', 'intern\ReadController@postLiteratyre');
+Route::get('/intern.archiv_literatyre', 'intern\ReadController@getArchiv');
+
+Route::get('/napravlenia.grudna_klituna', 'Napravlenia\GrydnaController@indexGrudnaya')->name('grudna_klituna');
+
+//Route::post('/user_upload', 'UploadoneController@getDetails')->name('user_upload');
+//Route::post('/upload_profile', 'UploadoneController@setDetails')->name('upload_profile');
 
 //Route::get('/student', 'StudentController@showAction');
 //Route::get('/teacher', 'MainController@teacherAction');
 //Route::get('/manager', 'MainController@managerAction');
 
-
 Route::group (['namespace'=>'Admink', 'middleware'=>['auth']], function(){
 Route::get('/admink', 'DashboardController@dashboard')->name('admink.index');
+
+Route::get('/admink/course/{course}/{form}', 'OnecourseController@getCourse');
+
+//Route::get('/admink.onecourse', 'OnecourseController@getCourse')->name('admink.index');
+Route::get('/admink.user_details/{details}', 'DetailsoneController@getDetails')->name('admink.user_details');
+
+Route::get('/admink.atestat_profiles', 'DetailsoneController@getDiplom');
+
+Route::get('/admink.user_print/{details}', 'DetailsoneController@getDetailsPrint')->name('admink.user_print');
+
+Route::get('/admink.user_download', 'DownloadoneController@getadmink')->name('admink.user_download');
+
+Route::post('/user_profile_update/{userprofile}', 'ProfileController@userUpdate')->name('user_profile_update');
+
+Route::get('/admink.timetableone', 'TimeController@getTime');
+
+
+//Route::get('/admink.user_download', 'DownloadoneController@getDetails')->name('admink.user_download');
+
+
+Route::get('/admink.reportoneochno', 'ReportoneController@getReport')->name('admink.reportoneochno');
 
 });
 

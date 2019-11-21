@@ -16,7 +16,7 @@ class ArchiveController extends Controller
 	
 	public function ArchiveAction() {
 
-		// Get current auth user-student
+ 
 		$student = Auth::user();
 
 		// If current auth user not set - abort - page 404
@@ -38,13 +38,5 @@ class ArchiveController extends Controller
 
 		// Render view
 		return view('archive', $this->data);
-
-
-
-		
-	}
-
-
-
-	
- }  
+}
+}  

@@ -33,16 +33,21 @@ class StudentController extends Controller
 
     public function indexAction()
     {
-   
-       //$student = Auth::user();
-        //if (!$user || $user->role != 0){
-        //    abort(404);
-      //}
+    $name_us = Auth::user()->name;
+        $auth = User::all()->where('name', $name_us)->first();
+        $id_user = $auth->id;
+        $post = UserProfile::all()->where('user_id', $id_user)->first();
 
-
+        if($post === NULL) {
+            $check = 'true';  
+        }
+        else{
+            $check = 'false';
+        }
    $this->data['pageData'] = Page::where('slug', 'internal-surgigal-curriculum')->first();
 
-        return view('students', $this->data);
+        return view('students', $this->data)->with('check', $check);
+
 
     }
     public function showAction()

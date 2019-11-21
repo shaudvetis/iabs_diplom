@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Formssurgery extends Model
 {
-    protected $fillable = ['viewsurgery', 'num_card','type_work'];
+    protected $fillable = ['viewsurgery', 'num_card','type_work', 'apdate','num_surgery', 'direction'];
 }

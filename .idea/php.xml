@@ -105,6 +105,9 @@
       <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-docblock" />
       <path value="$PROJECT_DIR$/vendor/barryvdh/laravel-debugbar" />
       <path value="$PROJECT_DIR$/vendor/maximebf/debugbar" />
+      <path value="$PROJECT_DIR$/vendor/bootstrap/scss" />
+      <path value="$PROJECT_DIR$/vendor/bootstrap/js" />
+      <path value="$PROJECT_DIR$/vendor/almasaeed2010/adminlte" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.1" />

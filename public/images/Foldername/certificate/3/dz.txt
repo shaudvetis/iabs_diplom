@@ -1,0 +1,38 @@
+ 1.Вывести ФИО клиентов со статусом Активен
+
+SELECT client.fio, client.name, cities.states_id, client.city_id, cities.status from client
+join cities on client.city_id=cities.states_id and cities.status=1
+
+
+2. Вывести ФИО клиентов из города Днепр
+SELECT client.fio, client.name, cities.title FROM client
+
+join cities on client.city_id=cities.states_id and cities.id=1
+
+3.Вывести ФИО клиентов из города Днепр и статусом Активен
+
+SELECT client.fio, client.name, cities.status FROM client
+
+join cities on client.city_id=cities.states_id and cities.id=1 and cities.states_id=1
+
+
+4 Вывести сумму счетов по каждому клиенту в таблице
+
+
+SELECT client.fio, client.name, pay.sum FROM client
+
+join pay on client.id=pay.id 
+
+https://www.youtube.com/watch?v=EIULj3llzRc&list=PLoonZ8wII66iZSicLNXhE4bxUYaKhIc-L&index=3
+
+https://www.youtube.com/watch?v=e0L2hQ88LSg&list=PLoonZ8wII66iP0fJPHhkLXa3k7CMef9ak
+https://www.youtube.com/watch?v=FhMpbge7hUQ&list=PLoonZ8wII66h7pF6CFPzK3pVhTWo3DL9G&index=4&pbjreload=10
+
+https://www.youtube.com/watch?v=pUV_tVQlsBE
+
+
+https://developernotes.ru/laravel-5/route-i-routing-v-laravel-5
+
+https://webformyself.com/laravel-kontrollery/
+
+https://webformyself.com/laravel-zapros/

@@ -55,8 +55,11 @@ class LoginController extends Controller
             case 3:
                 return redirect('/admin');
                 break;
+            case 4:
+                return redirect('/admink');
+                break;
             default:
-                return redirect('/student');
+                return redirect('/home');
                 break;        
         }
     }

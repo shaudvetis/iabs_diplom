@@ -19,8 +19,12 @@ class CreateInputformsTable extends Migration
             $table->bigIncrements('id');
             $table->longText('diagnoses',500)->comment('Cодержимое элемента');
             $table->text('num_card')->comment('Номер стац карты');
-            $table->date('apdate')->comment('Дата начала и конца');
-            //$table->integer('id_student')->comment('Код студента');
+            $table->date('apdate')->comment('Дата начала');
+            $table->date('apdate_end')->comment('Дата начала');
+            $table->date('comm')->comment('Дата end');
+            $table->text('fio')->comment('НФио больного');
+            $table->text('direction')->comment('НФио больного');
+            $table->integer('id_student')->comment('Код студента');
             $table->timestamps();
         });
     }

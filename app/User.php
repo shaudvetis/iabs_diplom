@@ -17,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','course','form','kafedra'
     ];
 
     /**
@@ -47,7 +47,20 @@ class User extends Authenticatable
         return $this->hasMany('App\InputForms');
     }
 
-    
+public function Inputformsday()
+    {
+        return $this->hasMany('App\Inputformsday');
+    }
+
+    public function profile()
+    {
+        return $this->hasOne(UserProfile::class);
+    }
+public function sp_diplom()
+    {
+        return $this->hasMany('App\SpDiplom');
+    }
+   
 }
 
 
