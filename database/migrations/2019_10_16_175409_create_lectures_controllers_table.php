@@ -15,13 +15,13 @@ class CreateLecturesControllersTable extends Migration
     {
         Schema::create('lectures_controllers', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->date('apdate', 255)->nullable();
-            $table->string('tema', 255)->nullable();
-            $table->string('comment', 255)->nullable();
+            $table->text('title')->comment('Lekcii title');
+            $table->string('slug')->unique()->comment('Lekcii slug');
+            $table->longText('content')->comment('Lekcii content');
             $table->timestamps();
         });
     }
-
+            
     /**
      * Reverse the migrations.
      *

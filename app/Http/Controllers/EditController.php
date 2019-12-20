@@ -8,11 +8,8 @@ use Auth;
 use App\User;
 use App\Http\Requests\ProfileRequest;
 
-class EditController extends Controller
-{
-
-	 public function indexEdit()
-{
+class EditController extends Controller {
+ public function indexEdit() {
     $name_us = Auth::user()->name;
     $auth = User::all()->where('name', $name_us)->first();
     $id_user = $auth->id;

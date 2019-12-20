@@ -28,7 +28,7 @@
   <link rel="stylesheet" href="{{ asset('plugins/summernote/summernote-bs4.css')}}">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-   
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
    <link rel="stylesheet" href="{{ asset('dist/css/datatables.css')}}">
 
 </head>
@@ -112,6 +112,79 @@
                 </a>
               </li>
             </ul>
+<li class="nav-item has-treeview menu-open" >
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas fa-tachometer-alt" ></i>
+              <p>
+               Журнал інтерна
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+<ul class="nav nav-treeview menu-open">
+   <li class="nav-item">
+                <a href="{{asset('formspracticeday')}}" class="nav-link active">
+                  <i class="nav-icon fas fa-tachometer-alt"></i>
+                  <p>Хірургічні напрямки</p>
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+                </a>
+<ul class="nav nav-treeview">
+ <li class="nav-item">
+   <a href="{{asset('admink.ball_start')}}" class="nav-link">
+     <i class="far fa-circle nav-icon"></i>
+                  <p>Введення в хірургію</p>
+                </a>
+              </li>
+<li class="nav-item">
+                <a href="{{asset('napravlenia.cherevnaocho')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Черевна порожнина </p>
+                </a>
+              </li>
+
+ <li class="nav-item">
+                <a href="{{asset('napravlenia.grudna_klituna')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Грудна клітина</p>
+                </a>
+              </li>
+ <li class="nav-item">
+                <a href="{{asset('napravlenia.proctologia')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Проктологія</p>
+                </a>
+              </li>
+ <li class="nav-item">
+                <a href="{{asset('napravlenia.urologia')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Урологія</p>
+                </a>
+              </li>
+ <li class="nav-item">
+                <a href="{{asset('napravlenia.vascular')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Судинна хірургія</p>
+                </a>
+              </li>
+ <li class="nav-item">
+                <a href="{{asset('napravlenia.gnoynaya')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Гнійна хірургія</p>
+                </a>
+              </li>              
+  <li class="nav-item">
+                <a href="{{asset('napravlenia.kardio')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Кардіохірургія</p>
+                </a>
+              </li>           
+ <li class="nav-item">
+                <a href="{{asset('napravlenia.opiku')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Опіки та відмороження</p>
+                </a>
+              </li>
+</ul>
 
 
             

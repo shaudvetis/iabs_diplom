@@ -14,7 +14,6 @@ class DownloadoneController extends Controller
     {
     	$id_user = $request->id_student;
 
-    	
 $images = DownloadProfile::all()->where('id_student', $id_user)->first();
                 //show pasport
                $images->pasport;

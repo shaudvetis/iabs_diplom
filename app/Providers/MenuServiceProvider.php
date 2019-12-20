@@ -18,22 +18,22 @@ class MenuServiceProvider extends ServiceProvider
     }
     //Top menu for users
 
-    public function topMenu() {
+//     public function topMenu() {
 
-View::composer('layouts.base', function ($view) {
-    $view->with('menu', \App\Menus::orderBy('id')->get()->groupBy('parent_id'));
-});
-    }
+// View::composer('layouts.base', function ($view) {
+//     $view->with('menu', \App\Menus::orderBy('id')->get()->groupBy('parent_id'));
+// });
+//     }
 
-    /**
-     * Bootstrap services.
-     *
-     * @return void
-     */
-    public function boot()
-    {
-        $this->topMenu();
-    }
+//     /**
+//      * Bootstrap services.
+//      *
+//      * @return void
+//      */
+//     public function boot()
+//     {
+//         $this->topMenu();
+//     }
 }
 
 

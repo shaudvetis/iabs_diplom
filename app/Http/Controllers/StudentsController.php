@@ -1,13 +1,9 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\User;
 use Auth;
-use App\Page;
 use App\UserProfile;
-use App\Menus;
 use Illuminate\Support\Facades\View;
 
 class StudentsController extends Controller
@@ -44,11 +40,6 @@ class StudentsController extends Controller
         // $name_us = Auth::user()->name;
         // $auth = User::all()->where('name', $name_us)->first();
         // $id_user = $auth->id;
-
-
-
-       // $arrMenu = Menus::all();
-       // dump($arrMenu);
          $currentUser = Auth::user();
          $id_user = $currentUser->id;
         $post = UserProfile::all()->where('user_id', $id_user)->first();

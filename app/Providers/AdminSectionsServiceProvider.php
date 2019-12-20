@@ -28,6 +28,7 @@ class AdminSectionsServiceProvider extends ServiceProvider
         \App\Page::class => '\App\Http\Sections\PagesSection',
 
         \App\Memorisplan::class => '\App\Http\Sections\MemorisplanSection',
+        \App\Lectures::class => '\App\Http\Sections\LecturesSection',
 
        
 

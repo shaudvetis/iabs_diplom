@@ -2,6 +2,28 @@
 
 @section('content')
  
+ <style>
+
+ table {
+    width: 100%;
+   border: 1px solid #dee2e6;
+   }
+  
+th {
+  border-radius: 0.25rem;
+   border: 1px solid #dee2e6;
+ }
+td { border: 1px solid #dee2e6;
+   } /**/
+thead {
+  color: #495057;
+  background-color: #e9ecef;
+  border-color: #dee2e6;
+}
+.layer {
+    overflow: scroll; /* Добавляем полосы прокрутки */
+}
+</style>
 
 <h3> Грудна Клітина</h3>
 
@@ -29,11 +51,11 @@
 
   <div class="tab-content" id="nav-tabContent">
    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-    <p>
+    <p><h3>Сторінка у розробці</h3>
      </p>
+     <!--  <table >
       <div class="table-responsive">
-        <table >
-          <thead>
+        <thead>
             <tr>
              <th style="width: 60px">Місце стажування, кафедра</th>
              <th style="width: 100px">Тривалість циклу (роб.дні)</th>
@@ -47,44 +69,22 @@
           <td>Семінари та практична робота</td>
            </tr>
             </tbody>
-         </table>
-        </div>
+               </div>
+                </table> -->
       </div>
 
 <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
- <div class="row">
+<div class="row">
   <div class="col-12 ">
    <div class="card ">
-    <div class="card-header ">
+    <div class="card-header">
       <h3 class="card-title "><i><font color="DarkBlue">Курація хворих на очному циклі</font> </i></h3>
     </div>
-  <form>
+  <!-- <form>
  <p>Оберіть період с: <input type="date" name="calendar">
   по: <input type="date" name="calendar">
   <input type="submit" value="Показати"></p>
-  </form>
-<style> 
-
-table {
-    width: 100%;
-   border: 1px solid #dee2e6;
-   }
-  
-th {
-  border-radius: 0.25rem;
-   border: 1px solid #dee2e6;
- }
-td { border: 1px solid #dee2e6;
-   } /**/
-thead {
-  color: #495057;
-  background-color: #e9ecef;
-  border-color: #dee2e6;
-}
-.layer {
-    overflow: scroll; /* Добавляем полосы прокрутки */
-}
-</style>
+  </form> -->
 
 <div class="card-body">
  <div class="table-responsive">
@@ -103,8 +103,9 @@ thead {
       </tr>
     </thead>
   <tbody>
-    <tr>
-<!-- @foreach ($forms as $inputformdays)
+   
+ @foreach ($forms as $inputformdays)
+      <tr>
         <td>{!! $inputformdays->user->name !!}</td>
         <td>{!! $inputformdays->direction !!}</td>
         <td>{!! $inputformdays->fio !!}</td>
@@ -115,26 +116,32 @@ thead {
         <td>{!! $inputformdays->apdate_end !!}</td>
         <td>{!! $inputformdays->created_at !!}</td>
       </tr>
-    @endforeach -->
+    @endforeach 
   </tbody>
- </table>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+   </thead>
+    </table>
+     </div>
+       </div>
+      </div>
+    </div>
+   </div>
+  </div>
 
 <div class="tab-pane fade" id="nav-kyracia" role="tabpanel" aria-labelledby="nav-kyracia-tab">
-<h3><i>Участь у операціях на очному циклі</i></h3>
-<p>
-</p>
-<form>
+  <div class="row">
+  <div class="col-12 ">
+   <div class="card ">
+    <div class="card-header">
+      <h4><i><font color="DarkBlue">Участь у операціях на очному циклі</i></font></h4>
+     </div>
+
+<!-- <form>
    <p>Оберіть період с: <input type="date" name="calendar">
     по: <input type="date" name="calendar">
    <input type="submit" value="Показати"></p>
-</form>
+</form> -->
 
+<div class="card-body">
 <div class="table-responsive">
  <table >
   <thead>
@@ -150,7 +157,7 @@ thead {
       </tr>
     </thead>
   <tbody>
-   <!--  @foreach ($formssurgeryday as $formssurgerydays)
+ @foreach ($formssurgeryday as $formssurgerydays)
       <tr>
         <td>{!! $formssurgerydays->user->name !!}</td>
         <td>{!! $formssurgerydays->direction !!}</td>
@@ -161,22 +168,29 @@ thead {
         <td>{!! $formssurgerydays->viewsurgery !!}</td>
         <td>{!! $formssurgerydays->created_at !!}</td>
       </tr>
-      @endforeach -->
+      @endforeach 
     </tbody>
   </table>
  </div>
 </div>
+</div>
+</div>
+</div>
+</div>
 
 <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
-<h3><i>Практичні навички на очному циклі</i></h3>
-<p>
-</p>
-<form>
+  <div class="row">
+  <div class="col-12 ">
+   <div class="card ">
+    <div class="card-header">
+      <h4><i><font color="DarkBlue">Практичні навички на очному циклі</i></font></h4>
+     </div>
+<!-- <form>
    <p>Оберіть період с: <input type="date" name="calendar">
     по: <input type="date" name="calendar">
    <input type="submit" value="Показати"></p>
-  </form>
-
+  </form> -->
+<div class="card-body">
 <div class="table-responsive">
     <table >
      <thead>
@@ -189,7 +203,7 @@ thead {
       </tr>
     </thead>
   <tbody>
-    <!-- @foreach ($formspracticeday as $formspracticedays)
+   @foreach ($formspracticeday as $formspracticedays)
       <tr>
         <td>{!! $formspracticedays->user->name !!}</td>
         <td>{!! $formspracticedays->direction !!}</td>
@@ -197,16 +211,45 @@ thead {
         <td>{!! $formspracticedays->sum_number !!}</td>
         <td>{!! $formspracticedays->created_at !!}</td>
       </tr>
-      @endforeach -->
+      @endforeach 
     </tbody>
   </table>  
 </div>
 </div>
+</div>
+</div>
+</div>
+</div>
 
 <div class="tab-pane fade" id="nav-night" role="tabpanel" aria-labelledby="nav-night-tab">
-<h3><i>Сторінка у розробці </i></h3>
-<p>
-</p>
+<div class="card card-danger">
+      <div class="card-header">
+        <h3 class="card-title">Розклад інтернів 1 курс</h3>
+           <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-widget="collapse"><i class="fas fa-minus"></i></button>
+            <button type="button" class="btn btn-tool" data-widget="remove"><i class="fas fa-remove"></i></button>
+            </div>
+          </div>
+
+ <div class="table-responsive">
+        <table class="table table-bordered table-striped table-highlight">
+            <thead>
+                <th style="width: 400px; font-size: 2em"><center>Теми семінарів</center></th>
+                <th style="width: 80px">Оцінка знань</th>
+            </thead>
+            <tbody>
+
+    {{ csrf_field() }}
+     @foreach ($seminar as $seminars)
+<tr>
+<td>{!! $seminars->tema !!}</td>
+<td ></td>
+</tr>
+@endforeach
+</tbody>
+</table>
+</div>
+</div>
 </div>
 
    
@@ -214,7 +257,7 @@ thead {
 <h3><i>Сторінка у розробці</i></h3>
 <p>
 </p>
-</div>
+
 
 </div>
 @endsection

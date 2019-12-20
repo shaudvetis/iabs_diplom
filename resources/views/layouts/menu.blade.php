@@ -1,20 +1,3 @@
-@foreach ($menu as $category)
-@if ($category->parent_id->where('id')->count())
-<li class="dropdown">
-	<a href="{{url("/menu/category/$category->slug")}}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-	{{$categoty->title}} <span class="caret"></span>
-	</a>
-	<ul class="dropdown-menu" role="menu">
-		@include ('layout.menu', ['menu'=>$category->children])
-	</ul>
-@else
-<li>
-	<a href="{{url("/menu/category/$category->slug")}}" >{{$categoty->title}}
-	</a>
-
-@endif
-</li>
-@endforeach
 
 <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">

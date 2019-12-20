@@ -1,4 +1,3 @@
-
 <div class="was-validated">
    <div class="form-group">
  <label>Хірургічні напрямки</label>

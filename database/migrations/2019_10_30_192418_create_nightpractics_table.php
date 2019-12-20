@@ -15,7 +15,6 @@ class CreateNightpracticsTable extends Migration
     {
         Schema::create('nightpractics', function (Blueprint $table) {
             $table->bigIncrements('id');
-                    
             $table->text('fio')->comment('Фио больного');
             $table->text('num_card')->comment('Номер стац карты');
             $table->date('apdate')->comment('Дата начала и конца');

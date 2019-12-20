@@ -25,4 +25,8 @@ class UserProfile extends Model
     {
         return $this->belongsTo(User::class);
     }
+    public function ocenkitables()
+    {
+        return $this->hasOne('App\OcenkiTables');
+    }
 }

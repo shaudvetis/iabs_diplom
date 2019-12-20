@@ -11,7 +11,7 @@
 
                           <div class="card-footer">
  <button type="button" class="btn btn-primary" onclick="printit();">Друкувати</button>
- <a class="btn btn-light" href="{{route('admink.user_details', [$deltais->id])}}">Повернутися</a>
+                          <!-- <a class="btn btn-light" href="{{route('admink.user_details', [$deltais->user_id])}}">Повернутися</a> -->
                           </div>
 
         <div class="card-header">
