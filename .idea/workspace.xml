@@ -2,41 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3a50868f-c52f-475f-a6e6-7060031f6f78" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/iabs_diplom.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/iabs_diplom.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admink/DownloadoneController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admink/DownloadoneController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EditController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EditController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MainController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MainController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MemorisplanController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MemorisplanController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Napravlenia/GrydnaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Napravlenia/GrydnaController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OperationalController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OperationalController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SeminaryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SeminaryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SkillsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SkillsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SkillsplanController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SkillsplanController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/StudentsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/StudentsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TopclassesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TopclassesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserProfile.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserProfile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Lectures.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Lectures.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/AdminSectionsServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AdminSectionsServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/MenuServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/MenuServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/UserProfile.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/UserProfile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_01_164930_create_pages_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_01_164930_create_pages_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_10_16_175409_create_lectures_controllers_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_10_16_175409_create_lectures_controllers_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_10_30_192418_create_nightpractics_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_10_30_192418_create_nightpractics_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admink/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admink/dashboard.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admink/layouts/app_admink.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admink/layouts/app_admink.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admink/onecourse.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admink/onecourse.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admink/user_print.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admink/user_print.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/base.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/base.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/menu.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/napravleniya.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/napravleniya.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/napravlenia/grudna_klituna.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/napravlenia/grudna_klituna.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -139,7 +106,7 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admink/BallstartController.php">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="391">
@@ -147,6 +114,15 @@
                   <folding>
                     <element signature="e#46#74#0#PHP" expanded="true" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/.gitignore">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="68">
+                  <caret line="4" column="18" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
                 </state>
               </provider>
             </entry>
@@ -275,6 +251,7 @@
         <option value="$PROJECT_DIR$/app/OcenkiTables.php" />
         <option value="$PROJECT_DIR$/resources/views/admink/ball_start.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admink/BallstartController.php" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -599,7 +576,7 @@
       <workItem from="1576217628591" duration="38262000" />
       <workItem from="1576483971314" duration="12307000" />
       <workItem from="1576567949390" duration="14547000" />
-      <workItem from="1576789515338" duration="9272000" />
+      <workItem from="1576789515338" duration="9884000" />
     </task>
     <task id="LOCAL-00001" summary="test git">
       <created>1568307777104</created>
@@ -619,7 +596,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="349135000" />
+    <option name="totallyTimeSpent" value="349747000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -634,7 +611,7 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.8489209" visible="true" weight="0.16414523" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.8489209" visible="true" weight="0.36913767" />
       <window_info id="Structure" order="1" sideWeight="0.6420863" side_tool="true" weight="0.1860817" />
       <window_info id="Favorites" order="2" sideWeight="0.15107913" side_tool="true" weight="0.022692889" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -688,13 +665,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admink/ReportoneController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admink/ProfileController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -1048,6 +1018,13 @@
           <folding>
             <element signature="e#46#74#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="18" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
         </state>
       </provider>
     </entry>
