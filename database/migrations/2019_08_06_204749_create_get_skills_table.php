@@ -15,6 +15,7 @@ class CreateGetSkillsTable extends Migration
     {
         Schema::create('get_skills', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->text('direction', 255)->comment('Напрямки');
             $table->text('get_skills', 255)->comment('Cодержимое элемента');
             $table->integer('sum_number')->comment('Кількість');
             $table->timestamps();

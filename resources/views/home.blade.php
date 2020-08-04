@@ -5,7 +5,9 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Ви зайшли в вікно сміни користувача</div>
+                <div class="card-header">
+
+                Вітаємо!!!</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -13,8 +15,17 @@
                             {{ session('status') }}
                         </div>
                     @endif
+     
+                    Ви зареєструвались на сайті Кафедри хірургії!
+                    <p>Для подальшої роботи вам необхідно Увійти в свій кабінет інтерна!</p>
+                    <p>Для переходу натисніть на кнопку</p>
+                        
 
-                    Вам необхідно клікнути по ПІБ зверху у правому кутку и вибрати слово Logout!
+                  <a class="btn btn-secondary btn-lg active" href="{{ route('logout') }}"
+                    onclick="event.preventDefault();
+                    document.getElementById('logout-form').submit();">
+                     {{ __('Увійти') }}          </a>
+ 
                 </div>
             </div>
         </div>

@@ -41,7 +41,7 @@ class PagesSection extends Section implements  Initializable
     /**
      * @var string
      */
-    protected $title = 'Страница студента';
+    protected $title = 'Навчальний план інтернів';
 
     /**
      * @var string

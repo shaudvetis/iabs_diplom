@@ -1,811 +1,746 @@
 @extends('layouts.base')
-
+@include('layouts.instruction.intern.skills')
 @section('content')
-    
-<div class="card">    
- <div class="header-h3">
-  <h3>Перелік практичних навичок, якими повинен володіти лікар-хірург після закінчення інтернатури</h3>
+<style>
+table{
+    font-size: 15pt;
+}    
+
+</style>
+
+<!-- SELECT2 EXAMPLE -->
+    <div class="card card-info">
+
+        <div class="card-header">
+
+             <h3>Перелік практичних навичок, якими повинен володіти лікар-хірург після закінчення інтернатури</h3><!-- SELECT2 EXAMPLE -->
+ 
 </div>
 </div>
 
 <!-- Шапка категории -->
-<td colspan="2" >
-    <a class="btn btn-light btn-lg btn-block" data-toggle="collapse" href="#collapseID" aria-expanded="true" aria-controls="collapseID" align="left">
-   <strong>Xірургічне відділення (невідкладна хірургія)</strong>
+
+    <a class="btn-light dropdown-toggle btn-lg btn-block text-sm-left" data-toggle="collapse" href="#collapseID" aria-expanded="true" aria-label="Close" aria-controls="collapseID" align="left">
+ <strong>  Введення в хірургію</strong><i class="btn btn-tool"></i>
     </a>
-</td>
+
        <!-- Шапка уточнения -->
 <div class="card-body p-0">
 
     <!-- Содержание категории -->
 <table class="table table-striped">
-<tr id="collapseID" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-<th style="width: 10px">№</th>
-<th>Назва маніпуляції</th> 
-<th style="width: 600px">Ступінь оволодіння</th>
+<tr id="collapseID" class="collapse in" role="tabpanel" aria-labelledby="headingID">
+<th style="width: 30px">№</th>
+<th style="width: 300px">Назва маніпуляції</th> 
+<th style="width: 300px">Ступінь оволодіння</th>
 <!-- th style="width: 40px">Уточнення th -->
 </tr>
         <!-- Шапка категории -->
-<tr id="collapseID" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-<div class="panel-body">
+<tr id="collapseID" class="collapse in" role="tabpanel" aria-labelledby="headingID">
+    <tr id="collapseID" class="collapse in" role="tabpanel" aria-labelledby="headingID">
+    <td><strong>Медична документація</strong></td>
+</tr>
+<tr id="collapseID" class="collapse in" role="tabpanel" aria-labelledby="headingID">
    <td>1</td>
-   <td>Венепункція</td>
+   <td>Вимоги до написання та заповнення щоденника хворого та протоколу операції (оцінка записів в медичній карти стаціонарного хворого та  представлених зразків протоколів операції)</td>
    <td><span class="badge bg-warning">Вміти</span></td>
 </tr>
 <tr id="collapseID" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
     <td>2.</td>
-    <td>Визначення групи крові та її резус належності</td>
+    <td>Написання посмертного епікризу на хірургічного хворого (за наданою медичною картою померлого)</td>
     <td><span class="badge bg-warning">Вміти</span></td>
 </tr>
 <tr id="collapseID" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
     <td>3.</td>
-    <td>Переливання крові та її замінників</td>
+    <td>Заповнення медичної документації на ЛКК та МСЕК</td>
     <td><span class="badge bg-warning">Вміти</span></td>
 </tr>
-<tr id="collapseID" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-    <td>4.</td>
-    <td>Визначення групи крові та її резус належності</td>
-    <td><span class="badge bg-warning">Вміти</span></td>
-</tr>
-<tr id="collapseID" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-    <td>5.</td>
-    <td>Переливання крові та її замінників</td>
-    <td><span class="badge bg-warning">Вміти</span></td>
-</tr>
+
     <tr id="collapseID" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-    <td>6.</td>
-    <td>Визначення центрального венозного тиску</td>
+        <th>Лапароскопічна хірургія</th>
+    </tr>
+    <tr id="collapseID" class="collapse in" role="tabpanel" aria-labelledby="headingID">
+    <td>1.</td>
+    <td>Підготовка відеоендоскопічного комплексу до роботи</td>
     <td><span class="badge bg-warning">Вміти</span></td>
 </tr>
 <tr id="collapseID" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-    <td>7.</td>
-    <td>Промивання шлунка, аспірація шлункового вмісту</td>
+    <td>2.</td>
+    <td>Техніка маніпулювання основними хірургічними інструментами з переміщення дрібних предметів (норматив 20 горошин за 70 сек)</td>
     <td><span class="badge bg-warning">Вміти</span></td>
 </tr>
 <tr id="collapseID" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-    <td>8.</td>
-    <td>Введення зонда Блекмора</td>
+    <td>3.</td>
+    <td>Техніка роботи з відеокамерою (контроль введення інструментів, утримання «горизонту», демонстрація об’єкту спостереження під різними кутами й утримання його у центрі монітору</td>
     <td><span class="badge bg-warning">Вміти</span></td>
 </tr>
 <tr id="collapseID" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-    <td>9.</td>
-    <td>Паранефральна блокада</td>
+    <th>Основи хірургічної діяльності</th>
+</tr>
+<tr id="collapseID" class="collapse in" role="tabpanel" aria-labelledby="headingID">
+    <td>1.</td>
+    <td>Виконання хірургічної антисептичної обробки рук</td>
     <td><span class="badge bg-warning">Вміти</span></td>
 </tr>
 <tr id="collapseID" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-    <td>10.</td>
-    <td>Блокада за Школьніковим</td>
+    <td>2.</td>
+    <td>Виконання антисептичної обробки операційного поля</td>
     <td><span class="badge bg-success">Володіти</span></td>
 </tr>
 <tr id="collapseID" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-    <td>11.</td>
-    <td>Блокада за Лорен-Епштейном</td>
+    <td>3.</td>
+    <td>Виконання прошивання та зав’язування трьох вузлів</td>
     <td><span class="badge bg-success">Володіти</span></td>
 </tr>
-<tr id="collapseID" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-    <td>12.</td>
-    <td>Блокада за Романом-Столяром</td>
-    <td><span class="badge bg-warning">Вміти</span></td>
-</tr>
-<tr id="collapseID" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-    <td>13.</td>
-    <td>Пункція черевної порожнини</td>
+</table>
+</div>
+<hr>
 
-                    <td><span class="badge bg-warning">Вміти</span></td>
-                    </tr>
-            <tr id="collapseID" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-                    <td>14.</td>
-                    <td>Лапароскопія</td>
-                    
-                    <td><span class="badge bg-success">Володіти</span></td>
-                    </tr>
-            <tr id="collapseID" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-                    <td>15.</td>
-                    <td>Лапароцентез</td>
-                    
-                    <td><span class="badge bg-success">Володіти</span></td>
-                    </tr>
-
-            <tr id="collapseID" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-                    <td>16.</td>
-                    <td>Оглядова рентгеноскопія органів черевної порожнини</td>
-                    
-                    <td><span class="badge bg-success">Володіти</span></td>
-                    </tr>
-            <tr id="collapseID" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-                    <td>17.</td>
-                    <td>Визначення гемоглобіну</td>
-                    
-                    <td><span class="badge bg-success">Володіти</span></td>
-                    </tr>
-
-            <tr id="collapseID" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-                    <td>18.</td>
-                    <td>Визначення гематокриту</td>
-                    
-                    <td><span class="badge bg-success">Володіти</span></td>
-                    </tr>
-            <tr id="collapseID" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-                    <td>19.</td>
-                    <td>Визначення тривалості кровотечі і часу зсідання крові</td>
-                    
-                    <td><span class="badge bg-warning">Вміти</span></td>
-                    </tr>
-
-            <tr id="collapseID" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-                    <td>20.</td>
-                    <td>Визначення об’єму або дефіциту циркулюючої крові</td>
-                    
-                    <td><span class="badge bg-warning">Вміти</span></td>
-                    </tr>
-
-
-               
-<td colspan="2">
-<a  class="btn btn-light btn-lg btn-block" data-toggle="collapse" href="#collapseIDpl">
-<strong>Xірургічне відділення (планова хірургія)</strong>
+<a  class="btn btn-light btn-lg dropdown-toggle btn-block text-sm-left" data-toggle="collapse" href="#collapseIDpl">
+<strong>Хірургія  органів черевної порожнини та передньої черевної стінки</strong><i class="btn btn-tool"></i>
 </a>
-</td>
 <div class="card-body p-0" >
 <table class="table table-striped">
-<tr id="collapseIDpl" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-                    <th style="width: 10px">#</th>
-                    <th>Назва маніпуляції</th> 
-                    <th style="width: 600px">Ступінь оволодіння</th>
+<tr id="collapseIDpl" class="collapse in" role="tabpanel" aria-labelledby="headingID">
+                    <th style="width: 30px">#</th>
+                    <th style="width: 300px">Назва маніпуляції</th> 
+                    <th style="width: 300px">Ступінь оволодіння</th>
                     </tr>
 
                      <tr id="collapseIDpl" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
                      <div class="panel-body">
                      <td>1.</td>
-                     <td>Проведення комплексу ЛФК в післяопераційному періоді</td>
+                     <td>Перев’язки</td>
                      <td><span class="badge bg-warning">Вміти</span></td>
                      </tr>
-
-
-             <tr id="collapseIDpl" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-            
-            <div class="panel-body">
+             <tr id="collapseIDpl" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">          
+          
                      <td>2.</td>
-                     <td>Ph-метрія шлункового вмісту (в шлунку)</td>
+                     <td>Введення троакарів в черевну порожнину</td>
                      <td><span class="badge bg-success">Володіти</span></td>
                   </tr>
 
-            <tr id="collapseIDpl" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-            
-            <div class="panel-body">
+            <tr id="collapseIDpl" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">        
+      
                      <td>3.</td>
-                     <td>Зондове годування хворих</td>
+                     <td>Група крові та сумісність</td>
                      <td><span class="badge bg-success">Володіти</span></td>
                   </tr>
 
-            <tr id="collapseIDpl" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-            
-            <div class="panel-body">
+            <tr id="collapseIDpl" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">       
+     
                      <td>4.</td>
-                     <td>Рентгеноскопія шлунково-кишкового тракту</td>
+                     <td>Накладання пневмоперитонеума</td>
                      <td><span class="badge bg-primary">Ознайомлен</span></td>
                   </tr>
              
-             <tr id="collapseIDpl" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-            
-            <div class="panel-body">
+             <tr id="collapseIDpl" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">        
+
                      <td>5.</td>
-                     <td>Радіоізотопна діагностика захворювань печінки, підшлункової і щитовидної залози</td>
+                     <td>Оглядові рентгенограми черевної та грудної порожнин</td>
                      <td><span class="badge bg-primary">Ознайомлен</span></td>
                   </tr>
             
-            <tr id="collapseIDpl" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-            
-            <div class="panel-body">
+            <tr id="collapseIDpl" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">           
+  
                      <td>6.</td>
-                     <td>УЗД органів черевної порожнини та заочеревинного простору</td>
+                     <td>Накладання швів на шкіру</td>
                      <td><span class="badge bg-primary">Ознайомлен</span></td>
                   </tr>
             
-            <tr id="collapseIDpl" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-            
-            <div class="panel-body">
+            <tr id="collapseIDpl" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">           
+    
                      <td>7.</td>
-                     <td>Комп’ютерне обстеження органів черевної порожнини та заочеревинного простору</td>
+                     <td>Антисептична обробка операційного поля</td>
                      <td><span class="badge bg-primary">Ознайомлен</span></td>
                   </tr>
 
             <tr id="collapseIDpl" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
             
-            <div class="panel-body">
+       
                      <td>8.</td>
-                     <td>Фіброгастродуоденоскопія</td>
+                     <td>Введення дренажів в черевну порожнину</td>
                      <td><span class="badge bg-success">Володіти</span></td>
                   </tr>
             <tr id="collapseIDpl" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
             
-            <div class="panel-body">
+        
                      <td>9.</td>
-                     <td>Фістулографія і фістулоскопія</td>
+                     <td>Лапароскопія</td>
                      <td><span class="badge bg-warning">Вміти</span></td>
                   </tr>
+                   <tr id="collapseIDpl" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
             
-    
-<td colspan="2">
-<a class="btn btn-light btn-lg btn-block"  data-toggle="collapse" href="#collapseIDtk">
-<strong>Торакальне відділення</strong>
+        
+                     <td>10.</td>
+                     <td>Введення зонду для харчування</td>
+                     <td><span class="badge bg-warning">Вміти</span></td>
+                  </tr>
+
+                  <tr id="collapseIDpl" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
+                  <td>11.</td>
+                     <td>Закрита інтубація кишечнику</td>
+                     <td><span class="badge bg-warning">Вміти</span></td>
+                  </tr>
+              </table>
+              </div>
+<hr>
+
+<a class="btn btn-light dropdown-toggle btn-lg btn-block text-sm-left"  data-toggle="collapse" href="#collapseIDtk">
+<strong>Торакальна хірургія</strong><i class="btn btn-tool"></i>
 </a>
-</td>
+
 <div class="card-body p-0" >
 <table class="table table-striped">
-<tr id="collapseIDtk" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-<th style="width: 10px">#</th>
-<th>Назва маніпуляції</th> 
-<th style="width: 600px">Ступінь оволодіння</th>
+<tr id="collapseIDtk" class="collapse in" role="tabpanel" aria-labelledby="headingID">
+<th style="width: 30px">#</th>
+<th style="width: 300px">Назва маніпуляції</th> 
+<th style="width: 300px">Ступінь оволодіння</th>
 </tr>
 <tr id="collapseIDtk" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-<div class="panel-body">
+
 <td>1.</td>
-<td>Пункція плевральної порожнини</td>
+<td>Перев’язки</td>
 <td><span class="badge bg-warning">Вміти</span></td>
 <tr id="collapseIDtk" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-<div class="panel-body">
+
 <td>2.</td>
-<td>Дренаж плевральної порожнини</td>
+<td>Санація емпіємної порожнини</td>
 <td><span class="badge bg-warning">Вміти</span></td></tr>
 <tr id="collapseIDtk" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-<div class="panel-body">
-                     <td>3.</td>
-                     <td>Трахеостомія (відпрацювання операції на трупах)</td>
-                     <td><span class="badge bg-warning">Вміти</span></td>
-                     </tr>
+ <td>3.</td>
+<td>Оглядові R-грами грудної клітини</td>
+ <td><span class="badge bg-warning">Вміти</span></td>
+ </tr>
 
             <tr id="collapseIDtk" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
 
-            <div class="panel-body">
+ 
                      <td>4.</td>
-                     <td>Пункція трахеї і мікроіригація бронхіального дерева</td>
+                     <td>Пункція плевральної порожнини</td>
                      <td><span class="badge bg-warning">Вміти</span></td></th>
 
             <tr id="collapseIDtk" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
 
-            <div class="panel-body">
+       
                      <td>5.</td>
-                     <td>Рентгеноскопія і рентгенографія грудної клітини</td>
-                     <td><span class="badge bg-primary">Ознайомлен</span></td>
+                     <td>Торакоцентез, дренування плевральної порожнини</td>
+                     <td><span class="badge bg-warning">Вміти</span></td>
 
             <tr id="collapseIDtk" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
 
-            <div class="panel-body">
-                     <td>5.</td>
-                     <td>Мікротрахеостомія</td>
-                     <td><span class="badge bg-success">Володіти</span></td>
-
-
-            <tr id="collapseIDtk" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-
-            <div class="panel-body">
+        
                      <td>6.</td>
-                     <td>Накладання оклюзивної пов’язки при відкритому пневмотораксі</td>
+                     <td>Блокада міжреберна, субплевральна, паравертебральна</td>
                      <td><span class="badge bg-warning">Вміти</span></td>
 
 
             <tr id="collapseIDtk" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
+</tr>
+</table>
+</div>
 
-            <div class="panel-body">
-                     <td>7.</td>
-                     <td>Бужування стравоходу</td>
-                     <td><span class="badge bg-primary">Ознайомлен</span></td>
-
-            <tr id="collapseIDtk" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-
-            <div class="panel-body">
-                     <td>8.</td>
-                     <td>Блокада міжреберних нервів</td>
-                     <td><span class="badge bg-warning">Вміти</span></td></th>
-
-            <tr id="collapseIDtk" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-
-            <div class="panel-body">
-                     <td>9.</td>
-                     <td>Аналіз рентгенологічних даних діагностики захворювань органів грудної клітки</td>
-                     <td><span class="badge bg-warning">Вміти</span></td></th>
-
-
-            <tr id="collapseIDtk" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-
-            <div class="panel-body">
-                     <td>10.</td>
-                     <td>Пункція перикарду, серця</td>
-                     <td><span class="badge bg-primary">Ознайомлен</span></td>
-                  </tr>
-
-
-<td colspan="2">
-<a class="btn btn-light btn-lg btn-block"  data-toggle="collapse" href="#collapseIDpr"><strong>Проктологія</strong>
+<hr>
+<a class="btn btn-light dropdown-toggle btn-lg btn-block text-sm-left"  data-toggle="collapse" href="#collapseIDpr"><strong>Проктологія</strong><i class="btn btn-tool"></i>
 </a>
-</td>
 <div class="card-body p-0" >
 <table class="table table-striped">
-<tr id="collapseIDpr" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-<th style="width: 10px">#</th>
-<th>Назва маніпуляції</th> 
-<th style="width: 600px">Ступінь оволодіння</th>
+<tr id="collapseIDpr" class="collapse in" role="tabpanel" aria-labelledby="headingID">
+<th style="width: 30px">#</th>
+<th style="width: 300px">Назва маніпуляції</th> 
+<th style="width: 300px">Ступінь оволодіння</th>
 </tr>
 <tr id="collapseIDpr" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-<div class="panel-body">
 <td>1.</td>
-<td>Пальцеве дослідження прямої кишки</td>
+<td>Пальцеве обстеження прямої кишки</td>
 <td><span class="badge bg-warning">Вміти</span></td>
 </tr>
 
                     <tr id="collapseIDpr" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-            <div class="panel-body">
+          
                      <td>2.</td>
-                     <td>Сифонна клізма</td>
+                     <td>Дослідження прямої кишки  дзеркалом</td>
                      <td><span class="badge bg-warning">Вміти</span></td>
                      </tr>
 
                     <tr id="collapseIDpr" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-            <div class="panel-body">
-                     <td>3.</td>
-                     <td>Очисна клізма</td>
-                     <td><span class="badge bg-warning">Вміти</span></td>
-                     </tr>
-
-                     <tr id="collapseIDpr" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-            <div class="panel-body">
-                     <td>4.</td>
-                     <td>Клізма за Огнєвим</td>
-                     <td><span class="badge bg-success">Володіти</span></td>
-                     </tr>
     
-                    <tr id="collapseIDpr" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-            <div class="panel-body">
-                     <td>5.</td>
-                     <td>Перидуральна анестезія</td>
-                     <td><span class="badge bg-primary">Ознайомлен</span></td>
-                     </tr>
-
-                    <tr id="collapseIDpr" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-            <div class="panel-body">
-                     <td>6.</td>
-                     <td>Аналіз візуальних методів дослідження в колопроктології</td>
-                     <td><span class="badge bg-warning">Вміти</span></td>
-                     </tr>
-
-                    <tr id="collapseIDpr" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-            <div class="panel-body">
-                     <td>7.</td>
-                     <td>Аноскопія, огляд ректальним дзеркалом</td>
-                     <td><span class="badge bg-warning">Вміти
-                        
-                     </span></td>
-                     </tr>
-
-                     <tr id="collapseIDpr" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-            <div class="panel-body">
-                     <td>8.</td>
+                     <td>3.</td>
                      <td>Ректороманоскопія</td>
                      <td><span class="badge bg-warning">Вміти</span></td>
                      </tr>
 
-                    <tr id="collapseIDpr" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-            <div class="panel-body">
-                     <td>9.</td>
-                     <td>Фіброколоноскопія</td>
-                     <td><span class="badge bg-success">Володіти</span></td>
+                     <tr id="collapseIDpr" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
+          
+                     <td>4.</td>
+                     <td>Місцеве знеболення при операціях на анальному каналі</td>
+                    <td><span class="badge bg-warning">Вміти</span></td>
                      </tr>
-
+    
                     <tr id="collapseIDpr" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-            <div class="panel-body">
-                     <td>10.</td>
-                     <td>Підготовка хворих до обстеження та операції на товстій кишці</td>
+            
+                     <td>5.</td>
+                     <td>Накладання   калоприймача</td>
                      <td><span class="badge bg-warning">Вміти</span></td>
                      </tr>
 
                     <tr id="collapseIDpr" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-            <div class="panel-body">
-                     <td>11.</td>
-                     <td>Зондове обстеження прямокишкових нориць</td>
-                     <td><span class="badge bg-success">Володіти</span></td>
+            
+                     <td>6.</td>
+                     <td>Зондове дослідження прямокишкових нориць / Фарбова проба при норицях</td>
+                     <td><span class="badge bg-warning">Вміти
+                        
+                     </span></td>
                      </tr>
+                    </tr>
+</table>
+</div>
 
-                    <tr id="collapseIDpr" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-            <div class="panel-body">
-                     <td>12.</td>
-                     <td>Виконання фарбової проби при норицях</td>
-                     <td><span class="badge bg-success">Володіти</span></td>
-                     </tr>
-
-                     <tr id="collapseIDpr" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-            <div class="panel-body">
-                     <td>13.</td>
-                     <td>Сфінктерометрія</td>
-                     <td><span class="badge bg-success">Володіти</span></td>
-                     </tr>
-
-                     <tr id="collapseIDpr" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-            <div class="panel-body">
-                     <td>14.</td>
-                     <td>Методика накладання калоприймача</td>
-                     <td><span class="badge bg-warning">Вміти</span></td>
-                     </tr>
-
-                     <tr id="collapseIDpr" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-            <div class="panel-body">
-                     <td>16.</td>
-                     <td>Виконання місцевої анестезії при операціях на анальному каналі</td>
-                     <td><span class="badge bg-warning">Вміти</span></td>
-                     </tr>
-
-
-               
-<td colspan="2">
-<a class="btn btn-light btn-lg btn-block"  data-toggle="collapse" href="#collapseIDgn"><strong>Гнійна хірургія</strong>
+<hr>
+<a class="btn btn-light dropdown-toggle btn-lg btn-block text-sm-left"  data-toggle="collapse" href="#collapseIDgn"><strong>Гнійна хірургія</strong><i class="btn btn-tool"></i>
 </a>
-</td>
 <div class="card-body p-0" >
 <table class="table table-striped">
+<tr id="collapseIDgn" class="collapse in" role="tabpanel" aria-labelledby="headingID">
+<th style="width: 30px">#</th>
+<th style="width: 300px">Назва маніпуляції</th> 
+<th style="width: 300px">Ступінь оволодіння</th>
 <tr id="collapseIDgn" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-<th style="width: 10px">#</th>
-<th>Назва маніпуляції</th> 
-<th style="width: 600px">Ступінь оволодіння</th>
-<tr id="collapseIDgn" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-<div class="panel-body">
-<td>1.</td>
+                     <div class="panel-body">
+                     <td>1.</td>
                      <td>Проведення бакпосіву з рани</td>
                      <td><span class="badge bg-warning">Вміти</span></td>
                      </tr>
-
                     <tr id="collapseIDgn" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-            <div class="panel-body">
+           
                      <td>2.</td>
                      <td>Проведення зіскоблення при підозрі на кандидомікоз</td>
                      <td><span class="badge bg-warning">Вміти</span></td>
                      </tr>
 
                     <tr id="collapseIDgn" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-            <div class="panel-body">
+           
                      <td>3.</td>
-                     <td>Обробка гнійних хірургічних ран</td>
+                     <td>Принципи обробка та дренування гнійних хірургічних ран</td>
                      <td><span class="badge bg-warning">Вміти</span></td>
                      </tr>
 
                      <tr id="collapseIDgn" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-            <div class="panel-body">
+           
                      <td>4.</td>
-                     <td>Ретромамарна новокаїнова блокада</td>
+                     <td>Вакумна терапія гнійних ран (VAC-терапія)</td>
                      <td><span class="badge bg-success">Володіти</span></td>
                      </tr>
     
                     <tr id="collapseIDgn" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-            <div class="panel-body">
+          
                      <td>5.</td>
-                     <td>Принципи дренування ран</td>
+                     <td>Спосіб проточно-промивного дренування та обробка гнійної рані пульсуючою струєю</td>
                      <td><span class="badge bg-warning">Вміти</span></td>
                      </tr>
 
                     <tr id="collapseIDgn" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-            <div class="panel-body">
+          
                      <td>6.</td>
-                     <td>Субпекторальна новокаїнова блокада</td>
+                     <td>Пункція та розтин гнояків при гнійних захворюваннях кисті / стопи</td>
                      <td><span class="badge bg-success">Володіти</span></td>
                      </tr>
 
                     <tr id="collapseIDgn" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-            <div class="panel-body">
+          
                      <td>7.</td>
-                     <td>Місцеве знеболення</td>
+                     <td>ПХО ран</td>
                      <td><span class="badge bg-warning">Вміти</span></td>
                      </tr>
 
                      <tr id="collapseIDgn" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-            <div class="panel-body">
+          
                      <td>8.</td>
-                     <td>Місцеве знеболення при гнійних захворюваннях кисті</td>
+                     <td>Лазерна та ультразвукова обробка гнійної рані</td>
                      <td><span class="badge bg-warning">Вміти</span></td>
                      </tr>
 
                     <tr id="collapseIDgn" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-            <div class="panel-body">
-                     <td>9.</td>
-                     <td>Пункція абсцесів</td>
+                       <td>9.</td>
+                     <td>Місцеве знеболення при гнійних захворюваннях кисті </td>
                      <td><span class="badge bg-warning">Вміти</span></td>
                      </tr>
 
                     <tr id="collapseIDgn" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-            <div class="panel-body">
+           
                      <td>10.</td>
                      <td>Розрахунок дози інсуліну у хірургічних хворих</td>
                      <td><span class="badge bg-warning">Вміти</span></td>
                      </tr>
 
-<td colspan="2">
-<a class="btn btn-light btn-lg btn-block"  data-toggle="collapse" href="#collapseIDsd" aria-expanded="true" aria-controls="collapseID">
-<strong>Судинна хірургія</strong>
+</table>
+</div>
+<hr>
+<a class="btn btn-light dropdown-toggle-toggle btn-lg btn-block text-sm-left"  data-toggle="collapse" href="#collapseIDsd" aria-expanded="true" aria-controls="collapseID">
+<strong>Судинна хірургія</strong><i class="btn btn-tool"></i>
 </a>
-</td>
+
 <div class="card-body p-0" >
 <table class="table table-striped">
-<tr id="collapseIDsd" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-<th style="width: 10px">#</th>
-<th>Назва маніпуляції</th> 
-<th style="width: 600px">Ступінь оволодіння</th>
-<tr id="collapseIDsd" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-<div class="panel-body">
-<td>1.</td>
-                     <td>Визначення стану клапанного апарату магістральних і перфорантних вен</td>
+<tr id="collapseIDsd" class="collapse in" role="tabpanel" aria-labelledby="headingID">
+<th style="width: 30px">#</th>
+<th style="width: 300px">Назва маніпуляції</th> 
+<th style="width: 300px">Ступінь оволодіння</th>
+   <tr id="collapseIDsd" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">  
+                     <div class="panel-body">
+                     <td>1.</td>
+                     <td>Визначення стану клапанного апарату магістральних вен</td>
                      <td><span class="badge bg-warning">Вміти</span></td>
                      </tr>
 
                     <tr id="collapseIDsd" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-            <div class="panel-body">
+           
                      <td>2.</td>
-                     <td>Флебографія</td>
+                     <td>Визначення стану клапанного апарату перфорантних вен</td>
                      <td><span class="badge bg-primary">Ознайомлен</span></td>
                      </tr>
 
                     <tr id="collapseIDsd" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-            <div class="panel-body">
+           
                      <td>3.</td>
-                     <td>Реовазографія</td>
+                     <td>Проби при варикозній хворобі</td>
                      <td><span class="badge bg-success">Володіти</span></td>
                      </tr>
 
                      <tr id="collapseIDsd" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-            <div class="panel-body">
+           
                      <td>4.</td>
-                     <td>Клінічні проби при захворюваннях вен та артерій нижніх кінцівок</td>
+                     <td>Проби при облітеруючих захворюваннях</td>
                      <td><span class="badge bg-warning">Вміти</span></td>
                      </tr>
-            
-<td colspan="2">
-<a class="btn btn-light btn-lg btn-block"  data-toggle="collapse" href="#collapseIDen" aria-expanded="true" aria-controls="collapseID"><strong>
-Ендокринна хірургія</strong>
+
+                     <tr id="collapseIDsd" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
+                     <td>5.</td>
+                     <td>УЗ Доплерографія (показання до призначення, особливості виконання, патогномонічні зміни)</td>
+                     <td><span class="badge bg-warning">Вміти</span></td>
+                     </tr>
+
+                    <tr id="collapseIDsd" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
+                     <td>6.</td>
+                     <td>КТ ангіографія (показання до призначення, особливості виконання, патогномонічні зміни)</td>
+                     <td><span class="badge bg-warning">Вміти</span></td>
+                     </tr>
+
+                      <tr id="collapseIDsd" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
+                     <td>7.</td>
+                     <td>Обгрунтування призначення антикоагулянтної терапії (призначення, розрахунок дози та скасування антикоагулянтів)</td>
+                     <td><span class="badge bg-warning">Вміти</span></td>
+                     </tr>
+                      <tr id="collapseIDsd" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">                     
+                     <td>8.</td>
+                     <td>Визначення Лодижечно-Плечевого Індексу (ЛПІ)  та  Пальце-Плечевого Індексу  (ППІ)</td>
+                     <td><span class="badge bg-warning">Вміти</span></td>
+                     </tr>
+                     <tr id="collapseIDsd" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
+                     <td>9.</td>
+                     <td>Визначення температурної, тактильної, больової та вібраційної чутливості</td>
+                     <td><span class="badge bg-warning">Вміти</span></td>
+                     </tr>
+                     <tr id="collapseIDsd" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
+                     <td>10.</td>
+                     <td>Реовазографія</td>
+                     <td><span class="badge bg-warning">Вміти</span></td>
+                     </tr>                     
+                    </table>
+                </div>
+<hr>
+<a class="btn btn-light dropdown-toggle-toggle btn-lg btn-block text-sm-left"  data-toggle="collapse" href="#collapseIDen" aria-expanded="true" aria-controls="collapseID"><strong>
+Ендокринна хірургія</strong><i class="btn btn-tool"></i>
 </a>
-</td>
+
 <div class="card-body p-0" >
 <table class="table table-striped">
-<tr id="collapseIDen" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-                    <th style="width: 10px">#</th>
-                    <th>Назва маніпуляції</th> 
-                    <th style="width: 600px">Ступінь оволодіння</th>
+<tr id="collapseIDen" class="collapse in" role="tabpanel" aria-labelledby="headingID">
+                    <th style="width: 30px">#</th>
+                    <th style="width: 300px">Назва маніпуляції</th> 
+                    <th style="width: 300px">Ступінь оволодіння</th>
                      
                      <tr id="collapseIDen" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-            <div class="panel-body">
-                     
+                      <div class="panel-body">            
                      <td>1.</td>
                      <td>Пальпація щитоподібної залози</td>
                      <td><span class="badge bg-warning">Вміти</span></td>
                      </tr>
 
                     <tr id="collapseIDen" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-            <div class="panel-body">
+         
                      <td>2.</td>
                      <td>Пальпація лімфовузлів шиї</td>
                      <td><span class="badge bg-warning">Вміти</span></td>
                      </tr>
 
                     <tr id="collapseIDen" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-            <div class="panel-body">
+         
                      <td>3.</td>
                      <td>Біопсія щитоподібної залози</td>
                      <td><span class="badge bg-success">Володіти</span></td>
                      </tr>
+                 </table>
+             </div>
 
-<td colspan="2">
-<a class="btn btn-light btn-lg btn-block"  data-toggle="collapse" href="#collapseIDop" aria-expanded="true" aria-controls="collapseID"><strong>
- Опікова травма</strong>
+<hr>
+<a class="btn btn-light dropdown-toggle btn-lg btn-block text-sm-left"  data-toggle="collapse" href="#collapseIDop" aria-expanded="true" aria-controls="collapseID"><strong>
+ Комбустіологія та пластична хірургія</strong><i class="btn btn-tool"></i>
 </a>
-</td>
+
 <div class="card-body p-0" >
 <table class="table table-striped">
-<tr id="collapseIDen" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-                    <th style="width: 10px">#</th>
-                    <th>Назва маніпуляції</th> 
-                    <th style="width: 600px">Ступінь оволодіння</th>
+<tr id="collapseIDop" class="collapse in" role="tabpanel" aria-labelledby="headingID">
+                    <th style="width: 30px">#</th>
+                    <th style="width: 300px">Назва маніпуляції</th> 
+                    <th style="width: 300px">Ступінь оволодіння</th>
                      
                      <tr id="collapseIDop" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
             <div class="panel-body">
-                     
+              
                      <td>1.</td>
-                     <td>Перша допомога при опіках</td>
+                     <td>Визначення глибини та площі опіку</td>
                      <td><span class="badge bg-warning">Вміти</span></td>
                      </tr>
 
                     <tr id="collapseIDop" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
             <div class="panel-body">
                      <td>2.</td>
-                     <td>Визначення обсягу опікової рани</td>
+                     <td>Визначення Індексу тяжкості ураження</td>
                      <td><span class="badge bg-warning">Вміти</span></td>
                      </tr>
 
                     <tr id="collapseIDop" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
             <div class="panel-body">
                      <td>3.</td>
-                     <td>Визначення глибини опіку</td>
+                     <td>Проведення дренуючих операцій (некротомій) при глибоких опіках та
+                     відмороженнях</td>
                      <td><span class="badge bg-warning">Вміти</span></td>
                      </tr>
-                   
-<td colspan="2">
-<a class="btn btn-light btn-lg btn-block"  data-toggle="collapse" href="#collapseIDtr" aria-expanded="true" aria-controls="collapseID"><strong>
-                     Травматологія</strong></a></td>
-                    </th>
-                    </tr>
+
+                     <tr id="collapseIDop" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
+                     <td>4.</td>
+                     <td>Розмітка розрізів з урахуванням ліній Лангера на обличчі, тулубі та
+                     кінцівках</td>
+                     <td><span class="badge bg-warning">Вміти</span></td>
+                     </tr>
+
+                    <tr id="collapseIDop" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
+                     <td>5.</td>
+                     <td>Особливості ПХО опікових ран</td>
+                     <td><span class="badge bg-warning">Вміти</span></td>
+                     </tr>
+
+                     <tr id="collapseIDop" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
+                     <td>6.</td>
+                     <td>Складання плану реабілітаційних заходів після пластичних втручань</td>
+                     <td><span class="badge bg-warning">Вміти</span></td>
+                     </tr>
+                  </table>
+               </div>
+<hr>
+
+<a class="btn btn-light dropdown-toggle btn-lg btn-block text-sm-left"  data-toggle="collapse" href="#collapseIDtr" aria-expanded="true" aria-controls="collapseID"><strong>
+                     Травматологія</strong><i class="btn btn-tool"></i></a>
+                    
+                    
 
                      <div class="card-body p-0" >
                     <table class="table table-striped">
             
-                    <tr id="collapseIDop" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-                    <th style="width: 10px">#</th>
-                    <th>Назва маніпуляції</th> 
-                    <th style="width: 600px">Ступінь оволодіння</th>
+                    <tr id="collapseIDtr" class="collapse in" role="tabpanel" aria-labelledby="headingID">
+                    <th style="width: 30px">#</th>
+                    <th style="width: 300px">Назва маніпуляції</th> 
+                    <th style="width: 300px">Ступінь оволодіння</th>
                      
                      <tr id="collapseIDtr" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-            <div class="panel-body">
-                     
+            
                      <td>1.</td>
                      <td>Вправлення вивихів плеча і стегна</td>
                      <td><span class="badge bg-warning">Вміти</span></td>
                      </tr>
 
                     <tr id="collapseIDtr" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-            <div class="panel-body">
+           
                      <td>2.</td>
                      <td>Репозиція кісткових уламків при нескладних переломах кісток кінцівок</td>
                      <td><span class="badge bg-success">Володіти</span></td>
                      </tr>
 
                     <tr id="collapseIDtr" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-            <div class="panel-body">
+           
                      <td>3.</td>
                      <td>Гіпсова іммобілізація при переломах кісток</td>
                      <td><span class="badge bg-warning">Вміти</span></td>
                      </tr>
 
                     <tr id="collapseIDtr" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-            <div class="panel-body">
+            
                      <td>4.</td>
                      <td>Накладання скелетного витягу</td>
                      <td><span class="badge bg-success">Володіти</span></td>
                      </tr>
 
                     <tr id="collapseIDtr" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-            <div class="panel-body">
+           
                      <td>5.</td>
                      <td>Пункція колінного суглобу</td>
                      <td><span class="badge bg-success">Володіти</span></td>
                      </tr>
+</table>
+</div>
 
-                  
-<td colspan="2">
-<a class="btn btn-light btn-lg btn-block"  data-toggle="collapse" href="#collapseIDgin"><strong>
-Гінекологія</strong>
+<hr>
+<a class="btn btn-light dropdown-toggle btn-lg btn-block text-sm-left"  data-toggle="collapse" href="#collapseIDgin"><strong>Гінекологія</strong><i class="btn btn-tool"></i>
 </a>
-</td>
+
 <div class="card-body p-0" >
 <table class="table table-striped">
             
-                    <tr id="collapseIDgin" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-                    <th style="width: 10px">#</th>
-                    <th>Назва маніпуляції</th> 
-                    <th style="width: 600px">Ступінь оволодіння</th>
+                    <tr id="collapseIDgin" class="collapse in" role="tabpanel" aria-labelledby="headingID">
+                    <th style="width: 30px">#</th>
+                    <th style="width: 300px">Назва маніпуляції</th> 
+                    <th style="width: 300px">Ступінь оволодіння</th>
                      
                      <tr id="collapseIDgin" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-            <div class="panel-body">
-                     
+                        
                      <td>1.</td>
                      <td>Вагінальне обстеження</td>
                      <td><span class="badge bg-warning">Вміти</span></td>
                      </tr>
 
                     <tr id="collapseIDgin" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-            <div class="panel-body">
+           
                      <td>2.</td>
                      <td>Пункція заднього склепіння піхви</td>
                      <td><span class="badge bg-success">Володіти</span></td>
                      </tr>
 
                     <tr id="collapseIDgin" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-            <div class="panel-body">
+          
                      <td>3.</td>
                      <td>Гемодинамічні проби на гестоз</td>
                      <td><span class="badge bg-primary">Ознайомлен</span></td>
                      </tr>
 
                     <tr id="collapseIDgin" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-            <div class="panel-body">
-                     <td>4.</td>
+                   <td>4.</td>
                      <td>Проба на скриті набряки</td>
                      <td><span class="badge bg-primary">Ознайомлен</span></td>
                      </tr>
 
                     <tr id="collapseIDgin" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-            <div class="panel-body">
+          
                      <td>5.</td>
                      <td>Проба на мембраноліз</td>
                      <td><span class="badge bg-primary">Ознайомлен</span></td>
                      </tr>
 
                     <tr id="collapseIDgin" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-            <div class="panel-body">
+    
                      <td>6.</td>
                      <td>Проба на порушення мікроциркуляції</td>
                      <td><span class="badge bg-primary">Ознайомлен</span></td>
                      </tr>
 
+</table>
+</div>
 
-<td colspan="2">
-<a class="btn btn-light btn-lg btn-block"  data-toggle="collapse" href="#collapseIDyr" aria-expanded="true" aria-controls="collapseID"><strong>
-Урологія</strong>
+<hr>
+<a class="btn btn-light  dropdown-toggle btn-lg btn-block text-sm-left"  data-toggle="collapse" href="#collapseIDyr" aria-expanded="true" aria-controls="collapseID"><strong>
+Невідкладна урологія</strong><i class="btn btn-tool"></i>
 </a>
-</td>
+
 <div class="card-body p-0" >
 <table class="table table-striped">
             
-                    <tr id="collapseIDyr" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-                    <th style="width: 10px">#</th>
-                    <th>Назва маніпуляції</th> 
-                    <th style="width: 600px">Ступінь оволодіння</th>
+                    <tr id="collapseIDyr" class="collapse in" role="tabpanel" aria-labelledby="headingID">
+                    <th style="width: 30px">#</th>
+                    <th style="width: 300px">Назва маніпуляції</th> 
+                    <th style="width: 300px">Ступінь оволодіння</th>
 
-                     <tr id="collapseIDyr" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
+                     <tr id="collapseIDyr" class="collapse in" role="tabpanel" aria-labelledby="headingID">
             <div class="panel-body">
-                     
+              
                      <td>1.</td>
-                     <td>Катетеризація і промивання сечового міхура</td>
+                     <td> Пальпація нирок і сечового міхура </td>
                      <td><span class="badge bg-warning">Вміти</span></td>
                      </tr>
 
                     <tr id="collapseIDyr" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
             <div class="panel-body">
                      <td>2.</td>
-                     <td>Цистоскопія</td>
-                     <td><span class="badge bg-success">Володіти</span></td>
-                     </tr>
-
-                    <tr id="collapseIDyr" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-            <div class="panel-body">
-                     <td>3.</td>
-                     <td>Хромоцистоскопія</td>
-                     <td><span class="badge bg-success">Володіти</span></td>
-                     </tr>
-
-                    <tr id="collapseIDyr" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-            <div class="panel-body">
-                     <td>4.</td>
-                     <td>Новокаїнова блокада сім’яного канатика</td>
+                     <td>Пальцеве дослідження прямої кишки та передміхурової залози</td>
                      <td><span class="badge bg-warning">Вміти</span></td>
                      </tr>
 
                     <tr id="collapseIDyr" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
             <div class="panel-body">
+                     <td>3.</td>
+                     <td>Катетеризація сечового міхура </td>
+                     <td><span class="badge bg-warning">Вміти</span></td>
+                     </tr>
+
+                    <tr id="collapseIDyr" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
+            <div class="panel-body">
+                     <td>4.</td>
+                     <td>Уретроцистоскопія</td>
+                     <td><span class="badge bg-warning">Вміти</span></td>
+                     </tr>  
+
+                    <tr id="collapseIDyr" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
+            <div class="panel-body">
                      <td>5.</td>
-                     <td>Катетеризація сечоводів</td>
-                     <td><span class="badge bg-primary">Ознайомлен</span></td>
+                     <td>Екскреторна урографія</td>
+                     <td><span class="badge bg-warning">Вміти</span></td>
                      </tr>
 
                     <tr id="collapseIDyr" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
             <div class="panel-body">
                      <td>6.</td>
-                     <td>Екскреторна урографія</td>
+                     <td>Цистографія / Уретрографія</td>
                      <td><span class="badge bg-success">Володіти</span></td>
                      </tr>
 
                      <tr id="collapseIDyr" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
             <div class="panel-body">
                      <td>7.</td>
-                     <td>Ретроградна урографія</td>
+                     <td>Блокада сім'яного канатика (за Лорін-Епштейном)</td>
                      <td><span class="badge bg-success">Володіти</span></td>
-                     </tr>
+                  </tr>
 
-                
-<td colspan="2">
-<a class="btn btn-light btn-lg btn-block"  data-toggle="collapse" href="#collapseIDch" aria-expanded="true" aria-controls="collapseID"><strong>
+                     <tr id="collapseIDyr" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
+            <div class="panel-body">
+                     <td>8.</td>
+                     <td>Ведення хворих з дренажами сечового міхура</td>
+                     <td><span class="badge bg-success">Володіти</span></td>
+                  </tr>
+
+                  <tr id="collapseIDyr" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
+            <div class="panel-body">
+                     <td>9.</td>
+                     <td>Ведення хворих з нефростомою</td>
+                     <td><span class="badge bg-success">Володіти</span></td>
+                  </tr>
+
+                  <tr id="collapseIDyr" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
+            <div class="panel-body">
+                     <td>10.</td>
+                     <td>Ведення хворих з постійним уретральним катетером</td>
+                     <td><span class="badge bg-success">Володіти</span></td>
+                  </tr>
+             </table>
+</div>
+<hr>
+<a class="btn btn-light dropdown-toggle btn-lg btn-block text-sm-left"  data-toggle="collapse" href="#collapseIDch" aria-expanded="true" aria-controls="collapseID"><strong>
 Дитяча хірургія</strong>
 </a>
-</td>
 <div class="card-body p-0" >
 <table class="table table-striped">
-<tr id="collapseIDch" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-<th style="width: 10px">#</th>
-<th>Назва маніпуляції</th> 
-<th style="width: 600px">Ступінь оволодіння</th>
+<tr id="collapseIDch" class="collapse in" role="tabpanel" aria-labelledby="headingID">
+<th style="width: 30px">#</th>
+<th style="width: 300px">Назва маніпуляції</th> 
+<th style="width: 300px">Ступінь оволодіння</th>
 <tr id="collapseIDch" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
 <div class="panel-body">
                      
@@ -815,72 +750,76 @@
                      </tr>
 
                     <tr id="collapseIDch" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-            <div class="panel-body">
+          
                      <td>2.</td>
                      <td>Пункція суглобів</td>
                      <td><span class="badge bg-primary">Ознайомлен</span></td>
                      </tr>
 
                     <tr id="collapseIDch" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-            <div class="panel-body">
+    
                      <td>3.</td>
                      <td>Зондування стравоходу та шлунку при вадах розвитку</td>
                      <td><span class="badge bg-primary">Ознайомлен</span></td>
                      </tr>
 
                     <tr id="collapseIDch" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-            <div class="panel-body">
+        
                      <td>4.</td>
                      <td>Діагностична та лікувальна консервативна дезінвагінація</td>
                      <td><span class="badge bg-success">Володіти</span></td>
                      </tr>
 
                     <tr id="collapseIDch" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-            <div class="panel-body">
+       
                      <td>5.</td>
                      <td>Особливості проведення клізм у дітей різного віку</td>
                      <td><span class="badge bg-success">Володіти</span></td>
                      </tr>
+                 </table>
+                 </div>
+<hr>
 
-<td colspan="2">
-<a class="btn btn-light btn-lg btn-block"  data-toggle="collapse" href="#collapseIDon"><strong>
-Онкологія</strong></a></td>
+<a class="btn btn-light dropdown-toggle btn-lg btn-block text-sm-left"  data-toggle="collapse" href="#collapseIDon"><strong>
+Онкологія</strong><i class="btn btn-tool"></i></a>
 <div class="card-body p-0" >
 <table class="table table-striped">
-<tr id="collapseIDon" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-<th style="width: 10px">#</th>
-<th>Назва маніпуляції</th> 
-<th style="width: 600px">Ступінь оволодіння</th>
+<tr id="collapseIDon" class="collapse in" role="tabpanel" aria-labelledby="headingID">
+<th style="width: 30px">#</th>
+<th style="width: 300px">Назва маніпуляції</th> 
+<th style="width: 300px">Ступінь оволодіння</th>
 
                      <tr id="collapseIDon" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-            <div class="panel-body">
-                     
+                             
                      <td>1.</td>
                      <td>Пункційна біопсія пухлин</td>
                      <td><span class="badge bg-success">Володіти</span></td>
                      </tr>
 
                     <tr id="collapseIDon" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-            <div class="panel-body">
+        
                      <td>2.</td>
                      <td>Мамографія</td>
                      <td><span class="badge bg-primary">Ознайомлен</span></td>
                      </tr>
-<td colspan="2">
-<a class="btn btn-light btn-lg btn-block"  data-toggle="collapse" href="#collapseIDas" aria-expanded="true" aria-controls="collapseID"><strong>
-Амбулаторна хірургія</strong>
+</table>
+</div>
+
+<hr>
+<a class="btn btn-light  dropdown-toggle btn-lg btn-block text-sm-left"  data-toggle="collapse" href="#collapseIDas" aria-expanded="true" aria-controls="collapseID"><strong>
+Амбулаторна хірургія</strong><i class="btn btn-tool"></i>
 </a>
-</td>
+
 <div class="card-body p-0" >
                     <table class="table table-striped">
             
-                    <tr id="collapseIDas" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-                    <th style="width: 10px">#</th>
-                    <th>Назва маніпуляції</th> 
-                    <th style="width: 600px">Ступінь оволодіння</th>
+                    <tr id="collapseIDas" class="collapse in" role="tabpanel" aria-labelledby="headingID">
+                    <th style="width: 30px">#</th>
+                    <th style="width: 300px">Назва маніпуляції</th> 
+                    <th style="width: 300px">Ступінь оволодіння</th>
 
                      <tr id="collapseIDas" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-            <div class="panel-body">
+         
                      
                      <td>1.</td>
                      <td>Заповнення лікарняного листка</td>
@@ -888,71 +827,71 @@
                      </tr>
 
                     <tr id="collapseIDas" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-            <div class="panel-body">
+    
                      <td>2.</td>
                      <td>Оформлення медичної документації лікаря хірургічного кабінету полікліники</td>
                      <td><span class="badge bg-warning">Вміти</span></td>
                      </tr>
-
-<td colspan="2">
-<a class="btn btn-light btn-lg btn-block"  data-toggle="collapse" href="#collapseIDks" aria-expanded="true" aria-controls="collapseID"><strong>
-Кардіохірургія</strong>
+                 </table>
+             </div>
+<hr>     
+<a class="btn btn-light  dropdown-toggle btn-lg btn-block text-sm-left"  data-toggle="collapse" href="#collapseIDks" aria-expanded="true" aria-controls="collapseID"><strong>
+Кардіохірургія</strong><i class="btn btn-tool"></i>
 </a>
-</td>
+
 <div class="card-body p-0" >
                     <table class="table table-striped">
             
-                    <tr id="collapseIDks" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-                    <th style="width: 10px">#</th>
-                    <th>Назва маніпуляції</th> 
-                    <th style="width: 600px">Ступінь оволодіння</th>
+                    <tr id="collapseIDks" class="collapse in" role="tabpanel" aria-labelledby="headingID">
+                    <th style="width: 30px">#</th>
+                    <th style="width: 300px">Назва маніпуляції</th> 
+                    <th style="width: 300px">Ступінь оволодіння</th>
                      
 
                      <tr id="collapseIDks" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-            <div class="panel-body">
+           <div class="panel-body">
                      
                      <td>1.</td>
-                     <td>Методи діагностики та передопераційної підготовки кардіохірургічних хворих</td>
+                     <td>Визначення серцевого поштовху, меж серця та аускультація клапанів серця </td>
                      <td><span class="badge bg-success">Володіти</span></td>
-                     </tr>
+                     </tr> 
 
                     <tr id="collapseIDks" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-            <div class="panel-body">
+  
                      <td>2.</td>
-                     <td>Загальні принципи кардіохірургічних втручань </td>
+                     <td>Визначення центрального венозного тиску </td>
                      <td><span class="badge bg-warning">Вміти</span></td>
                      </tr>
                     
                     <tr id="collapseIDks" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-            <div class="panel-body">
+      
                      <td>3.</td>
-                     <td>Пункція серця та перикарду </td>
+                     <td>Перев*язка кардіохірургічних хворих</td>
                      <td><span class="badge bg-success">Володіти</span></td>
                      </tr>
 
                     <tr id="collapseIDks" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-            <div class="panel-body">
+    
                      <td>4.</td>
-                     <td>Пункція підключичної вени та стегнової артерії </td>
+                     <td>Пункція перикарду на введення лікарських препаратів (на манекені)</td>
                      <td><span class="badge bg-success">Володіти</span></td>
                      </tr>
 
                     <tr id="collapseIDks" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
-            <div class="panel-body">
+       
                      <td>5.</td>
-                     <td>Катетеризація судин серця </td>
+                     <td>Маніпуляції при зупинці серця (непрямий масаж серця, штучне дихання та дефібриляція)</td>
                      <td><span class="badge bg-primary">Ознайомлен</span></td>
                      </tr>
-
+                     <tr id="collapseIDks" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingID">
+                     <td>6.</td>
+                     <td>Надання медичної допомоги при кардіогенному шоці, ТЕЛА та раптовій зупинці серця</td>
+                     <td><span class="badge bg-primary">Ознайомлен</span></td>
+                     </tr>                     
+</table>
+</div>
 </div>
 
-</table>
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
-          </div>
-          <!-- /.col -->
-        </div>
+              
 
 @endsection

@@ -47,7 +47,7 @@ class MemorisplanSection extends Section implements Initializable
     /**
      * @var string
      */
-    protected $title = 'Заочна частина';
+    protected $title = 'Загальні положення\заочні';
 
     /**
      * @var string

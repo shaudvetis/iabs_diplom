@@ -2,7 +2,8 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Foundation\Http\Request;
+//use Illuminate\Foundation\Http\Request;
+use Illuminate\Foundation\Http\FormRequest;
 
 class Request extends FormRequest
 {
@@ -13,7 +14,8 @@ class Request extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        //return false;
+        return true;
     }
 
     /**
@@ -21,6 +23,7 @@ class Request extends FormRequest
      *
      * @return array
      */
+
     public function rules()
     {
         return [
@@ -29,4 +32,5 @@ class Request extends FormRequest
                 'apdate'=>'required',
         ];
     }
+
 }

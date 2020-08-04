@@ -16,13 +16,21 @@ class CreateDownloadProfilesTable extends Migration
         Schema::create('download_profiles', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('id_student');
-            $table->string('pasport')->nullable();
-            $table->string('diplom')->nullable();
-            $table->string('ident_code')->nullable();
-            $table->string('diplom_compl')->nullable();
-            $table->string('certificate')->nullable();
-            $table->string('health_book')->nullable();
-            $table->string('foto')->nullable();
+            $table->longText('pasport')->nullable();
+            $table->longText('pasport_two')->nullable();
+            $table->longText('pasport_eleven')->nullable();
+            $table->longText('pasport_thirteen')->nullable();
+            $table->longText('family_status')->nullable();
+            $table->longText('diplom')->nullable();
+            $table->longText('diplom_two')->nullable();
+            $table->longText('ident_code')->nullable();
+            $table->longText('diplom_compl')->nullable();
+            $table->longText('certificate')->nullable();
+            $table->longText('certificate_two')->nullable();
+            $table->longText('certificate_krok')->nullable();
+            $table->longText('certificate_krok_two')->nullable();
+           $table->longText('health_book')->nullable();
+            $table->longText('foto')->nullable();
              $table->timestamps();
     
         });

@@ -14,23 +14,17 @@ class AdminSectionsServiceProvider extends ServiceProvider
         //\App\User::class => 'App\Http\Sections\Users',
 
         \App\CommonSetting::class => '\App\Http\Sections\CommonSettingsSection',
-        
         \App\OperationSkillsCategory::class => '\App\Http\Sections\OperationSkillsCategories',
         \App\PracticeSkillsCategory::class => '\App\Http\Sections\PracticeSkillsCategories',
-
-        \App\OperationSkill::class => '\App\Http\Sections\OperationSkill',
-        \App\PracticeSkill::class => '\App\Http\Sections\PracticeSkills',
-
-        \App\Inputforms::class => '\App\Http\Sections\InputformsSection',
-
-        \App\Topclasses::class => '\App\Http\Sections\TopclassesSection',
-
-        \App\Page::class => '\App\Http\Sections\PagesSection',
-
-        \App\Memorisplan::class => '\App\Http\Sections\MemorisplanSection',
-
-       
-
+       \App\Topclasses::class => '\App\Http\Sections\TopclassesSection',
+       \App\Page::class => '\App\Http\Sections\PagesSection',
+       \App\Memorisplan::class => '\App\Http\Sections\MemorisplanSection',
+       \App\Lectures::class => '\App\Http\Sections\LecturesSection',
+       \App\ModelSeminar\Seminarus::class => '\App\Http\Sections\Seminarus',
+       \App\ModelSeminar\Seminar_Tema::class => '\App\Http\Sections\Seminar_temas',
+       \App\ModelSeminar\Napravleniya::class => '\App\Http\Sections\NapravleniyaSection',
+       \App\ModelSeminar\KafedraName::class => '\App\Http\Sections\KafedraNameSection',
+       \App\ModelSeminar\TeacherName::class => '\App\Http\Sections\TeacherNameSection'
     ];
 
     /**

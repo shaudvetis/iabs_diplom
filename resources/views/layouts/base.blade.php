@@ -29,77 +29,133 @@
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
    <link rel="stylesheet" href="{{ asset('dist/css/datatables.css')}}">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+   <link rel="stylesheet" href="/css/font-awesome.min.css">
    </header>
-
-
-<body class="hold-transition sidebar-mini layout-fixed">
+ <body class="hold-transition sidebar-mini">
 <div class="wrapper">
+
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-white navbar-light border-bottom">
-  
-     
-<ul class="navbar-nav">  <!--Значек вверху панели скрытия -->
- <li class="nav-item"> 
- <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a> 
- <!--<h1 class="m-0 text-dark">Особистий кабінет лікаря інтерна </h1> -->
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
+      </li>
+@if(Auth::user()->role==4 )
+<div class="brand-link" style="background:lightgreen;margin-top: 0px;" >Кабінет Інтерна </div>
+@endif     
+    </ul>
+<!-- Right navbar links -->
+ <!--    <ul class="navbar-nav ml-auto"> -->
+      <!-- Messages Dropdown Menu
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#">
+          <i class="far fa-comments"></i>
+          
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <a href="#" class="dropdown-item"> 
+            <div class="media">
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  Напишить відгук:
+                  <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
+                </h3>
 
-</li>
-</ul>
-<ul class="nav justify-content-end">
-    <li class="nav-item">
-<a class="nav-link active" href="{{asset('user_profile')}}">Особисті данні</a>
-</li>
-</ul>
+                <form>
+                 <input type='hidden' name='c' value='obr' />
+                  <textarea name='content'cols='30' rows='10'></textarea><br>
+                   <input type='submit' value='ОК' />
+                </form>
+            
+              </div>
+            </div>
+    
+          </a>
+        </div>
+      </li>
+    </ul>
+         -->
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">
 
-</nav>  <!-- имеет отношение к телу таблицы, сдвигается -->
 
+   <li class="nav-item d-none d-sm-inline-block">
+        <a href="#" type="button" class="nav-link"  data-toggle="modal" data-target="#feedbackFormModal">Support
+        <i class="fa fa-envelope-o"></i>
+      </a>
+      </li>
+
+
+      <li class="nav-item dropdown">
+  <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+{{ Auth::user()->name }} <span class="caret"></span></a>
+  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+    <a class="dropdown-item" href="{{ route('logout') }}"
+onclick="event.preventDefault();
+document.getElementById('logout-form').submit();">
+{{ __('Вихід') }} </a>
+
+<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+ @csrf
+ </form>
+   </div>
+    </li>
+     </ul>
+
+  </nav>
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
-    
-    <!-- Серій цвет левое боковое меню -->
-    
-    <span class="brand-text font-weight-light"></span>
-    
+   <!--  <div class="user-panel mt-3 pb-3 mb-3 d-flex"> </div> -->
+    @if(Auth::user()->role==4 )
+   <div class="brand-link" style="height: 110px;">
+    <ul>
+       
+   <li><a href="{{asset('admink.teacher.teacher')}}" style="color: white" ><i>Кабінет Керівника</i></a></li>
+   <li><a href="{{asset('students')}}" style="color: white" ><i>Кабінет Інтерна</i></a></li>
+       
+   <li><a href="{{asset('admink.dashboard')}}" style="color: white" ><i>Кабінет Викладача</i></a></li>
+   </div>
+   </ul>   
+@else
+ <a href="{{asset('students')}}" style="color: white" ><i>Кабінет Інтерна!</i></a>
+     
+@endif  
+
+
 
     <!-- Sidebar -->
-    <div class="sidebar">
-
-      <!-- Sidebar user panel (optional) Левая панель, все данные вверх-->
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div> <!-- Sidebar user panel (optional) Левая панель, все данные вверх-->
-        
-        </div>
-         
-        <div class="info">
-          <a href="{{asset('students')}}"  class="d-block">
-          На головну!</a>
-        </div>
-      </div>
-      <ul class="nav justify-content-end">
-
-      <!-- Sidebar Menu -->
+    <div class="sidebar" >
+        <!-- Sidebar Menu -->
+   
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-
-<li class="nav-item has-treeview menu-open">
-            <a href="#" class="nav-link  active">
-              <i class="nav-icon fas fa-chart-pie"></i>
+          <li class="nav-item has-treeview menu-open">
+            <a href="#" class="nav-link active" data-toggle="control-sidebar" data-slide="false">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Загальні питання
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
-            <ul class="nav nav-treeview">
+
+          <ul class="nav nav-treeview">
               
-              <li class="nav-item">
+              <li class="nav-item ">
                 <a href="{{asset('memoris')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Пам'ятка</p>
                 </a>
               </li>
-
+   <li class="nav-item">
+                <a href="{{asset('navchalniy_plan')}}"  class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Навчальний план</p>
+                </a>
+              </li>
 
               <li class="nav-item">
                 <a href="{{asset('skills')}}" class="nav-link">
@@ -107,71 +163,45 @@
                   <p>Практичні навички</p>
                 </a>
               </li>
-            </ul>
-          
-        <ul class="nav nav-treeview">
+   
           <li class="nav-item">
                 <a href="{{asset('operational')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Оперативні навички</p>
+                  <p>Хірургічні навички</p>
                 </a>
               </li>
-            </ul>
+    </ul>
+          </li>
 
-
-            
-<li class="nav-item has-treeview menu-open">
+<li class="nav-item has-treeview menu-open" >
             <a href="#" class="nav-link active">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <i class="nav-icon fas fa-tachometer-alt" ></i>
               <p>
-               Очна частина
+               Розклад та лекції
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
-            <ul class="nav nav-treeview">
-              
-              
-              <li class="nav-item">
-                <a href="{{asset('skillsplan')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Очна частина</p>
-                </a>
-              </li>
-            </ul>
-      <ul class="nav nav-treeview">
-                <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Теми занять </p>
-                </a>
-              </li>
-            </ul> 
 <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="#" class="nav-link">
+ <li class="nav-item">
+   <a href="{{asset('skillsplan')}}" class="nav-link">
+     <i class="far fa-circle nav-icon"></i>
+                  <p>Загальні положення</p>
+                </a>
+              </li>
+  <li class="nav-item">
+                <a href="{{asset('enteronecourse')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-
-                  <p>Курація хворих </p>
+                  <p>Вхідний контроль</p>
+                </a>
+              </li>
+       <li class="nav-item">
+                <a href="{{asset('lectures')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Лекції</p>
                 </a>
               </li>
 
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Хірургічні втручання </p>
-                </a>
-              </li>
-
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Практичні навички </p>
-                </a>
-              </li>
-              
-            </ul>
-
-   <li class="nav-item has-treeview menu-open">
+           <!-- <li class="nav-item has-treeview menu">
             <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-copy"></i>
               <p>
@@ -179,69 +209,34 @@
                 <i class="fas fa-angle-left right"></i>
                  </p>
             </a>
-<ul class="nav nav-treeview">
+     <ul class="nav nav-treeview">
 <li class="nav-item">
                 <a href="{{asset('memorisplan')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Заочна частина</p>
+                  <p>Загальні положення</p>
                 </a>
               </li>
 
- <ul class="nav nav-treeview">
                 <li class="nav-item">
                 <a href="{{asset('topclasses')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Теми занять </p>
                 </a>
-              </li>
-            </ul>
-            
-
-              <li class="nav-item">
-                <a href="{{asset('inputforms')}}" class="nav-link">
+              </li> -->
+  
+<!-- 
+                <li class="nav-item">
+                <a href="{{asset('seminary')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-
-
-
-                  <p>Курація хворих </p>
+                  <p>Теми занять </p>
                 </a>
-              </li>
-
-              <li class="nav-item">
-                <a href="{{asset('formssurgery')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Хірургічні втручання </p>
-                </a>
-              </li>
-
-              <li class="nav-item">
-                <a href="{{asset('formspractice')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Практичні навички </p>
-                </a>
-              </li>
-              
-            </ul>
-   
-
-          <!-- Sidebar Menu -->
-      <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-          
+              </li> -->
+        
+             
+          </nav>
 
 
-                 <!-- Календар     
-                <span class="badge badge-info right">2</span>
-              </p>
-            </a>
-          </li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon far fa-envelope"></i>
-              <p>
-                -->    
+  
       <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->
@@ -250,73 +245,106 @@
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <div class="content-header"> 
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1 class="m-0 text-dark"> </h1> <!-- Заглавие тела, можно вставить надпись -->
-          </div><!-- /.col -->
-         <!-- <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Головна</a></li>
-         
-            </ol>
-          </div> /.col -- Блок вверху с надписью Головна>
-        </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content-header -->
+   <section class="content">
 
     @section('content')
 
     @show
 
 
- 
+ </section>
 
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark"><h1 class="m-0 text-dark">
-    <!-- Control sidebar content goes here -->
-  </aside>
-  <!-- /.control-sidebar -->
+
 </div>
-<!-- ./wrapper -->
 
+<!-- Форма обратной связи в модальном окне -->
+<div class="modal" id="feedbackFormModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h6 class="modal-title" id="myModalLabel">Добрго здоров'я! Якщо у тебе виникли проблеми під час роботи на сайті, опиши докладно ситуацію, за бажанням можеш прикріпити скрін екрану. Вирішимо питання якомога швидше!</h6>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+ 
+        <!-- Форма обратной связи -->
+<form method="post" action="{{asset('students')}}" enctype="multipart/form-data">
+                        {{ csrf_field() }}
+          <!-- Сообщение пользователя -->
+          <div class="form-group">
+            <label for="message" class="control-label">Повідомлення</label>
+            <textarea id="message" name="message" class="form-control" rows="3"   maxlength="500" required="required"></textarea>
+            
+          </div>
+          <!-- Изображения -->
+          <div class="form-group attachments">
+            <div>При необхідності прикріпіть до повідомлення зображення (до 10мб<span class="countFiles"></span>):
+            </div>
+            <div class="mb-1 text-muted">
+             </div>
+               <div class="custom-file">
+                <input type="file" name="attachment[]" class="custom-file-input" id="customFile1">
+                <label class="custom-file-label" for="customFile1">Оберіть файл...</label>
+               
+              </div>
+          </div>
+         
+
+         
+          <!-- Кнопка для отправки формы -->
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрити</button>
+          <button type="submit" class="btn btn-primary float-right">Відправити</button>
+        </form>
+                
+        <!-- Сообщение об успешной отправки формы -->
+        <div class="alert alert-success form-success mb-0 d-none">Форма успешно отправлена. Нажмите на <a class="form-success-link" href="#">ссылку</a>, чтобы отправить ещё одно сообщение.</div>
+      </div>
+    </div>
+  </div>
+</div>
+</form>
+<!-- ./wrapper -->
+  <footer class="main-footer">
+    
+  </footer>
 <!-- jQuery -->
-<script src="plugins/jquery/jquery.min.js"></script>
+<script src="{{ asset('plugins/jquery/jquery.min.js')}}"></script>
 <!-- jQuery UI 1.11.4 -->
-<script src="plugins/jquery-ui/jquery-ui.min.js"></script>
+<script src="{{ asset('plugins/jquery-ui/jquery-ui.min.js')}}"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
   $.widget.bridge('uibutton', $.ui.button)
 </script>
 <!-- Bootstrap 4 -->
-<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <!-- ChartJS -->
-<script src="plugins/chart.js/Chart.min.js"></script>
+<script src="{{ asset('plugins/chart.js/Chart.min.js')}}"></script>
 <!-- Sparkline -->
-<script src="plugins/sparklines/sparkline.js"></script>
+<script src="{{ asset('plugins/sparklines/sparkline.js')}}"></script>
 <!-- JQVMap -->
-<script src="plugins/jqvmap/jquery.vmap.min.js"></script>
-<script src="plugins/jqvmap/maps/jquery.vmap.world.js"></script>
+<script src="{{ asset('plugins/jqvmap/jquery.vmap.min.js')}}"></script>
+<script src="{{ asset('plugins/jqvmap/maps/jquery.vmap.world.js')}}"></script>
 <!-- jQuery Knob Chart -->
-<script src="plugins/jquery-knob/jquery.knob.min.js"></script>
+<script src="{{ asset('plugins/jquery-knob/jquery.knob.min.js')}}"></script>
 <!-- daterangepicker -->
-<script src="plugins/moment/moment.min.js"></script>
-<script src="plugins/daterangepicker/daterangepicker.js"></script>
+<script src="{{ asset('plugins/moment/moment.min.js')}}"></script>
+<script src="{{ asset('plugins/daterangepicker/daterangepicker.js')}}"></script>
 <!-- Tempusdominus Bootstrap 4 -->
-<script src="plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+<script src="{{ asset('plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js')}}"></script>
 <!-- Summernote -->
-<script src="plugins/summernote/summernote-bs4.min.js"></script>
+<script src="{{ asset('plugins/summernote/summernote-bs4.min.js')}}"></script>
 <!-- overlayScrollbars -->
-<script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<script src="{{ asset('plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
 <!-- FastClick -->
-<script src="plugins/fastclick/fastclick.js"></script>
+<script src="{{ asset('plugins/fastclick/fastclick.js')}}"></script>
 <!-- AdminLTE App -->
-<script src="dist/js/adminlte.js"></script>
+<script src="{{ asset('dist/js/adminlte.js')}}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="dist/js/pages/dashboard.js"></script>
+<script src="{{ asset('dist/js/pages/dashboard.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="dist/js/demo.js"></script>
+<script src="{{ asset('dist/js/demo.js')}}"></script>
+
 </body>
 </html>

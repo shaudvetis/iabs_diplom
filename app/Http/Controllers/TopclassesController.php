@@ -11,9 +11,9 @@ class TopclassesController extends Controller
 	private $data = [];
 
 	public function Mainindex() {
+		 
 
 		$this->data['content'] = Topclasses::find(1);
 		return view('topclasses', $this->data);
-	}
-
  }  
+}

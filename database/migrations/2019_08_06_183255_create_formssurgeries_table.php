@@ -16,8 +16,11 @@ class CreateFormssurgeriesTable extends Migration
         Schema::create('formssurgeries', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->text('viewsurgery', 255)->comment('Cодержимое элемента');
+            $table->text('direction', 255)->comment('Напрямок');          
             $table->text('num_card')->comment('Номер стац карты');
             $table->text('type_work')->comment('Вид работы');
+            $table->text('apdate')->comment('дата');
+            $table->text('num_surgery')->comment('номер операції');
             $table->integer('id_student')->comment('Код студента');
             $table->timestamps();
 

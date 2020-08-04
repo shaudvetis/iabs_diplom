@@ -15,11 +15,9 @@ class CreatePagesTable extends Migration
     {
         Schema::create('pages', function (Blueprint $table) {
             $table->bigIncrements('id');
-
             $table->string('title')->comment('Page title');
             $table->string('slug')->unique()->comment('Page slug');
             $table->longText('content')->comment('Page content');
-
             $table->timestamps();
         });
     }

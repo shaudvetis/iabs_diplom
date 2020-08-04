@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 use Auth;
+use DB;
+use Carbon\Carbon;
 
 class LoginController extends Controller
 {
@@ -55,9 +57,14 @@ class LoginController extends Controller
             case 3:
                 return redirect('/admin');
                 break;
+            case 4:
+                return redirect('/admink.dashboard');
+                break;
             default:
-                return redirect('/student');
+                return redirect('/home');
                 break;        
         }
+        
+    
     }
 }

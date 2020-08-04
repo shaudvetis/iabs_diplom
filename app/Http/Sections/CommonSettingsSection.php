@@ -47,7 +47,7 @@ class CommonSettingsSection extends Section implements Initializable
     /**
      * @var string
      */
-    protected $title = 'Общие настройки';
+    protected $title = "Пам'ятка для інтерна";
 
     /**
      * @var string

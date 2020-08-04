@@ -81,13 +81,13 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Медична академія
+                    ДЗ Дніпропетровська
+                     <p>"Медична академія МОЗ України"</p>
                 </div>
 
                 <div class="links">
-                    <a href="{{asset('students') }}">Кафедра</a>
-                    <a href="{{asset ('surgery');">Хірургії</a>
-                 
+                    <a href="#">інформаційна система по управлінню роботи з інтернами</a>
+                                     
                 </div>
             </div>
         </div>

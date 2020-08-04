@@ -32,6 +32,30 @@ $navigation->setFromArray([
 ]);
 
 
+$navigation->setFromArray([
+    
+  
+ [
+        'title' => 'Оперативний довідник',
+        'icon' => 'fa fa-group',
+        'priority' =>'10000',
+        'pages' => [
+             (new Page(\App\ModelSeminar\Napravleniya::class))
+                ->setIcon('fa fa-user')
+                ->setPriority(0),
+            (new Page(\App\ModelSeminar\KafedraName::class))
+               ->setIcon('fa fa-pencil')
+               ->setPriority(0),
+            (new Page(\App\ModelSeminar\TeacherName::class))
+                ->setIcon('fa fa-pencil')
+                ->setPriority(0)
+          
+        ]
+    ]
+
+]);
+
+
 
 
 
