@@ -10,9 +10,15 @@ class MemorisController extends Controller
 	private $data = [];
 
 	public function Surgeryindex() {
- $check = 'true';  //Эта переменная из students  чтоб запустился base
+
 		$this->data['content'] = CommonSetting::find(1);
-		return view('memoris', $this->data, compact('check'));
+		$this->data['pamatka'] = CommonSetting::find(2);
+		return view('memoris', $this->data);
+	}
+	public function kerivnukmemoris() {
+		$data = [];
+		$this->data['content'] = CommonSetting::find(1);
+		return view('admink.kerivnuk.memoris', $this->data);
 	}
 
  }  

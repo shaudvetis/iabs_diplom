@@ -14,7 +14,7 @@ class UserProfile extends Model
      */
 
     protected $fillable = [
-        'user_id', 'surname', 'name', 'lastname', 'gender', 
+        'user_id', 'decatki','surname', 'name', 'lastname', 'gender', 'course',
     'surnamefirst', 'fullname_en','kafedra','fl_norm','date_bak',
          'country', 'city', 'village', 'index', 'adress', 'house', 'apartment', 'telm',
          'country1', 'city1', 'village1', 'index1', 'adres1', 'house1', 'apartment1', 
@@ -24,9 +24,5 @@ class UserProfile extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
-    }
-    public function ocenkitables()
-    {
-        return $this->hasOne('App\OcenkiTables');
     }
 }

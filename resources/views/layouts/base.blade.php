@@ -8,6 +8,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="{{ asset('plugins/fontawesome-free/css/all.min.css')}}">
+     <!-- Файл с подключением к шрифтам -->
+  <link rel="stylesheet" href="{{asset('css/fonts.css')}}">
+  <!-- Прописываем стили шрифтов укр -->
+  <link rel="stylesheet" href="{{asset('css/fonttext.css')}}">
   <!-- Ionicons -->
   <link rel="stylesheet" href="{{ asset('https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css')}}">
   <!-- Tempusdominus Bbootstrap 4 -->
@@ -29,6 +33,8 @@
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
    <link rel="stylesheet" href="{{ asset('dist/css/datatables.css')}}">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+   <link rel="stylesheet" href="/css/font-awesome.min.css">
    </header>
  <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -40,17 +46,23 @@
       <li class="nav-item">
         <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
       </li>
-      
+@if(Auth::user()->role==4 )
+<div class="brand-link" style="background:lightgreen;margin-top: 0px;" >Кабінет Інтерна </div>
+@endif     
     </ul>
-
-   
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="#" type="button" class="nav-link"  data-toggle="modal" data-target="#feedbackFormModal">Support
+        <i class="fa fa-envelope-o"></i>
+       </a>
+      </li>
+
       <li class="nav-item dropdown">
-  <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-{{ Auth::user()->name }} <span class="caret"></span></a>
-  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-    <a class="dropdown-item" href="{{ route('logout') }}"
+      <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+      {{ Auth::user()->name }} <span class="caret"></span></a>
+      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+      <a class="dropdown-item" href="{{ route('logout') }}"
 onclick="event.preventDefault();
 document.getElementById('logout-form').submit();">
 {{ __('Вихід') }} </a>
@@ -61,21 +73,37 @@ document.getElementById('logout-form').submit();">
    </div>
     </li>
      </ul>
+
   </nav>
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
    <!--  <div class="user-panel mt-3 pb-3 mb-3 d-flex"> </div> -->
-        <a href="{{asset('students')}}" class="brand-link"><i>На головну!</i></a>
-      
+    @if(Auth::user()->role==4 )
+   <div class="brand-link" style="height: 110px;">
+    <ul>
+       
+   <li><a href="{{asset('admink.teacher.teacher')}}" style="color: white" ><i>Кабінет Керівника</i></a></li>
+   <li><a href="{{route('students')}}" class="textreg_ukr" style="color: white" ><i>Кабінет Інтерна</i></a></li>
+       
+   <li><a href="{{asset('admink.dashboard')}}" style="color: white" ><i>Кабінет Викладача</i></a></li>
+   </div>
+   </ul>   
+@else
+ <a href="{{route('students')}}" class="textreg_ukr" style="color: white" ><i>Кабінет Інтерна!</i></a>
+     
+@endif  
+
+
 
     <!-- Sidebar -->
-    <div class="sidebar">
+    <div class="sidebar" >
         <!-- Sidebar Menu -->
+   
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          <li class="nav-item has-treeview menu">
+          <li class="nav-item has-treeview menu-open">
             <a href="#" class="nav-link active" data-toggle="control-sidebar" data-slide="false">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
@@ -115,11 +143,11 @@ document.getElementById('logout-form').submit();">
     </ul>
           </li>
 
-<li class="nav-item has-treeview menu" >
+<li class="nav-item has-treeview menu-open" >
             <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt" ></i>
               <p>
-               Очна частина
+               Лекції
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
@@ -131,7 +159,7 @@ document.getElementById('logout-form').submit();">
                 </a>
               </li>
   <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{asset('enteronecourse')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Вхідний контроль</p>
                 </a>
@@ -142,110 +170,13 @@ document.getElementById('logout-form').submit();">
                   <p>Лекції</p>
                 </a>
               </li>
-       
-
-<li class="nav-item has-treeview menu">
-                <a href="{{asset('formspracticeday')}}" class="nav-link active">
-                  <i class="nav-icon fas fa-tachometer-alt"></i>
-                  <p>Хірургічні напрямки</p>
-                  <i class="right fas fa-angle-left"></i>
-                </p>
-                </a>
-<ul class="nav nav-treeview">
- <li class="nav-item">
-   <a href="{{asset('napravlenia.startsurgery')}}" class="nav-link">
-     <i class="far fa-circle nav-icon"></i>
-                  <p>Введення в хірургію</p>
+       <li class="nav-item">
+                <a href="{{asset('litera')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Література</p>
                 </a>
               </li>
-<li class="nav-item">
-                <a href="{{asset('napravlenia.cherevnaocho')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Черевна порожнина </p>
-                </a>
-              </li>
-
- <li class="nav-item">
-                <a href="{{asset('napravlenia.grudna_klituna')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Грудна клітина</p>
-                </a>
-              </li>
- <li class="nav-item">
-                <a href="{{asset('napravlenia.proctologia')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Проктологія</p>
-                </a>
-              </li>
- <li class="nav-item">
-                <a href="{{asset('napravlenia.urologia')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Урологія</p>
-                </a>
-              </li>
- <li class="nav-item">
-                <a href="{{asset('napravlenia.vascular')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Судинна хірургія</p>
-                </a>
-              </li>
- <li class="nav-item">
-                <a href="{{asset('napravlenia.gnoynaya')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Гнійна хірургія</p>
-                </a>
-              </li>              
-  <li class="nav-item">
-                <a href="{{asset('napravlenia.kardio')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Кардіохірургія</p>
-                </a>
-              </li>           
- <li class="nav-item">
-                <a href="{{asset('napravlenia.opiku')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Опіки та відмороження</p>
-                </a>
-              </li>
-</ul>
-          <!-- <li class="nav-item">
-                <a href="{{asset('inputformsday')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-
-                  <p>Курація хворих </p>
-                </a>
-              </li>
-
-              <li class="nav-item">
-                <a href="{{asset('formssurgeryday')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Участь в операціях </p>
-                </a>
-              </li>
-
-              <li class="nav-item">
-                <a href="{{asset('formspracticeday')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Засвоєнні навички </p>
-                </a>
-              </li>
-               -->
-             <!--   <li class="nav-item">
-                <a href="{{asset('nightworkday')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Нічні чергування </p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{asset('intern.read_literatyre')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Засвоєнна література</p>
-                </a>
-              </li> -->
-            </ul>
-          <!-- </li> -->
-
-           <li class="nav-item has-treeview menu">
+           <!-- <li class="nav-item has-treeview menu">
             <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-copy"></i>
               <p>
@@ -257,7 +188,7 @@ document.getElementById('logout-form').submit();">
 <li class="nav-item">
                 <a href="{{asset('memorisplan')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Заочна частина</p>
+                  <p>Загальні положення</p>
                 </a>
               </li>
 
@@ -266,70 +197,8 @@ document.getElementById('logout-form').submit();">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Теми занять </p>
                 </a>
-              </li>
-        <li class="nav-item has-treeview menu">
-                <a href="{{asset('formspracticeday')}}" class="nav-link">
-                  <i class="nav-icon fas fa-tachometer-alt"></i>
-                  <p>Хірургічні напрямки</p>
-                  <i class="right fas fa-angle-left"></i>
-                </p>
-                </a>
-<ul class="nav nav-treeview">
- <li class="nav-item">
-   <a href="{{asset('skillsplan')}}" class="nav-link">
-     <i class="far fa-circle nav-icon"></i>
-                  <p>Введення в хірургію</p>
-                </a>
-              </li>
-<li class="nav-item">
-                <a href="{{asset('cherevnaocho')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Черевна порожнина </p>
-                </a>
-              </li>
-
- <li class="nav-item">
-                <a href="{{asset('lectures')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Грудна клітина</p>
-                </a>
-              </li>
- <li class="nav-item">
-                <a href="{{asset('lectures')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Проктологія</p>
-                </a>
-              </li>
- <li class="nav-item">
-                <a href="{{asset('lectures')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Урологія</p>
-                </a>
-              </li>
- <li class="nav-item">
-                <a href="{{asset('lectures')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Судинна хірургія</p>
-                </a>
-              </li>
- <li class="nav-item">
-                <a href="{{asset('lectures')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Гнійна хірургія</p>
-                </a>
-              </li>              
-  <li class="nav-item">
-                <a href="{{asset('lectures')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Кардіохірургія</p>
-                </a>
-              </li>           
- <li class="nav-item">
-                <a href="{{asset('lectures')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Опіки та відмороження</p>
-                </a>
-              </li>
+              </li> -->
+  
 <!-- 
                 <li class="nav-item">
                 <a href="{{asset('seminary')}}" class="nav-link">
@@ -337,39 +206,25 @@ document.getElementById('logout-form').submit();">
                   <p>Теми занять </p>
                 </a>
               </li> -->
-        
-             <!--  <li class="nav-item">
-                <a href="{{asset('inputforms')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-
-
-
-                  <p>Курація хворих </p>
+        <li class="nav-item has-treeview menu-open" >
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas fa-tachometer-alt" ></i>
+              <p>
+               Документи
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+<ul class="nav nav-treeview">
+ <li class="nav-item">
+   <a href="{{route('docatest')}}" class="nav-link">
+     <i class="far fa-circle nav-icon"></i>
+                  <p>Документи на атестацію</p>
                 </a>
               </li>
-
-              <li class="nav-item">
-                <a href="{{asset('formssurgery')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Хірургічні втручання </p>
-                </a>
-              </li>
-
-              <li class="nav-item">
-                <a href="{{asset('formspractice')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Практичні навички </p>
-                </a>
-              </li>
-              
-              <li class="nav-item">
-                <a href="{{asset('nightwork')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Нічні чергування </p>
-                </a>
-              </li> -->
-                          
             </ul>
+          </li>
+        </ul>
+             
           </nav>
 
 
@@ -393,11 +248,61 @@ document.getElementById('logout-form').submit();">
 
 
 </div>
+
+<!-- Форма обратной связи в модальном окне -->
+<div class="modal" id="feedbackFormModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h6 class="modal-title" id="myModalLabel">Добрго здоров'я! Якщо у тебе виникли проблеми під час роботи на сайті, опиши докладно ситуацію, за бажанням можеш прикріпити скрін екрану. Вирішимо питання якомога швидше!</h6>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+ 
+        <!-- Форма обратной связи -->
+<form method="post" action="{{asset('students')}}" enctype="multipart/form-data">
+                        {{ csrf_field() }}
+          <!-- Сообщение пользователя -->
+          <div class="form-group">
+            <label for="message" class="control-label">Повідомлення</label>
+            <textarea id="message" name="message" class="form-control" rows="3"   maxlength="500" required="required"></textarea>
+            
+          </div>
+          <!-- Изображения -->
+          <div class="form-group attachments">
+            <div>При необхідності прикріпіть до повідомлення зображення (до 10мб<span class="countFiles"></span>):
+            </div>
+            <div class="mb-1 text-muted">
+             </div>
+               <div class="custom-file">
+                <input type="file" name="attachment[]" class="custom-file-input" id="customFile1">
+                <label class="custom-file-label" for="customFile1">Оберіть файл...</label>
+               
+              </div>
+          </div>
+         
+
+         
+          <!-- Кнопка для отправки формы -->
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрити</button>
+          <button type="submit" class="btn btn-primary float-right">Відправити</button>
+        </form>
+                
+        <!-- Сообщение об успешной отправки формы -->
+        <div class="alert alert-success form-success mb-0 d-none">Форма успешно отправлена. Нажмите на <a class="form-success-link" href="#">ссылку</a>, чтобы отправить ещё одно сообщение.</div>
+      </div>
+    </div>
+  </div>
+</div>
+</form>
 <!-- ./wrapper -->
   <footer class="main-footer">
     
   </footer>
 <!-- jQuery -->
+<script src="{{ asset('js/jQuery-2.2.0.min.js')}}"></script>
 <script src="{{ asset('plugins/jquery/jquery.min.js')}}"></script>
 <!-- jQuery UI 1.11.4 -->
 <script src="{{ asset('plugins/jquery-ui/jquery-ui.min.js')}}"></script>
@@ -433,6 +338,6 @@ document.getElementById('logout-form').submit();">
 <script src="{{ asset('dist/js/pages/dashboard.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('dist/js/demo.js')}}"></script>
-
+@yield('js')
 </body>
 </html>

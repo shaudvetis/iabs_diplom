@@ -2,6 +2,7 @@
 
 @section('content')
 
+
     <ul class="nav justify-content-end">
         <li class="nav-item">
             <a class="nav-link active" href="{{asset('archive')}}">Архив</a>

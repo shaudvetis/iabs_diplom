@@ -1,8 +1,18 @@
 @extends('layouts.base')
-
+@include('layouts.instruction.intern.skillsplan')
 @section('content')
 	
-
+<nav>
+  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Очна частина</a>
+    
+    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Заочна частина</a>
+   
+  </div>
+</nav>
+<div class="tab-content" id="nav-tabContent">
+  <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+  
 <center><h3>Загальні положення по очній частині інтернатури</center></h3>
 
 <p><h4>Принципи організації навчального процесу на очному циклі</h4></p>
@@ -15,8 +25,19 @@
 Практичне заняття включає проведення попереднього контролю (тестового, бесіди, виконання лікарських функцій під наглядом викладача) та вирішення ситуаційної задачі за темою. В процесі учбового дня в клінічних умовах лікар-інтерн закріплює теоретичні знання роботою з хворими, яка включає   алгоритм загальноклінічних, спеціальних діагностичних та лікувальних дій, методики хірургічних втручань, доопераційного та післяопераційного лікування хворих за темою.</p>
 <p>
 В залежності від актуальності та реґіонарних особливостей захворювань під час очної частини інтернатури до робочої програми, затвердженої в учбовому закладі, вносяться зміни  відносно розподілу годин та форм навчання.</p>
+</center>
+</div>
+<div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
 
 
+
+   {!! $value->value !!}
+
+
+
+</div>
+  
+</div>
 
 
 

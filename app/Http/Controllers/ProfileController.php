@@ -8,6 +8,8 @@ use App\UserProfile;
 use Auth;
 use App\User;
 use App\Http\Requests\ProfileRequest;
+use DB;
+use Carbon\Carbon;
 
 class ProfileController extends Controller
 {
@@ -35,6 +37,8 @@ if($details === NULL) {
 	public function userAction(Request $request)
 	{
         $currentUser = Auth::user();
+        $user = $currentUser->id;
+
         $data=$request->all();
 		$userprofile = new UserProfile();
 		$userprofile->surname = $request->get('surname');
@@ -47,6 +51,8 @@ if($details === NULL) {
         $userprofile->kafedra = $request->get('kafedra');
         $userprofile->date_bak = $request->get('date_bak');
         $userprofile->fl_norm = $request->get('fl_norm');
+        $userprofile->course = $request->get('course');
+        $userprofile->decatki = $request->get('decatki');
         $userprofile->country = $request->get('country');
         $userprofile->city = $request->get('city');
         $userprofile->village = $request->get('village');
@@ -91,7 +97,18 @@ if($details === NULL) {
         $userprofile->house4 = $request->get('house4');
         $userprofile->tel3 = $request->get('tel3');
         $userprofile->doctor2 = $request->get('doctor2');
+        $userprofile->startyear = $currentUser->created_at->format('Y');
         $userprofile->save();
+         
+      
+
+ DB::table("students_course")
+     ->insert(["user_id" => $user,
+     'course'=> $request['course'],
+     'years'=>Carbon::now()->format('Y'),
+     'created_at'=>Carbon::now(),
+     'comments' =>'1'
+ ]);
 
         \Session::flash('flash_message', 'Дякуємо! Дані успішно записані');
         if(!Empty($userprofile)){

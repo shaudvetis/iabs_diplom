@@ -10,5 +10,9 @@ class OperationalController extends Controller
 		 
 	 return view('operational');
 	}
+		public function kerivnukoper() {
+		 
+	 return view('admink.kerivnuk.operational');
+	}
 
  }  

@@ -7,6 +7,7 @@
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
   <link rel="stylesheet" href="{{ asset('plugins/fontawesome-free/css/all.min.css')}}">
   <!-- Ionicons -->
   <link rel="stylesheet" href="{{ asset('https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css')}}">
@@ -28,226 +29,172 @@
   <link rel="stylesheet" href="{{ asset('plugins/summernote/summernote-bs4.css')}}">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-   <link rel="stylesheet" href="{{ asset('dist/css/datatables.css')}}">
-
+  <link rel="stylesheet" href="{{ asset('dist/css/datatables.css')}}">
 </head>
+
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-white navbar-light border-bottom">
-  
-     
-<ul class="navbar-nav">  <!--Значек вверху панели скрытия -->
-      <li class="nav-item"> 
-        <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a> 
-        <!--<h1 class="m-0 text-dark">Особистий кабінет лікаря інтерна </h1> -->
-        
-
+  <!--Значек вверху панели скрытия -->    
+  <ul class="navbar-nav">  
+      <li class="nav-item"> <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a> 
       </li>
+   <!-- Right navbar links -->
+    @if(Auth::user()->role==4 or Auth::user()->role==2)
+      <div class="brand-link" style="background:lightgreen;margin-top: 0px;" >Кабінет Викладача </div>
+    @endif 
+  </ul>
+<!-- Support -->
+<ul class="navbar-nav ml-auto">
+   <li class="nav-item d-none d-sm-inline-block">
+      <a href="#" type="button" class="nav-link"  data-toggle="modal" data-target="#feedbackFormModal">Support +38066 500 86 57
+        <i class="fa fa-envelope-o"></i>
+      </a>
+    </li>
+<!-- FIO and login -->
+<li class="nav-item dropdown">
+  <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre> {{ Auth::user()->name }} 
+  <span class="caret"></span></a>
+  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+  <a class="dropdown-item" href="{{ route('logout') }}"
+  onclick="event.preventDefault();
+  document.getElementById('logout-form').submit();">
+  {{ __('Вихід') }} </a>
+
+<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+ @csrf
+</form>
+</div>
+</li>
 </ul>
 </nav>  <!-- имеет отношение к телу таблицы, сдвигается -->
-
   <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4">
-    
-    <!-- Серій цвет левое боковое меню -->
-    
-    <span class="brand-text font-weight-light"></span>
-    
-
-    <!-- Sidebar -->
-    <div class="sidebar">
-
-      <!-- Sidebar user panel (optional) Левая панель, все данные вверх-->
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div> <!-- Sidebar user panel (optional) Левая панель, все данные вверх-->
-        
-        </div>
-         
-        <div class="info">
-          <a href="{{asset('admink')}}"  class="d-block">На головну!</a>
-        </div>
-      </div>
-
-      <!-- Sidebar Menu -->
-      <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-
-<li class="nav-item has-treeview menu-open">
-            <a href="#" class="nav-link  active">
-              <i class="nav-icon fas fa-chart-pie"></i>
-              <p>
-                Картотека інтерна
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              
-              <li class="nav-item">
-                <a href="/admink/course/1/fulltime" class="nav-link">
-
-                  <!--<a href="/admink/courseone" class="nav-link"> -->
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Перший курс</p>
-                </a>
-              </li>
-
-
-              <li class="nav-item">
-                <a href="/admink/course/2/fulltime" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Другий курс</p>
-                </a>
-              </li>
-            </ul>
-          
-        <ul class="nav nav-treeview">
-          <li class="nav-item">
-                <a href="/admink/course/3/fulltime" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Третій курс</p>
-                </a>
-              </li>
-            </ul>
-<li class="nav-item has-treeview menu-open" >
+ <aside class="main-sidebar sidebar-dark-success elevation-4">
+ <!-- Серій цвет левое боковое меню -->
+  <div class="brand-link" style="height: 110px;">
+    <ul>
+    @if(Auth::user()->role==4 )
+     <li>
+      <a href="{{asset('admink.teacher.teacher')}}" style="color:white" ><i>Кабінет Керівника</i></a>
+     </li>
+     <li><a href="{{route('students')}}" style="color:white" ><i>Кабінет Інтерна</i></a>
+     </li>
+    @endif 
+   
+    @if(Auth::user()->role==4 or Auth::user()->role==2)
+   <li><a href="{{asset('admink.dashboard')}}" style="color:white" ><i>Кабінет Викладача</i></a></li>
+   @endif  
+   </ul>
+  </div>
+   
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <!-- Sidebar Menu -->
+   <nav class="mt-2">
+    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+      <li class="nav-item has-treeview menu-open">
             <a href="#" class="nav-link active">
-              <i class="nav-icon fas fa-tachometer-alt" ></i>
+              <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-               Журнал інтерна
+                 <p>Хірургічні напрямки</p>
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
-<ul class="nav nav-treeview menu-open">
-   <li class="nav-item">
-                <a href="{{asset('formspracticeday')}}" class="nav-link active">
-                  <i class="nav-icon fas fa-tachometer-alt"></i>
-                  <p>Хірургічні напрямки</p>
-                  <i class="right fas fa-angle-left"></i>
-                </p>
+     <li class="nav-item">
+       @foreach ($direction_ocenki as $item)
+                <a href="{{route('ocenki', [$item->id])}}" class="nav-link">
+                  <i class="far fa-circle nav-icon" style="color:{{$item->name_color}}" ></i>
+                  <p >{!!$item->direction!!}</p>
+                 <!--  військово-медична підготовка -->
                 </a>
-<ul class="nav nav-treeview">
- <li class="nav-item">
-   <a href="{{asset('admink.ball_start')}}" class="nav-link">
-     <i class="far fa-circle nav-icon"></i>
-                  <p>Введення в хірургію</p>
-                </a>
+        @endforeach
               </li>
-<li class="nav-item">
-                <a href="{{asset('napravlenia.cherevnaocho')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Черевна порожнина </p>
-                </a>
-              </li>
-
- <li class="nav-item">
-                <a href="{{asset('napravlenia.grudna_klituna')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Грудна клітина</p>
-                </a>
-              </li>
- <li class="nav-item">
-                <a href="{{asset('napravlenia.proctologia')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Проктологія</p>
-                </a>
-              </li>
- <li class="nav-item">
-                <a href="{{asset('napravlenia.urologia')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Урологія</p>
-                </a>
-              </li>
- <li class="nav-item">
-                <a href="{{asset('napravlenia.vascular')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Судинна хірургія</p>
-                </a>
-              </li>
- <li class="nav-item">
-                <a href="{{asset('napravlenia.gnoynaya')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Гнійна хірургія</p>
-                </a>
-              </li>              
-  <li class="nav-item">
-                <a href="{{asset('napravlenia.kardio')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Кардіохірургія</p>
-                </a>
-              </li>           
- <li class="nav-item">
-                <a href="{{asset('napravlenia.opiku')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Опіки та відмороження</p>
-                </a>
-              </li>
-</ul>
-
-
-            
+</ul>          
 
           <!-- Sidebar Menu -->
       <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-          
+        <ul  class=" nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
-
-                 <!-- Календар     
-                <span class="badge badge-info right">2</span>
-              </p>
-            </a>
-          </li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon far fa-envelope"></i>
-              <p>
-                -->    
       <!-- /.sidebar-menu -->
+    </ul>
+  </nav>
     </div>
     <!-- /.sidebar -->
   </aside>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <div class="content-header"> 
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1 class="m-0 text-dark"> </h1> <!-- Заглавие тела, можно вставить надпись -->
-          </div><!-- /.col -->
-         <!-- <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Головна</a></li>
-         
-            </ol>
-          </div> /.col -- Блок вверху с надписью Головна>
-        </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content-header -->
-
+   <!-- <div class="content-header">  -->
+       <section class="content">
+     
     @section('content')
 
     @show
 
 
- 
+ </section>
 
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark"><h1 class="m-0 text-dark">
-    <!-- Control sidebar content goes here -->
-  </aside>
-  <!-- /.control-sidebar -->
+
 </div>
-<!-- ./wrapper -->
+
+<!-- Форма обратной связи в модальном окне -->
+<div class="modal" id="feedbackFormModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h6 class="modal-title" id="myModalLabel">Добрго здоров'я! Якщо у тебе виникли проблеми під час роботи на сайті, опиши докладно ситуацію, за бажанням можеш прикріпити скрін екрану. Вирішимо питання якомога швидше!</h6>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+ 
+        <!-- Форма обратной связи -->
+<form method="post" action="{{asset('students')}}" enctype="multipart/form-data">
+                        {{ csrf_field() }}
+          <!-- Сообщение пользователя -->
+          <div class="form-group">
+            <label for="message" class="control-label">Повідомлення</label>
+            <textarea id="message" name="message" class="form-control" rows="3"   maxlength="500" required="required"></textarea>
+            
+          </div>
+          <!-- Изображения -->
+          <div class="form-group attachments">
+            <div>При необхідності прикріпіть до повідомлення зображення (до 10мб<span class="countFiles"></span>):
+            </div>
+            <div class="mb-1 text-muted">
+             </div>
+               <div class="custom-file">
+                <input type="file" name="attachment[]" class="custom-file-input" id="customFile1">
+                <label class="custom-file-label" for="customFile1">Оберіть файл...</label>
+               
+              </div>
+          </div>
+         
+
+         
+          <!-- Кнопка для отправки формы -->
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрити</button>
+          <button type="submit" class="btn btn-primary float-right">Відправити</button>
+        </form>
+                
+        <!-- Сообщение об успешной отправки формы -->
+        <div class="alert alert-success form-success mb-0 d-none">Форма успешно отправлена. Нажмите на <a class="form-success-link" href="#">ссылку</a>, чтобы отправить ещё одно сообщение.</div>
+      </div>
+    </div>
+  </div>
+</div>
+</form>
+
+  <!-- ./wrapper -->
+  <footer class="main-footer">
+    
+  </footer>
+
 
 <!-- jQuery -->
+<script src="{{ asset('js/jQuery-2.2.0.min.js')}}"></script>
 <script src="{{ asset('plugins/jquery/jquery.min.js')}}"></script>
 <!-- jQuery UI 1.11.4 -->
 <script src="{{ asset('plugins/jquery-ui/jquery-ui.min.js')}}"></script>
@@ -255,6 +202,8 @@
 <script>
   $.widget.bridge('uibutton', $.ui.button)
 </script>
+<!-- Bootstrap 4 -->
+<script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <!-- Bootstrap 4 -->
 <script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <!-- ChartJS -->
@@ -284,5 +233,7 @@
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('dist/js/demo.js')}}"></script>
 
+    @yield('js')
 </body>
+
 </html>

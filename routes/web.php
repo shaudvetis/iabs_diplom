@@ -26,9 +26,22 @@ Route::get('/', function () {
 
 Auth::routes();
 
+
+Route::group (['namespace'=>'Intern', 'middleware'=>['auth']], function(){
+Route::name('students')->get('intern.students', 'StudentsController@indexAction');
+Route::post('/intern.students', 'StudentsController@postMail');
+Route::name('docatest')->get('/docatest', 'StudentsController@docatest');
+});
+
+
+Route::get('fullcalender', 'FullCalenderController@index');
+Route::post('fullcalenderAjax', 'FullCalenderController@ajax');
+
+Route::get('/contact', 'FirstController@contact')->name('contact');
+
 Route::get('/home', 'HomeController@index')->name('home');
 
-
+//Памятка
 Route::get('/memoris', 'MemorisController@Surgeryindex');
 
 //Практические навыки
@@ -36,11 +49,6 @@ Route::get('/skills', 'SkillsController@Surgeryindex');
 
 //Оперативные навыки
 Route::get('/operational', 'OperationalController@Planoperindex');
-
-//Положення по заочній частині 
-Route::get('/memorisplan', 'MemorisplanController@Planoperindex');
-//Проверить зачем??
-Route::post('/memorisplan', 'MemorisplanController@postAction');
 
 //Навчальний план
 Route::get('/navchalniy_plan', 'Zagalni\NavchalniyplanController@planIndex');
@@ -51,28 +59,32 @@ Route::get('/skillsplan', 'SkillsplanController@Planoperindex');
 //Теми практичних та семінарських занять на заочних циклах
 Route::get('/topclasses', 'TopclassesController@Mainindex');
 
-
-
-
-
 //Лекции очная часть
 Route::get('/lectures', 'Ochno\LecturesController@getLectures');
 //Route::post('/lectures', 'LecturesController@updateLectures');
 
 
+//Курация больных проверено
+Route::name('inputformsday')->get('/inputformsday', 'Intern\InputformsdayController@Formindex');
 
-Route::get('/inputforms', 'InputformsController@Formindex')->name('inputforms');
-Route::post('/inputforms', 'InputformsController@postAction')->name('akademiya');
+//Курация больных отправка данных проверенно
+Route::name('kuraciyapost')->post('/inputformsday', 'Intern\InputformsdayController@postAction');
 
-Route::get('/inputformsday', 'InputformsdayController@Formindex')->name('inputformsday');
-Route::post('/inputformsday', 'InputformsdayController@postAction')->name('inputformsday');
-Route::get('/archive_inputday', 'InputformsdayController@getInputDay');
+//Архив отображение
+
+Route::get('/archive_inputday', 'Intern\InputformsdayController@getInputDay');
+
+//Архив курации запись данных по дате конца курации и корректировка диагноза
+Route::post('/archive_inputday', 'Intern\InputformsdayController@postArchivinput');
+
+Route::get('inputformsdaymkb', 'Intern\InputformsdayController@modalmkb');
+
 
 
 Route::get('/formssurgery', 'FormssurgeryController@Formssurgery')->name('formssurgery');
 Route::post('/formssurgery', 'FormssurgeryController@postsurgery')->name('formssurgery');
 Route::get('/archive_surgery', 'FormssurgeryController@archiveSurgery');
-
+//Было участиве в операциях форма заполнения теперь Контроль учбових елементів та модулів
 Route::get('/formssurgeryday', 'FormssurgerydayController@Formindex')->name('formssurgeryday');
 Route::post('/formssurgeryday', 'FormssurgerydayController@postAction')->name('formssurgeryday');
 Route::get('/archive_surgeryday', 'FormssurgerydayController@archiveSargeryday');
@@ -85,24 +97,23 @@ Route::get('/archiv_practice', 'FormspracticeController@archivPractice');
 Route::get('/formspracticeday', 'FormspracticedayController@Practicegetsurgery')->name('formspractice');
 Route::post('/formspracticeday', 'FormspracticedayController@Practicesurgery')->name('formspractice');
 Route::get('/archiva_practiceday', 'FormspracticedayController@practiceday');
-
+//Інформація про нічні чергування у відділенні
 Route::get('/nightworkday', 'FormsdayController@Getsurgery')->name('nightworkday');
+//Запись в базу данніе стационар и приемное отделение
 Route::post('/nightworkday', 'FormsdayController@Postsurgery')->name('nightworkday');
+
+//Архив ночніе дежурства отображение 
 Route::get('/archive_nightday', 'FormsdayController@archiveNightday');
-Route::post('/nightpractic', 'FormsdayController@getPractic');
-Route::get('/archive_nightpractice', 'FormsdayController@archiveNightpract');
+//Печать дневника интерна по ночнім дежурствам
+Route::get('/archive_nightday_print', 'FormsdayController@getnightprint');
+
+//Вхідний контроль
+Route::get('/enteronecourse', 'EnteronecourseController@indexenter');
 
 
-Route::get('/nightwork', 'FormsnightController@Nightsurgery')->name('nightwork');
-Route::post('/nightwork', 'FormsnightController@Worksurgery')->name('nightwork');
-Route::get('/archiv_nightwork', 'FormsnightController@archivNight');
-
-Route::get('/students', 'StudentsController@indexAction');
 
 
-Route::post('/students/diagnoz', 'StudentsController@studentAction');
-Route::get('/archive', 'ArchiveController@ArchiveAction');
-
+Route::name('litera')->get('/litera', 'Intern\StudentsController@litera');
 
 Route::get('/user_profile', 'ProfileController@profileAction');
 Route::post('/user_profile', 'ProfileController@userAction')->name('user_profile');
@@ -120,6 +131,7 @@ Route::get('/profile_print', 'PrintController@printProfile');
 Route::get('/download_profile', 'DownloadController@downloadAction');
 Route::post('/download_profile', 'DownloadController@downloadIndex')->name('download_profile');
 Route::post('/add_string', 'DownloadController@add_string');
+//Выяснить что это?
 Route::get('/studentsextr', 'StudentsextrController@studentextrdIndex')->name('studentsextr');
 
 Route::get('/atestat_profile', 'AtestatController@getAtestat')->name('atestat_profile');
@@ -128,32 +140,9 @@ Route::get('/intern.read_literatyre', 'intern\ReadController@getLiteratyre');
 Route::post('/intern.read_literatyre', 'intern\ReadController@postLiteratyre');
 Route::get('/intern.archiv_literatyre', 'intern\ReadController@getArchiv');
 
-//Направления страница введення в хірургію очно
-Route::get('/napravlenia.startsurgery', 'Napravlenia\StartController@indexSurgery')->name('startsurgery');
-//Направления  черевна порожнина очно
-Route::get('/napravlenia.cherevnaocho', 'Napravlenia\CherevnaochoController@getCherevna');
-Route::post('/cherevnaocho', 'Napravlenia\CherevnaochoController@postCherevna');
+Route::get('/view_rozklad', 'ViewRozkladController@getrozklad');
 
-//Направления грудна клітина очно
-Route::get('/napravlenia.grudna_klituna', 'Napravlenia\GrydnaController@indexGrudnaya')->name('grudna_klituna');
-//Направления  проктологія очно
-Route::get('/napravlenia.proctologia', 'Napravlenia\ProctologController@indexProctologia')->name('proctologia');
-
-//Направления урологія очно
-Route::get('/napravlenia.urologia', 'Napravlenia\UrologiaController@indexUrologia')->name('urologia');
-
-//Направления судинна хірургія очно
-Route::get('/napravlenia.vascular', 'Napravlenia\VascularController@indexVascular')->name('vascular');
-//Направления гнойная хирургия очно
-Route::get('/napravlenia.gnoynaya', 'Napravlenia\GnoynayaController@indexGnoynaya')->name('gnoynaya');
-
-//Направления кардио хирургия очно
-Route::get('/napravlenia.kardio', 'Napravlenia\KardioController@indexKardio')->name('kardio');
-
-
-//Направления опікі та відмороження очно
-Route::get('/napravlenia.opiku', 'Napravlenia\OpikuController@indexOpiku')->name('opiku');
-
+Route::name('rozkladzaochno')->get('/rozkladzaochno', 'Admink\Teacher\RozkladzController@rozkladzint');
 //Route::post('/user_upload', 'UploadoneController@getDetails')->name('user_upload');
 //Route::post('/upload_profile', 'UploadoneController@setDetails')->name('upload_profile');
 
@@ -165,10 +154,15 @@ Route::get('/napravlenia.opiku', 'Napravlenia\OpikuController@indexOpiku')->name
 //Роуті для админа
 
 Route::group (['namespace'=>'Admink', 'middleware'=>['auth']], function(){
-Route::get('/admink', 'DashboardController@dashboard')->name('admink.index');
-
-Route::get('/admink/course/{course}/{form}', 'OnecourseController@getCourse');
-
+Route::get('/admink.dashboard', 'DashboardController@dashboard')->name('admink.index');
+//Роуты для преподавателя с 1 курс
+Route::get('/admink.onecourse', 'OnecourseController@getCourse');
+//Перевод на  следующий курс
+Route::post('/admink.onecourse', 'OnecourseController@postCourse');
+//Роуты для преподавателя с 2 курс
+Route::get('/admink.twocourse', 'TwocourseController@gettwoCourse');
+//Роуты для преподавателя с 3 курс
+Route::get('/admink.threecourse', 'ThreecourseController@threeCourse');
 //Route::get('/admink.onecourse', 'OnecourseController@getCourse')->name('admink.index');
 Route::get('/admink.user_details/{details}', 'DetailsoneController@getDetails')->name('admink.user_details');
 
@@ -183,22 +177,63 @@ Route::post('/user_profile_update/{userprofile}', 'ProfileController@userUpdate'
 Route::get('/admink.timetableone', 'TimeController@getTime');
 
 
-//Route::get('/admink.user_download', 'DownloadoneController@getDetails')->name('admink.user_download');
-
-
 Route::get('/admink.reportoneochno', 'ReportoneController@getReport')->name('admink.reportoneochno');
 
-//Оценки в журнале
-Route::get('/admink.ball_start', 'BallstartController@getStart');
-Route::get('/admink.ballerr_starts', 'BallstartController@getStarts');
-Route::post('/admink.ball_start', 'BallstartController@getStartpost');
+Route::get('/last_online', 'LastOnlineController@getonline');
 
+// Контроллер общий для оценок
+Route::name('ocenki')->get('/ocenki/{id?}/{course?}/{decatki?}', 'OcenkiController@getocenki');
+
+// Контроллер общий для оценок запись в базу
+Route::name('postocenki')->post('/postocenki/{id?}', 'OcenkiController@postocenki');
+//В форму с темами и оценками преаодавателя вывод оценок общих 
+Route::name('summaseminar')->post('/summaseminar', 'OcenkiController@summaseminar');
+
+//В форму с темами практ навычек
+Route::name('practtema')->get('/practtema/{id?}', 'OcenkiController@practtema');
+
+// Контроллер общий для печати оценок по предмету
+Route::name('printbal')->get('/printbal.printbal/{id}/{course?}/{decatki?}/{courses?}/{ordinator?}', 'PrintbalController@printbal');
+
+Route::name('pass-nb')->get('/pass-nb', 'ZvitNZController@getzvit');
+
+Route::resource('/test', 'TestController');
+//Крок 3
+Route::resource('/kroksurgery', 'KroksurgeryController');
 
 });
 
-Route::resource('modal', 'ModalController');
-//Страница новая руководителя показывает отчет заполненных кураций
-Route::get('/teacher', 'TeacherController@Teacherindex');
+Route::group (['namespace'=>'Admink\ClinichniObs', 'middleware'=>['auth']], function(){
+// Контроллер общий для 9 оценок практичні навички all
+Route::name('practnavuchka')->get('/practnavuchka/{id?}', 'PractController@getpractnav');
+// Контроллер общий для 9 оценок практичні навички post
+Route::name('practnavpost')->post('/practnavpost/{id?}', 'PractController@postpractnav');
+});
+
+//Контроль модуля вывод итого введение в хирургию
+Route::name('control_modyl')->get('/admink.controlmodyl.control_modyl/{id}', 'Admink\ControlModyl\ControlModelController@modylballstart');
+
+Route::post('/control_modyls', 'Admink\ControlModyl\ControlModelController@postmodylball');
+
+//Страница руководителя показывает итого заполненных кураций черевна порожнина
+Route::get('/admink.controlmodyl.model_cherevna', 'Admink\ControlModyl\ControlModelController@modylcherevna');
+//Страница уководителя показывает итого заполненных кураций проктология
+Route::get('/admink.controlmodyl.model_proctologia', 'Admink\ControlModyl\ControlModelController@modylproctologia');
+//Страница уководителя показывает итого заполненных кураций гнойная
+Route::get('/admink.controlmodyl.model_gnoynaya', 'Admink\ControlModyl\ControlModelController@modylgnoynaya');
+//Страница уководителя показывает итого заполненных кураций урология
+Route::get('/admink.controlmodyl.model_urologiya', 'Admink\ControlModyl\ControlModelController@modylurologiya');
+//Страница уководителя показывает итого заполненных кураций сосудистая хирургия
+Route::get('/admink.controlmodyl.model_vascular', 'Admink\ControlModyl\ControlModelController@modylvascular');
+//Страница уководителя показывает итого заполненных кураций грудная хирургия
+Route::get('/admink.controlmodyl.model_grudna', 'Admink\ControlModyl\ControlModelController@modylgrudna');
+//Страница уководителя показывает итого заполненных кураций кардио хирургия
+Route::get('/admink.controlmodyl.model_kardio', 'Admink\ControlModyl\ControlModelController@modylkardio');
+//Страница уководителя показывает итого заполненных кураций опики хирургия
+Route::get('/admink.controlmodyl.model_opiku', 'Admink\ControlModyl\ControlModelController@modylopiku');
+
+//Страница Кабінет Керівника
+Route::get('/admink.teacher.teacher', 'Admink\Teacher\TeacherController@Teacherindex');
 
 //Страница новая руководителя показывает отчет заполненных кураций
 Route::get('/firstgrade', 'FirstController@Firstindex');
@@ -208,3 +243,97 @@ Route::get('/firstcoursen', 'FirstController@Firstcoursen');
 
 //Страница новая руководителя показывает отчет участия в операциях
 Route::get('/surgerycoursen', 'FirstController@Surgerycoursen');
+
+Route::get('/admink.kyraciya.cherevna', 'Admink\Kyraciya\CherevnaController@kyraciyacherevna');
+Route::post('/admink.kyraciya.cherevna', 'Admink\Kyraciya\CherevnaController@kyraciyapost');
+
+
+Route::get('/admink.kyraciya.nightpracticeday', 'Admink\Kyraciya\CherevnaController@kyracianight');
+Route::post('/admink.kyraciya.nightpracticeday', 'Admink\Kyraciya\CherevnaController@nightsurgerypost');
+
+//Direction on Kerivnuk
+
+Route::group (['namespace'=>'Admink\Kyraciya', 'middleware'=>['auth']], function(){
+Route::resource('/admink.kyraciya.cherevnaoch.kyraciya', 'KuraciyaController');
+
+});
+
+//Кабінет керівника
+Route::get('/admink.kerivnuk.lectures', 'Ochno\LecturesController@kerivnukLectures');
+//Памятка
+Route::get('/admink.kerivnuk.memoris', 'MemorisController@kerivnukmemoris');
+//Навчальний план
+Route::get('/admink.kerivnuk.navchalniy_plan', 'Zagalni\NavchalniyplanController@kerivnukplan');
+
+//Практические навыки
+Route::get('/admink.kerivnuk.skills', 'SkillsController@kerivnukskills');
+
+//Оперативные навыки
+Route::get('/admink.kerivnuk.operational', 'OperationalController@kerivnukoper');
+
+//Положення по очній частині
+Route::get('/admink.kerivnuk.skillsplan', 'SkillsplanController@skillsplankerivnuk');
+
+
+
+Route::group (['namespace'=>'Admink\Teacher', 'middleware'=>['auth']], function(){
+
+//Вхідний контроль
+Route::get('/admink.kerivnuk.input_control', 'Input_contController@getinput');
+Route::post('/admink.kerivnuk.input_control', 'Input_contController@postinput');
+// Віробничий календар скрила бо нащо він
+// Route::resource('/rozklad', 'SeminarTemaController');
+Route::resource('/students_course', 'StudentsCourseController');
+Route::resource('/sprav_hoursandfio', 'HoursandFioController');
+Route::resource('/sprav_hoursandfio', 'HoursandFioController');
+Route::resource('/sprav_teacher', 'TeacherandWorkController');
+Route::resource('/sprav_modul', 'DirectionandRozkladController');
+
+Route::resource('/sprav_rozklad', 'SprRozkladController');
+//View rozklad ajax
+Route::get('/ajaxcalendar', 'AjaxrozController@calendarget');
+
+Route::resource('/sprav_rozklad', 'SprRozkladController');
+
+//Rozklad zaochno
+Route::name('rozkladz')->get('/admink.kerivnuk.rozkladz', 'RozkladzController@getindex');
+
+Route::name('editrozkladz')->get('/admink.kerivnuk.rozkladz/{id?}', 'RozkladzController@editrozkladz');
+
+
+Route::name('rozkladzp')->post('/admink.kerivnuk.rozkladz', 'RozkladzController@postrozkladz');
+
+Route::get('/planrozklad', 'TeacherController@planrozklad');
+Route::post('/planrozklad', 'TeacherController@planrozkladpost');
+Route::name('printplanroz')->get('/printplanroz', 'TeacherController@printplanroz');
+
+
+// Два роута для работі со справочником тем
+Route::get('/admink.kerivnuk.name_seminar', 'SeminarNameController@getname');
+Route::post('/admink.kerivnuk.name_seminar', 'SeminarNameController@postname');
+
+Route::resource('/createuser', 'RegistrController');
+
+Route::resource('/cherguvannya', 'ChergController');
+
+//Звіт про 3 курс оцінки перед єкзаменом
+Route::name('zvitthreecourse')->get('/zvitthreecourse', 'TeacherController@zvitthreecourse');
+//Звіт про 3 курс оцінки перед єкзаменом
+Route::name('pass-allball')->get('/pass-allball', 'TeacherController@passallball');
+
+Route::name('reportmarks')->get('/reportmarks', 'TeacherController@reportmarks');
+
+
+});
+// //Теми практичних та семінарських занять на заочних циклах
+// Route::get('/topclasses', 'TopclassesController@Mainindex');
+
+
+// //Положення по заочній частині 
+// Route::get('/memorisplan', 'MemorisplanController@Planoperindex');
+// //Проверить зачем??
+// Route::post('/memorisplan', 'MemorisplanController@postAction');
+
+
+
+

@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Literatyre extends Model
 {
     protected $fillable = [
-      'direction', 'literatyre'
+      'direction', 'literatyre','baza'
             ];
 }

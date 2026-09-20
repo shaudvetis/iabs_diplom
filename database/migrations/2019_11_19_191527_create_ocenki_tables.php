@@ -22,6 +22,8 @@ class CreateOcenkiTables extends Migration
             $table->integer('id_seminarus')->comment('id_seminar из таблицы seminarus');
             $table->integer('element')->comment('element из таблицы seminar_tema');
             $table->integer('bal')->comment('бал');
+            $table->integer('morning')->comment('теор бал');
+            $table->integer('lessons')->comment('теор бал');
             $table->integer('teor_bal')->comment('теор бал');
             $table->timestamps();
         });

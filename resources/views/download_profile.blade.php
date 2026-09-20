@@ -1,5 +1,5 @@
 @extends('layouts.base')
-
+@include('layouts.instruction.intern.donwload')
 @section('content')
 <div class="card card-info">
  <div class="card-header">
@@ -40,7 +40,7 @@
 </div>
 <div class="card-header">
         @if($get_pasport === Null)
-            <p>save images</p>
+            <p>будь ласка збережіть зображення</p>
         @else
          @foreach ($get_pasport as $user)
              <a href="/images/Foldername/pasport/{{$id_user}}/{{$user}}">

@@ -8,31 +8,26 @@ use Auth;
 use App\User;
 use App\Http\Requests\ProfileRequest;
 
-class EditController extends Controller {
- public function indexEdit() {
-    $name_us = Auth::user()->name;
-    $auth = User::all()->where('name', $name_us)->first();
-    $id_user = $auth->id;
-    $details = UserProfile::all()->where('user_id', $id_user)->first();
-	//dd($details->gender);
-    $sd=$details->gender;
-    //dd($sd);
-    if($sd === "Чоловіча"){
-        $gender = 'true';
-    }
-    elseif($sd === "Жіноча"){
-      // echo 'dfdfdf';
-        $gender = 'false';
-    }
-    //$gender = 'false';
-//       $check = 'true';  //Эта переменная из students  чтоб запустился base
-     if($details === NULL) {
-    $check = 'true';  
-        }
-        else{
-         $check  = 'false';
-        }
-    return view ('user_profile_edit', compact('details','gender','check'));
+class EditController extends Controller
+{
+
+	 public function indexEdit()
+{
+   
+    $details = UserProfile::all()->where('user_id', Auth::user()->id)->first();
+
+    // $sd=$details->gender;
+    // //dd($sd);
+    // if($sd === "Чоловіча"){
+    //     $gender = 'true';
+    // }
+    // elseif($sd === "Жіноча"){
+    //   // echo 'dfdfdf';
+    //     $gender = 'false';
+    // }
+    // //$gender = 'false';
+
+    return view ('user_profile_edit', compact('details'));
 
 	}
 /**

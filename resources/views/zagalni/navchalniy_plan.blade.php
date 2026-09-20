@@ -1,18 +1,29 @@
 @extends('layouts.base')
-
+@include('layouts.instruction.intern.navplan')
 @section('content')
 
-<!-- Main content -->
-<section class="content">
-  <div class="container-fluid">
-    <!-- Small boxes (Stat box) -->
-    <div class="row">
-      <div class="col-lg-3 col-6">
+<nav>
+  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <a class=" nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true"> Навчальний план</a>
+    
+    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Програма інтернатури</a>
+   
+  </div>
+</nav>
 
-      </div>
-    </div>
+<div class="tab-content" id="nav-tabContent">
+  <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+
 
 {!! $content->content !!}
 
+</div>
 
+  <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+
+ {!! $programa->content !!}
+
+</div>
+
+</div>
 @endsection

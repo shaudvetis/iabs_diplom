@@ -20,49 +20,69 @@ class AtestatController extends Controller
         
         $currentUser = Auth::user();
         $id_user= $currentUser->id;
-
-     
-
  //$details = $model_course->select('id','course_title')->get(); //ЭТО ДО ОТОБРАЖЕНИЯ
  $details = $model_course->with([ //ЭТО ДЛЯ ОТОБРАЖЕНИЯ - С hasOne('App\AtestatProfile') ИЗ МОДЕЛИ Course С where 'user_id' = $id_user
-            'atestatprofile' => function ($q) use ($id_user) {
-                $q->select('id', 'user_id', 'course_id', 'credits', 'hours', 'marks', 'nac_grade', 'ects_grade', 'total_marks', 'all_grade')->where('user_id', $id_user);
+  'atestatprofile' => function ($q) use ($id_user) {
+    $q->select('id', 'user_id', 'course_id', 'credits', 'hours', 'marks', 'nac_grade', 'ects_grade', 'total_marks', 'all_grade','course3','course4','course5','course6')->where('user_id', $id_user);
              }
-        ])->select('id', 'course_title')->get();      
+        ])->select('id', 'course_title')->get(); 
+ $id_atestat = AtestatProfile::select('id')->where('user_id', $id_user)->get();
+//  $w=AtestatProfile::all(); 
+//$w=$id_atestat->id;          
+//  foreach ($details as  $detailss) {
+//   dump($detailss['atestatprofile']['id']);
+// exit();
+// }
 
-return view('atestat_profile')->with('details',$details)->with('id_user', $id_user);    
+
+return view('atestat_profile')->with('details',$details)->with('id_user', $id_user)->with('id_atestat',$id_atestat);    
     }
 
 public function updateAtestat (Request $request, AtestatProfile $atestat) 
     {
-
-    //print_r($request->all()); die;
-    
+ // dump($request);
+ //    exit();
     $data_request = $request->all(); 
+    $currentUser = Auth::user();
+    $id_user= $currentUser->id;
+
+    // dump($data_request);
+    // exit();
     $data_insert = array(); 
     foreach($data_request as $key1 => $value1) {
-       if($key1 != '_token' && $key1 != 'sub') {
+       if($key1 != '_token' && $key1 != 'sub') 
           foreach($value1 as $key2 => $value2) { 
-             $data_insert[$key2]['total_marks'] = $data_request['total_marks'][0];      
-             $data_insert[$key2][$key1] = $value2;
-if($key2 != 0) {
- $data_insert[$key2]['total_marks'] = $data_request['total_marks'][0];  
-  $data_insert[$key2]['all_grade'] = $data_request['all_grade'][0];     
-          }          
+           $data_insert[$key2][$key1] = $value2;
        }     
     }
-             
-   }              
-      
+// dump($data_request);
+//     exit();
+    foreach ($data_insert as $value) {
+      $id = $value['id']; 
+      $user_id = $id_user;
+      $course_id=$value['course_id'];
+      $credits=$value['credits'];
+      $hours=$value['hours'];
+      $marks=$value['marks'];
+      $nac_grade=$value['nac_grade'];
+      $ects_grade=$value['ects_grade'];
+      $total_marks=$data_request['total_marks'][0];
+      $all_grade=$data_request['all_grade'][0];
+      $course3=$data_request['course3'][0];
+      $course4=$data_request['course4'][0];
+      $course5=$data_request['course5'][0];
+      $course6=$data_request['course6'][0];
+   AtestatProfile::update_infrom($id, $user_id, $course_id, $credits,$hours, $marks, $nac_grade, $ects_grade, $course3, $course4, $course5, $course6, $all_grade,  $total_marks);
+    }
 
-    // //$atestat = new AtestatProfile;
-   $atestat_remove = $atestat->where('user_id', $data_request['user_id']);
-    $atestat_remove->delete();
-    // //print_r($data_insert); die;
-     $atestat->insert($data_insert);
-// dump($data_insert);
-     return redirect(route('atestat_profile'));
 
+// $post = App\Post::find($id);
+// $post->title = 'new title';
+// $post->save();
+  // return redirect(route('atestat_profile'));
+return back();
  
+    //return view('admink.onecourse');
+
 }
 }

@@ -64,6 +64,8 @@ class FormsnightController extends Controller
 
         // Get all inputforns from DB with student_id == current student id
         $forms = Formsnight::where('id_student', $student->id)->get();
+
+      
         
         // Add to each form object his user object in user field
         foreach ($forms as &$form) {

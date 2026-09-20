@@ -14,7 +14,15 @@ class NavchalniyplanController extends Controller
 	public function planIndex() {
 		
 		$this->data['content'] = Page::find(1);
+		$this->data['programa'] = Page::find(2);
 		return view('zagalni.navchalniy_plan', $this->data); 
+  
+    }
+    public function kerivnukplan() {
+    	$data = [];
+	
+		$this->data['content'] = Page::find(1);
+		return view('admink.kerivnuk.navchalniy_plan', $this->data); 
   
     }
 

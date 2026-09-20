@@ -1,9 +1,9 @@
-@extends ('admink.layouts.app_admink')
+@extends ('layouts.baseteacher')
 
 @section('content')
-
-   <div class="card-header">
-<h5>Паспортні данні</h5>
+@include('layouts.instruction.kerivnuk.foto')
+<a class="btn btn-tool"  style="float: right;" href=" {{back()->getTargetUrl()}}">Назад</a>
+<h5>Паспортні данні </h5>
 
 <div class="card-header">
     <ul>
@@ -27,6 +27,7 @@
 <hr>
 <div class="card-header">
 <h5>Данні про диплом</h5>
+
 <ul>
     <li>Потрібно загрузити 1 та 2 сторінки диплому про вищу освіту</li>
 

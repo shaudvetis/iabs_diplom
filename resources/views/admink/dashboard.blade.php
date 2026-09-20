@@ -1,113 +1,148 @@
 @extends ('admink.layouts.app_admink')
-
+@include('layouts.instruction.vukladach.dusboard')
 @section ('content')
-
+<style type="text/css">
+  
+a.text {
+  text-decoration: none;
+  color: #666;
+}
+</style>
 <ul class="nav nav-tabs">
   <li class="nav-item">
-    <a class="nav-link active" href="#">Звіт заочників</a>
+    <a class="nav-link active" href="#">Звіт очників</a>
   </li>
   <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Звіт очників</a>
+   <!--  <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Звіт заочників</a>
     <div class="dropdown-menu">
       <a class="dropdown-item" href="/admink/course/1">Перший курс</a>
       <a class="dropdown-item" href="/admink/course/2">Другий курс</a>
       <a class="dropdown-item" href="/admink/course/3">Третій курс</a>
       <div class="dropdown-divider"></div>
-      </div>
+      </div> -->
   </li>
   </ul>
-
-
     <div class="row">
-           <div class="btn-sm" style="width: 200px">
             <!-- small box -->
-            <div class="small-box bg-info">
-              <div class="inner">
-                <h6>Введення в хірургію</h6>
+          <a href="{{asset('admink.kyraciya.cherevna')}}" class="text">
+           <div class="btn-sm" style="width: 200px;">
+            <div class="small-box bg-warning">
+              <div class="inner" style="height:90px">
+                <h6 style="color: white">Звіти курацій</h6>
+                <p style="color: white">Очна\Заочна частина</p>
+               </div>
+              <div class="icon">
+                <i class="fas fa-user-plus"></i>
+              </div>
+             </div>
+           </div>
+      </a>
 
-                <p>Очна частина</p>
+    <a href="{{asset('admink.kyraciya.nightpracticeday')}}" class="text">
+    <div class="btn-sm" style="width: 200px">
+            <!-- small box -->
+           <div class="small-box bg-dark">
+              <div class="inner" style="height: 90px">
+                <h6>Нічні чергування</h6>
+                <p>Очна\Заочна частина</p>
+              </div>
+              <div class="icon">
+                <i class="far fa-calendar-alt"></i>
+              </div>
+            </div>
+           </div>
+        </a>
+      <!-- small box -->
+      <a href="{{asset('test')}}" class="text">
+          <div class="btn-sm" style="width: 200px;">
+            <div class="small-box bg-orange">
+              <div class="inner" style="height: 90px">
+                <h6 style="color: white">Тестування</h6>
+                <!-- <p>Очна частина</p> -->
               </div>
               <div class="icon">
                 <i class="fas fa-comments"></i>
               </div>
-              <a href="{{asset('admink.ball_starts')}}" class="small-box-footer"><strong>Детальніше <i class="fas fa-arrow-circle-right"></strong></i></a>
-  </div>
-          </div> 
-
-          <!-- small box -->
-             <div class="btn-sm" style="width: 200px;height:100px">
-            <div class="small-box bg-warning">
-              <div class="inner">
-                <h6>Черевна порожнина</h6>
-
-                <p>Очна частина</p>
-              </div>
-              <div class="icon">
-                <i class="fas fa-user-plus"></i>
-              </div>
-              <a href="{{asset('nightworkday')}}" class="small-box-footer"><strong>Детальніше <i class="fas fa-arrow-circle-right"></strong></i></a>
             </div>
-    </div>
-          <!-- ./col -->
-        
-            <!-- small box -->
-             <div class="btn-sm" style="width: 200px">
-            <div class="small-box bg-danger">
-              <div class="inner">
-                <h6>Грудна клітина</h6>
-
-                <p>Очна частина</p>
-              </div>
-              <div class="icon">
-                <i class="fas fa-arrow-circle-right"></i>
-              </div>
-              <a href="{{asset('formssurgeryday')}}" class="small-box-footer"><strong>Детальніше <i class="fas fa-arrow-circle-right"></strong></i></a>
-         </div>
           </div>
+         </a>
 
-          <div class="btn-sm" style="width: 200px">
-            <!-- small box -->
-            <div class="small-box bg-success">
-              <div class="inner">
-                <h6>Проктологія</h6>
-
-                <p>Очна частина</p>
-              </div>
+     <a href="{{asset('kroksurgery')}}" class="text">
+    <div class="btn-sm" style="width: 200px;">
+     <div class="small-box bg-success">
+     <!--  Блок задает вісоту самого квадратика -->
+       <div class="inner" style="height: 90px">
+          <h6>Підготовка до іспиту «Крок-3» </h6>
+               <!--  <p>Очна частина</p> -->
+             </div>
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
               </div>
-              <a href="{{asset('formspracticeday')}}" class="small-box-footer"><strong>Детальніше <i class="fas fa-arrow-circle-right"></strong></i></a>
+               <!--  <i class="fas fa-arrow-circle-right"></strong></i> -->
             </div>
           </div>
+          </a>
 
-           <div class="btn-sm" style="width: 200px">
-            <!-- small box -->
-            <div class="small-box bg-dark">
-              <div class="inner">
-                <h6>Засвоєна література</h6>
-
-                <p>Урологія</p>
-              </div>
+    <a href="{{asset('last_online')}}" class="text">
+    <div class="btn-sm" style="width: 200px;">
+     <div class="small-box bg-info">
+     <!--  Блок задает вісоту самого квадратика -->
+       <div class="inner" style="height: 90px">
+          <h6>Присутність на сайті</h6>
+               <!--  <p>Очна частина</p> -->
+             </div>
               <div class="icon">
-                <i class="far fa-calendar-alt"></i>
+                <i class="ion ion-stats-bars"></i>
               </div>
-              <a href="{{asset('intern.read_literatyre')}}" class="small-box-footer"><strong>Детальніше <i class="fas fa-arrow-circle-right"></strong></i></a>
+               <!--  <i class="fas fa-arrow-circle-right"></strong></i> -->
             </div>
-           </div>
-    <div class="btn-sm" style="width: 200px">
-            <!-- small box -->
-            <div class="small-box bg-purple">
-              <div class="inner">
-                <h6>Судинна хірургія</h6>
+          </div>
+          </a>    
 
-                <p>Очна частина</p>
-              </div>
+
+    <a href="{{route('pass-nb')}}" class="text">
+    <div class="btn-sm" style="width: 200px;">
+     <div class="small-box bg-pink">
+     <!--  Блок задает вісоту самого квадратика -->
+       <div class="inner" style="height: 90px">
+          <h6>Звітність по Н\Б </h6>
+               <!--  <p>Очна частина</p> -->
+             </div>
               <div class="icon">
-                <i class="far fa-calendar-alt"></i>
+                <i class="ion ion-stats-bars"></i>
               </div>
-              <a href="#" class="small-box-footer"><strong>Детальніше <i class="fas fa-arrow-circle-right"></strong></i></a>
+               <!--  <i class="fas fa-arrow-circle-right"></strong></i> -->
             </div>
+          </div>
+          </a>   
+
+         <a href="{{route('reportmarks')}}" class="text">
+           <div class="btn-sm" style="width: 200px;">
+            <div class="small-box" style="background:rgba(224, 110, 126, 1);">
+              <div class="inner" style="height:90px">
+                <h6 style="color: white">Звіт оцінки по напрямкам</h6>
+               </div>
+              <div class="icon">
+                <i class="fas fa-user-plus"></i>
+              </div>
+             </div>
            </div>
+      </a>
+
+
+       <a href="{{route('pass-allball')}}" class="text">
+           <div class="btn-sm" style="width: 200px;">
+            <div class="small-box bg-warning">
+              <div class="inner" style="height:90px">
+                <h6 style="color: white">Звіт оцінки по семінару</h6>
+               </div>
+              <div class="icon">
+                <i class="fas fa-user-plus"></i>
+              </div>
+             </div>
+           </div>
+      </a>
+
        </div>
    </div>
 

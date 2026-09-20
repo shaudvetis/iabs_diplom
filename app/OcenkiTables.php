@@ -12,17 +12,48 @@ class OcenkiTables extends Model
      * @var array
      */
 
-    protected $fillable = ['user_id', 'id_seminarus','tema'=>'array',
-     'element' => 'array', 'bal'=> 'array', 'lessons'=> 'array', 'morning'=> 'array'
+    protected $fillable = ['id','user_id', 'id_seminar','id_seminarus','tema',
+      'bal', 'lessons','element','morning','teor_nav','teacher_id'
     ];
+
+public static function update_ocenki($id, $user_id, $id_seminar,$id_seminarus, $tema,$bal, $lessons,$element,$teacher_id){
+        
+       $proverka = OcenkiTables::where('id', $id)->get();
+         if($proverka->isEmpty()){
+              OcenkiTables::updateOrCreate([
+            'user_id' => $user_id, 
+            'id_seminar' => $id_seminar,
+            'id_seminarus' => $id_seminarus,
+            'tema' => $tema,
+            'bal' => $bal,
+            'lessons' => $lessons,
+            'element' => $element,
+            'teacher_id'=>$teacher_id
+                  ]);
+         }
+         else{
+            OcenkiTables::find($id)->update([
+            'user_id' => $user_id, 
+            'id_seminar' => $id_seminar,
+            'id_seminarus' => $id_seminarus,
+            'tema' => $tema,
+            'bal' => $bal,
+            'lessons' => $lessons,
+            'element' => $element,
+            'teacher_id'=>$teacher_id
+                      
+        ]);
+         }
+    }
+
 
     public function user()
     {
         return $this->belongsTo(User::class);
     }
-    public function atestatprofile()
+    public function userprofiles()
     {
-        return $this->belongsTo(AtestatProfile::class);
+        return $this->belongsTo(UserProfile::class);
     }
    public function seminartema()
     {

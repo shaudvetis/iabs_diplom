@@ -47,7 +47,7 @@ class TopclassesSection extends Section implements Initializable
     /**
      * @var string
      */
-    protected $title = 'Настройка тем занятий';
+    protected $title = 'Теми занять - заочні';
 
     /**
      * @var string

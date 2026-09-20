@@ -27,6 +27,8 @@ class DetailsoneController extends Controller
               }
          ])->select('id', 'course_title')->get();      
 
+        //  dd($details);
+
 return view('admink.atestat_profiles')->with('details',$details)->with('id_user', $id_user);       
     }  
 

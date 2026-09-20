@@ -1,23 +1,15 @@
-@extends ('admink.layouts.app_admink')
-
+@extends ('layouts.baseteacher')
 @section('content')
-
-<style>
-.red {
-color: MediumVioletRed; 
-}
-</style>
+@include('layouts.instruction.kerivnuk.osobusto')
+<!-- Button trigger modal -->
 <nav>
-  <div class="nav nav-tabs" id="nav-tab" role="tablist">
-    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Особисті данні </a>
-
-    <a href="{{asset('admink.user_download/?id_student='.$details->user_id)}}" class="nav-item nav-link" role="tab">Завантаженні документи</a>
-    <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="{{asset('admink.atestat_profiles/?user_id='.$details->user_id)}}" role="tab" aria-controls="nav-contact" aria-selected="false">Додатки</a>
-    <a href="{{route('admink.user_print', [$details->id])}}" class="nav-item nav-link red" >Друк</a>      
+  <div class="nav nav-tabs" >
+    <a  class="nav-item nav-link" type="button" data-toggle="tooltip" data-placement="top" title="Особисті дані обраного інтерна">Особисті данні </a>
+    <a href="{{asset('admink.user_download/?id_student='.$details->user_id)}}" class="nav-item nav-link"  type="button" data-toggle="tooltip" data-placement="top" title="Фото які завантажив інтерн">Завантаженні документи</a>
+    <a class="nav-item nav-link"  href="{{asset('admink.atestat_profiles/?user_id='.$details->user_id)}}" type="button" data-toggle="tooltip" data-placement="top" title="Перегляд додатків обраного інтерна"  >Додатки</a>
+    <a href="{{route('admink.user_print', [$details->id])}}" class="nav-item nav-link red" type="button" data-toggle="tooltip" data-placement="top" title="Друк особистих даних обраного інтерна">Друк</a>      
   </div>
 </nav>
-
-<div class="tab-content" id="nav-tabContent">
 
                       @if (session('message-updated'))
                          @component('admink.components.alert')
@@ -27,8 +19,6 @@ color: MediumVioletRed;
                              {!! session('message-updated') !!}
                          @endcomponent
                       @endif          
-
-  <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
 
     <form role="form" method="post" action="{{route('user_profile_update', [$details->id])}}">
     {{ csrf_field() }}
@@ -40,11 +30,8 @@ color: MediumVioletRed;
         <div class="card-header">
 
             <h3 class="card-title">Особисті данні інтерна</h3>
-
-            <div class="card-tools">
-                <button type="button" class="btn btn-tool" data-widget="collapse"><i class="fas fa-minus"></i></button>
-                <button type="button" class="btn btn-tool" data-widget="remove"><i class="fas fa-remove"></i></button>
-            </div>
+      
+           
         </div>
         <div class="card-body">
             <div class="row">
@@ -102,40 +89,51 @@ color: MediumVioletRed;
     <label>Флюрографія норма</label>
     <input type="text" class="form-control" name="fl_norm" value="{{$details->fl_norm}}" placeholder="введіть номер">
 </div>
+<div class="col-3">
+<label>Курс</label>
+<select name="course" class="form-control select1" style="width: 100%;">
+  <option selected></option>
+   <option value="1" @if(isset($details->course)) @if($details->course == 1) selected @endif @endif>1</option>
+  <option value="2" @if(isset($details->course)) @if($details->course == 2) selected @endif @endif>2</option>
+  <option value="3" @if(isset($details->course)) @if($details->course == 3) selected @endif @endif>3</option>
+  </select>
+</div>
+<div class="col-2">
+    <label>Десяток</label>
+    <select name="decatki" class="form-control select1" style="width: 100%;">
+  <option selected></option>
+   <option value="1" @if(isset($details->decatki)) @if($details->decatki == 1) selected @endif @endif>1</option>
+   <option value="2" @if(isset($details->decatki)) @if($details->decatki == 2) selected @endif @endif >2</option>
+   <option value="3" @if(isset($details->decatki)) @if($details->decatki == 3) selected @endif @endif >3</option>
+   <option value="4" @if(isset($details->decatki)) @if($details->decatki == 4) selected @endif @endif >4</option>
+   <option value="5" @if(isset($details->decatki)) @if($details->decatki == 5) selected @endif @endif >5</option>
+   <option value="6" @if(isset($details->decatki)) @if($details->decatki == 6) selected @endif @endif >6</option>
+ </select>
+</div>
+
 
   </div>
 </div>
     </div>
     <!-- SELECT2 EXAMPLE -->
       <div class="card card-danger">
-
           <div class="card-header">
-
               <h3 class="card-title">Поштова адреса місця мешкання інтерна</h3>
-
-              <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-widget="collapse"><i class="fas fa-minus"></i></button>
-                  <button type="button" class="btn btn-tool" data-widget="remove"><i class="fas fa-remove"></i></button>
-              </div>
           </div>
           <div class="card-body">
               <div class="row">
-і
-
-     <div class="form-group col-md-4">
-      <label>Країна</label>
-      <input type="text" class="form-control" name="country" value="{{$details->country}}">
-    </div>
-
-    <div class="form-group col-md-4">
-      <label for="inputCity">Місто</label>
-      <input type="text" class="form-control" name="city" value="{{$details->city}}">
-    </div>
-                  <div class="form-group col-md-4">
-                      <label>ПГТ</label>
-                      <input type="text" class="form-control" name="village" value="{{$details->village}}">
+               <div class="form-group col-md-4">
+                <label>Країна</label>
+                <input type="text" class="form-control" name="country" value="{{$details->country}}">
+               </div>
+                <div class="form-group col-md-4">
+                 <label for="inputCity">Місто</label>
+                  <input type="text" class="form-control" name="city" value="{{$details->city}}">
+                </div>
+                <div class="form-group col-md-4">
+                 <label>ПГТ</label>
+                  <input type="text" class="form-control" name="village" value="{{$details->village}}">
                   </div>
-
     <div class="form-group col-md-2">
         <label for="inputZip">Індекс</label>
         <input type="text" class="form-control" name="index" value="{{$details->index}}">
@@ -153,8 +151,6 @@ color: MediumVioletRed;
     <label for="inputAddress">Квартира</label>
     <input type="text" class="form-control" name="apartment" placeholder="номер" value="{{$details->apartment}}">
   </div>
-
-
      <div class="col-5">
     <label for="inputAddress">Особисті контактні телефони</label>
     <input type="text" class="form-control" name="telm" placeholder="мобільний" value="{{$details->telm}}">
@@ -168,11 +164,6 @@ color: MediumVioletRed;
                   <div class="card-header">
 
                       <h3 class="card-title">Поштова адреса місця прописки інтерна</h3>
-
-                      <div class="card-tools">
-                          <button type="button" class="btn btn-tool" data-widget="collapse"><i class="fas fa-minus"></i></button>
-                          <button type="button" class="btn btn-tool" data-widget="remove"><i class="fas fa-remove"></i></button>
-                      </div>
                   </div>
                   <div class="card-body">
                       <div class="row">
@@ -215,11 +206,7 @@ color: MediumVioletRed;
                           <div class="card-header">
 
                               <h3 class="card-title">Поштова адреса батьків</h3>
-
-                              <div class="card-tools">
-                                  <button type="button" class="btn btn-tool" data-widget="collapse"><i class="fas fa-minus"></i></button>
-                                  <button type="button" class="btn btn-tool" data-widget="remove"><i class="fas fa-remove"></i></button>
-                              </div>
+  
                           </div>
                           <div class="card-body">
                               <div class="row">
@@ -268,11 +255,7 @@ color: MediumVioletRed;
   <div class="card card-danger">
    <div class="card-header">
     <h3 class="card-title">Заочна база</h3>
-     <div class="card-tools">
-      <button type="button" class="btn btn-tool" data-widget="collapse"><i class="fas fa-minus"></i></button>
-      <button type="button" class="btn btn-tool" data-widget="remove"><i class="fas fa-remove"></i></button>
-     </div>
-    </div>
+       </div>
   
   <div class="card-body">
   <div class="row">
@@ -335,11 +318,7 @@ color: MediumVioletRed;
   <div class="card card-danger">
    <div class="card-header">
     <h3 class="card-title">Розподіл після інтернатури (держбюджет)</h3>
-     <div class="card-tools">
-      <button type="button" class="btn btn-tool" data-widget="collapse"><i class="fas fa-minus"></i></button>
-      <button type="button" class="btn btn-tool" data-widget="remove"><i class="fas fa-remove"></i></button>
-     </div>
-    </div>
+        </div>
   
   <div class="card-body">
   <div class="row">
@@ -401,5 +380,8 @@ color: MediumVioletRed;
                     </div>
 </form>
 
+<script>
+  $.widget.bridge('uibutton', $.ui.button)
+</script>
 @endsection
 

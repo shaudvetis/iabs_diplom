@@ -1,8 +1,6 @@
 /node_modules
 /public/hot
 /public/storage
-/public/images
-/public/foldername
 /storage/*.key
 /vendor
 .env
@@ -11,3 +9,8 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
+
+# Персональні/медичні дані студентів та пацієнтів — не в git, окремий бекап
+/public/images
+*.sql
+*.sql.gz

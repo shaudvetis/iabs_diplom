@@ -21,7 +21,9 @@ class CreateNightpracticsTable extends Migration
             $table->longText('diagnoses',500)->comment('Cодержимое элемента');
             $table->text('work')->comment('Що зроблено');
             $table->longText('practic')->comment('Виконані маніпуляції');
-            $table->text('station')->comment('Місце роботи');
+            $table->text('station_2')->comment('Інше роботи');
+            $table->text('date_work')->comment('Дата роботи');
+            $table->text('time_work')->comment('Час роботи');
             $table->integer('id_student')->comment('Код студента');
             $table->timestamps();
         });

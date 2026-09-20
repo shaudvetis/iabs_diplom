@@ -41,6 +41,12 @@ class FirstController extends Controller
         return view('surgerycoursen', compact('surgerycoursen'));
     }
 
+     public function contact()
+    {   
+        
+        return view('contact');
+    }
+
 }
 
 	

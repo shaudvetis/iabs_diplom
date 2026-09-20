@@ -1,5 +1,5 @@
 @extends('layouts.base')
-
+@include('layouts.instruction.intern.profile')
 @section('content')
 
 <div class="container">
@@ -34,7 +34,7 @@
      <div class="row">
   <div class="col-4">
     <label>Прізвище</label>
-    <input type="text" class="form-control" name="surname">
+    <input type="text" class="form-control" name="surname" >
   </div>
   
   <div class="col-4">
@@ -77,7 +77,28 @@
 </div>
 <div class="col-4">
     <label>Флюрографія норма</label>
-    <input type="text" class="form-control" name="fl_norm" placeholder="введітьь нормк">
+    <input type="text" class="form-control" name="fl_norm" placeholder="введіть норми">
+</div>
+<div class="col-2">
+    <label>Курс</label>
+    <select name="course" required class="form-control select1" style="width: 100%; ">
+   <option></option>
+   <option>1</option>
+   <option>2</option>
+   <option>3</option>
+ </select>
+</div>
+<div class="col-2">
+    <label>Десяток</label>
+    <select name="decatki" class="form-control select1" style="width: 100%;">
+   <option></option>
+   <option>1</option>
+   <option>2</option>
+   <option>3</option>
+   <option>4</option>
+   <option>5</option>
+   <option>5</option>
+ </select>
 </div>
 
   </div>

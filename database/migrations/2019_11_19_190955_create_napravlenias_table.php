@@ -17,6 +17,7 @@ class CreateNapravleniasTable extends Migration
         Schema::create('napravlenias', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->text('direction')->comment('название');
+            $table->integer('modul')->comment('№ модуля');
             $table->timestamps();
         });
     }

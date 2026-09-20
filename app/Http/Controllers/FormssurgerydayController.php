@@ -6,18 +6,104 @@ use Illuminate\Http\Request;
 
 use App\Formssurgeryday;
 use Auth;
+use DB;
 use App\User;
-
+use App\Pract_nav;
+use App\UserProfile;
 
 
 class FormssurgerydayController extends Controller
 {
-	public function Formindex() {
-		 $check = 'true';  //Эта переменная из students  чтоб запустился base
-	 return view('formssurgeryday',compact('check'));
+	public function Formindex(Request $request, Pract_nav $pract ) {
+
+	$napravlenie = DB::table('napravlenias')
+  ->select('napravlenias.id', 'napravlenias.direction')
+  ->where('napravlenias.views', '!=', 2)
+  ->orderby('direction', 'asc')
+   ->get(); 
+
+$i=$request->all();
+$d = $request->direction;
+
+$currentUser = Auth::user();
+
+$userCourse = UserProfile::select('course','user_id')->where('user_id',  Auth::user()->id)->first();
+
+$product = $pract->funcSelect($d);
+// dd($product);
+// exit();
+$archiv= DB::table('formspracticedays')
+->leftjoin('user_profiles', 'formspracticedays.id_student', '=', 'user_profiles.user_id' )
+->select('formspracticedays.id', 'formspracticedays.*','user_profiles.name','user_profiles.surname' )
+->where('formspracticedays.direction', $d)
+->where ('user_profiles.user_id', $currentUser->id)
+->get(); 
+// dd($archiv);
+// exit();
+
+// $seminarse = DB::table('seminar_temas')
+//  ->join('seminarus', 'seminar_temas.id_seminar', '=', 'seminarus.id' )
+//  ->leftjoin('ocenki_tables', function($join) use ($currentUser){
+//                 $join->on('seminar_temas.id', '=', 'ocenki_tables.tema')
+//                      ->where('ocenki_tables.user_id', $currentUser->id);
+//             })
+// ->select('ocenki_tables.id','seminar_temas.id', 'seminar_temas.id_seminar', 'seminar_temas.tema', 'seminar_temas.npp',  'seminarus.npp', 'seminar_temas.pract_nav', 'seminarus.direction','seminar_temas.element', 'ocenki_tables.bal', 'ocenki_tables.lessons', 'ocenki_tables.morning')
+//  ->where('seminarus.direction', $d);
+
+// $seminar = DB::table('seminarus')
+// ->select('id as ocenki_id', 'id', 'id  as id_seminar', 'seminar_title as tema', 'npp',  'npp_main', 'pract_nav', 'direction','element','bal', 'kafedra as lessons', 'teor_nav as morning')
+//  ->where('seminarus.direction', $d)
+//    ->union($seminarse)
+//     ->orderBy('id_seminar')
+// ->orderBy('npp')
+// ->get();
+
+$seminar = DB::table('seminar_temas')
+   ->leftjoin('seminarus', 'seminar_temas.id_seminar', '=', 'seminarus.id' )
+   ->leftjoin('ocenki_tables', function($join) use ($currentUser){
+         $join->on('seminar_temas.id', '=', 'ocenki_tables.tema')
+          ->where('ocenki_tables.user_id', $currentUser->id);
+      })
+   ->select('seminar_temas.id', 'seminar_temas.id_seminar', 'seminar_temas.tema', 'seminar_temas.npp',  'seminarus.npp_main', 'seminar_temas.pract_nav','seminarus.direction', 'seminar_temas.morning as question','seminar_temas.teor_nav','seminar_temas.element','seminarus.seminar_title as title', 'ocenki_tables.bal')
+    ->where('seminarus.direction', $d)
+    // ->where('seminar_temas.teor_nav', $request->id)
+     ->orderBy('npp', 'asc')
+     ->get();
+
+// dd($seminar);
+// exit();
+$results1=DB::select("select  user_profiles.user_id, user_profiles.surname, user_profiles.name, user_profiles.decatki,  mocenki.suma, mocenki1.suma1,mocenki2.suma3  FROM user_profiles
+
+left join (select controlmodyls.user_id, controlmodyls.id_seminarus, sum(COALESCE(controlmodyls.one,0)
+ + COALESCE(controlmodyls.two,0)
+ + COALESCE(controlmodyls.three,0)
+ + COALESCE(controlmodyls.four, 0)
+ + COALESCE(controlmodyls.five, 0)
+ + COALESCE(controlmodyls.six, 0)
+ + COALESCE(controlmodyls.seven,0)
+ + COALESCE(controlmodyls.eight,0)
+ + COALESCE(controlmodyls.nine, 0)) as suma from controlmodyls where controlmodyls.id_seminarus='$d' group by controlmodyls.id_seminarus, controlmodyls.user_id) as mocenki
+ ON  user_profiles.user_id = mocenki.user_id 
+
+left join (select   ocenki_tables.user_id, sum(ocenki_tables.bal) as suma1 from ocenki_tables where ocenki_tables.id_seminarus='$d' group by ocenki_tables.user_id ) as mocenki1 
+ON  user_profiles.user_id = mocenki1.user_id 
+
+left join (select   testirovanies.user_id, sum(testirovanies.all_bal) as suma3 from testirovanies where testirovanies.direction=2 group by testirovanies.user_id ) as mocenki2 
+ON  user_profiles.user_id = mocenki2.user_id 
+
+where user_profiles.user_id ='$currentUser->id' ");
+// dd($results1);
+// exit();
+
+ $direction = DB::table('napravlenias')
+ ->leftjoin('settings_bal', 'napravlenias.id', '=', 'settings_bal.direction' )
+  ->select('napravlenias.id', 'napravlenias.direction','settings_bal.*' )
+            ->where('napravlenias.id', $d)
+             ->where('napravlenias.views', '!=', 2)
+            ->get(); 
+
+	 return view('formssurgeryday',compact('direction','d','napravlenie','seminar','results1','currentUser','product','archiv','userCourse'));
 	}
-
-
 
 	public function postAction(Request $request)
 	{
@@ -25,11 +111,11 @@ class FormssurgerydayController extends Controller
 		$currentUser = Auth::user();
 		
 
-		$validateData = $request->validate([
-			'viewsurgery'=>'required',
-			'num_card'=>'required|:unique:formssurgery',
-			'type_work'=>'required'
-		]);
+		// $validateData = $request->validate([
+		// 	'viewsurgery'=>'required',
+		// 	'num_card'=>'required|:unique:formssurgery',
+		// 	'type_work'=>'required'
+		// ]);
 
 			
 		$data=$request->all();

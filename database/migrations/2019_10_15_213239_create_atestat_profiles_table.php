@@ -14,17 +14,17 @@ class CreateAtestatProfilesTable extends Migration
     public function up()
     {
         Schema::create('atestat_profiles', function (Blueprint $table) {
- $table->bigIncrements('id');
- $table->integer('user_id');
-  $table->integer('course_id');
- $table->string('credits', 255)->nullable();
-$table->string('hours', 255)->nullable();
-$table->string('marks', 255)->nullable();
- $table->string('nac_grade', 255)->nullable();
- $table->string('ects_grade', 255)->nullable();
-$table->string('all_grade', 255)->comment('всего години 2 кол')->nullable();
- $table->string('total_marks', 255)->comment('всего кредитов 1 кол')->nullable();
-$table->timestamps();
+       $table->bigIncrements('id');
+       $table->integer('user_id');
+       $table->integer('course_id');
+       $table->string('credits', 255)->nullable();
+       $table->string('hours', 255)->nullable();
+       $table->string('marks', 255)->nullable();
+       $table->string('nac_grade', 255)->nullable();
+       $table->string('ects_grade', 255)->nullable();
+       $table->string('all_grade', 255)->comment('всего години 2 кол')->nullable();
+       $table->string('total_marks', 255)->comment('всего кредитов 1 кол')->nullable();
+       $table->timestamps();
         });
     }
 

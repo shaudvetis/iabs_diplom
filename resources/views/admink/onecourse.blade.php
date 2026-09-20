@@ -1,127 +1,77 @@
-@foreach ($profiles as $student)
-        <div id="foto<?php echo $student['id']; ?>" style="width: 50%;  position: absolute; background: white; margin-top: 80px; margin-left: 30%; z-index: 5<?php echo $student['id']; ?>; display: none; border: 2px solid black">
-
-        <button onclick="close<?php echo $student['id']; ?>()">закрити</button>
-        <br>
-         <?php
-         $user_id = $student['user_id'];
-           //$img = 'SELECT * FROM `download_profiles` WHERE `id_student` = $user_id';
-           $query = DB::select("SELECT * FROM `download_profiles` WHERE `id_student` = $user_id", array(1));
-           //$array = (array) $query;
-           $array = json_decode(json_encode($query), true);
-          // извлечение строки  
-           foreach ($array as $foto) {
-              $array_pas = $foto['pasport'];
-              $array_dip = $foto['diplom'];
-              $array_idcod = $foto['ident_code'];
-              $array_dipl_compl = $foto['diplom_compl'];
-              $array_cert = $foto['certificate'];
-              $array_book = $foto['health_book'];
-              $array_foto = $foto['foto'];
-
-          }
-          //pasport
-           echo '<br>'.'паспорт '.'<br>';
-           $pasport =  explode(",", $array_pas);
-           $amaz_pasport = array_pop($pasport);
-           foreach ($pasport as $img) {
-            echo '<a href="/images/Foldername/pasport/'.$user_id.'/'.$img.'"><img style = "width: 200px; height: 180px; "src="/images/Foldername/pasport/'.$user_id.'/'.$img.'" alt="альтернативный текст"></a>';
-           }
-           //diplom
-           echo '<br>'.'диплом '.'<br>';
-           $diplom =  explode(",", $array_dip);
-           $amaz_diplom = array_pop($diplom);
-           foreach ($diplom as $img) {
-            echo '<a href="/images/Foldername/diplom/'.$user_id.'/'.$img.'"><img style = "width: 200px; height: 180px; "src="/images/Foldername/diplom/'.$user_id.'/'.$img.'" alt="альтернативный текст"></a>';
-           }
-           //ident_cod
-           echo '<br>'.'ідентифікаційний код '.'<br>';
-           $ident_cod =  explode(",", $array_idcod);
-           $amaz_ident = array_pop($ident_cod);
-           foreach ($ident_cod as $img) {
-            echo '<a href="/images/Foldername/ident_code/'.$user_id.'/'.$img.'"><img style = "width: 200px; height: 180px; "src="/images/Foldername/ident_code/'.$user_id.'/'.$img.'" alt="альтернативный текст"></a>';
-           }
-           //diplom_compl
-           echo '<br>'.'додаток до диплома '.'<br>';
-           $dipl_compl =  explode(",",  $array_dipl_compl);
-           $amaz_dipl_compl = array_pop($dipl_compl);
-           foreach ($dipl_compl as $img) {
-            echo '<a href="/images/Foldername/diplom_compl/'.$user_id.'/'.$img.'"><img style = "width: 200px; height: 180px; "src="/images/Foldername/diplom_compl/'.$user_id.'/'.$img.'" alt="альтернативный текст"></a>';
-           }
-           //certificate
-            echo '<br>'.'сертифікат '.'<br>';
-           $cert =  explode(",", $array_cert);
-           $amaz_cert = array_pop( $cert);
-           foreach ($cert as $img) {
-            echo '<a href="/images/Foldername/certificate/'.$user_id.'/'.$img.'"><img style = "width: 200px; height: 180px; "src="/images/Foldername/certificate/'.$user_id.'/'.$img.'" alt="альтернативный текст"></a>';
-           }
-           //health_book
-           echo '<br>'.'санітарна книжка'.'<br>';
-           $san =  explode(",", $array_book);
-           $amaz_san = array_pop($san);
-           foreach ($san as $img) {
-            echo '<a href="/images/Foldername/health_book/'.$user_id.'/'.$img.'"><img style = "width: 200px; height: 180px; "src="/images/Foldername/health_book/'.$user_id.'/'.$img.'" alt="альтернативный текст"></a>';
-           }
-           //foto
-           echo '<br>'.'фото'.'<br>';
-           $fot =  explode(",", $array_foto);
-           $amaz_foto = array_pop($fot);
-           foreach ($fot as $img) {
-            echo '<a href="/images/Foldername/foto/'.$user_id.'/'.$img.'"><img style = "width: 200px; height: 180px; "src="/images/Foldername/foto/'.$user_id.'/'.$img.'" alt="альтернативный текст"></a>';
-           }
-           
-         ?>
-        </div>
-
-@endforeach
-@extends ('admink.layouts.app_admink')
+@extends ('layouts.baseteacher')
 
 @section ('content')
-
-<ul class="nav nav-tabs">
-  <li class="nav-item">
-    <a class="nav-link active" href="#">Зареєстровані</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link active" href="{{asset('admink.user_download')}}">Фото</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="{{asset('admink.timetableone')}}">Розклад</a>
-  </li>
-</ul>
+<!-- Modal -->
+@include('layouts.instruction.kerivnuk.onecourse')
 <style> 
-  table {
-    width: 100%;
+table {
+  width: 100%;
    border: 1px solid #dee2e6;
-   
-  }
-  
-  th {
+   text-align: center;
+}
+th {
   border-radius: 0.25rem;
-   border: 1px solid #dee2e6;
-
-  }
- 
-   td { border: 1px solid #dee2e6;
-   } /**/
+  border: 1px solid #dee2e6;
+}
+td { border: 1px solid #dee2e6;
+} /**/
   thead {
-    color: #495057;
+  color: #495057;
   background-color: #e9ecef;
   border-color: #dee2e6;
-  }
-  .layer {
-    overflow: scroll; /* Добавляем полосы прокрутки */
-     }
-       
-  </style>
-<div class="table-responsive">
+}
+.layer {
+ overflow: scroll; /* Добавляем полосы прокрутки */
+}
+@media print {
+    #printButton {
+        display:none;
+    }
+   
+  .shad{
+  text-decoration: none;
+  outline: none;
+  display: inline-block;
+  color:red;
+  padding: 20px 30px;
+  margin: 10px 20px;
+  border-radius: 10px;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background-image: linear-gradient(to right, #9EEFE1 0%, #4830F0 51%, #9EEFE1 100%);
+  background-size: 200% auto;
+  box-shadow: 0 0 20px rgba(0,0,0,.1);
+  transition: .5s;
+}
+
+</style>
+<!-- Кнопка запуска ексель и загрузка очет лежит в инклюде -->
+   <button type="button" style="margin-left: 900px;" class=" btn btn-danger button-excel" name="getzapr" value="1" >Выгрузить в Excel</button>
+
+<form method="post" action="{{asset('admink.onecourse')}}">
+      {{ csrf_field() }}
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link active" href="#">Зареєстровані</a></li>
+   <!-- <li class="nav-item">
+    <a class="nav-link" href="{{asset('admink.timetableone')}}">Розклад</a>
+  </li> -->
+</ul>
+ 
+
+<div class="table-responsive report_table" id="report_table" style="height: 600px">
     <table >
      <thead>
-        <tr>
-            <th>#</th>
-            <th style="width:100px">Ім'я</th>
+       <tr>
+        <th>#<th>
+
             <th style="width:100px">Прізвище</th>
+            <th style="width:100px">Ім'я</th>
             <th style="width:100px">По батькові</th>
+            <th style="width:100px">Курс</th>
+            <th style="width:100px">Десяток</th>
+            <th style="width:100px">E-mail</th>
             <th style="width:100px">Стать</th>
             
             <th style="width:100px">ПІБ en</th>
@@ -177,36 +127,36 @@
         </tr>
       </thead>
    <tbody>
+    <?php  $i=1;?>
         @foreach ($profiles as $student)
+       <tr>
+<td><?= $i   ?><br><input type=checkbox name=id_intern1[] value="{{$student->id}}"> </td>
+<td class="col-md-6 col-sm-6 col-xs-6 center widthbutton"><a class="btn btn-primary listbuttonupdate" href="{{ route('admink.user_details', [$student->id]) }}"><i class="fa fa-edit" aria-hidden="true"></i></a>
 
-            <tr>
-<td class="col-md-6 col-sm-6 col-xs-6 center widthbutton">
-  <a class="btn btn-primary listbuttonupdate" href="{{ route('admink.user_details', [$student->id]) }}"><i class="fa fa-edit" aria-hidden="true"></i></a>
- <button onclick="show<?php echo $student['id']; ?>Img()">img</button>
     <script type="text/javascript">
     
-        function show<?php echo $student['id']; ?>Img() {
-             let img = document.getElementById('foto'+<?php echo $student['id']; ?>);
+        function show<?php echo $student->id; ?>Img() {
+             let img = document.getElementById('foto'+<?php echo $student->id; ?>);
              if(img.style.display = 'none') {
                 img.style.display = 'block';}
              else {
                 img.style.display = 'none'; }
 
                 
-        
-            
             console.log(img);
         };
-        function close<?php echo $student['id']; ?>() {
-             let img = document.getElementById('foto'+<?php echo $student['id']; ?>);
+        function close<?php echo $student->id; ?>() {
+             let img = document.getElementById('foto'+<?php echo $student->id; ?>);
                 img.style.display = 'none';
         }
-
-
     </script></td>
-                <td>{{$student->name}}</td>
+
                 <td>{{$student->surname}}</td>
+                <td>{{$student->name}}</td>
                 <td>{{$student->lastname}}</td>
+                <td>{{$student->course}}</td>
+                <td>{{$student->decatki }}</td>
+                <td>{{$student->email}}</td>
                 <td>{{$student->gender}}</td>
                 <td>{{$student->fullname_en}}</td>
                 <td>{{$student->surnamefirst}}</td>
@@ -255,24 +205,27 @@
              <th>{{$student->doctor2}}</th>
              <th>{{$student->tel3}}</th>
                 <!-- <td>{{$student->email}}</td>
-                
-                
-                
-                
-                
-               
-                
-               
  -->
-                
 
-                
-                
                </tr>
+               <?php $i++;  ?>
         @endforeach
         </tbody>
     </table>
 
+</form>
 
+@endsection
 
+@section('js')
+<script>
+
+$(document).ready(function() {
+  $('body').on('click', '.button-excel', function(){
+       var htmltable= document.getElementById('report_table');
+       var html = htmltable.outerHTML;
+       window.open('data:application/vnd.ms-excel,' + encodeURIComponent(html));
+   });
+});
+</script>
 @endsection

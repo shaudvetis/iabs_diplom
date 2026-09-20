@@ -12,13 +12,49 @@ class AtestatProfile extends Model
      * @var array
      */
 
-    protected $fillable = ['user_id', 'course_title'=>'array',
-     'credits' => 'array', 'hours'=> 'array', 'marks'=> 'array', 
-    'nac_grade'=> 'array', 'ects_grade'=> 'array','course_title'=> 'array','id_name'=> 'array'
-    ];
+    protected $fillable = ['id','user_id', 'course_id',
+     'credits', 'hours', 'marks','nac_grade', 'ects_grade','course_title','id_name','total_marks','all_grade','course3','course4','course5','course6' ];
 
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+    public static function update_infrom($id, $user_id, $course_id, $credits,$hours, $marks, $nac_grade, $ects_grade, $course3, $course4, $course5, $course6, $all_grade,  $total_marks){
+        
+       $proverka = AtestatProfile::where('id', $id)->get();
+         if($proverka->isEmpty()){
+              AtestatProfile::updateOrCreate([
+            'user_id' => $user_id, 
+            'course_id' => $course_id,
+            'credits' => $credits,
+            'hours' => $hours,
+            'marks' => $marks,
+            'nac_grade' => $nac_grade,
+            'ects_grade' => $ects_grade,
+            'course3' => $course3,
+            'course4' => $course4,
+            'course5' => $course5,
+            'course6' => $course6,
+            'all_grade' => $all_grade,
+            'total_marks' => $total_marks
+             ]);
+         }
+         else{
+            AtestatProfile::find($id)->update([
+            'user_id' => $user_id, 
+            'course_id' => $course_id,
+            'credits' => $credits,
+            'hours' => $hours,
+            'marks' => $marks,
+            'nac_grade' => $nac_grade,
+            'ects_grade' => $ects_grade,
+            'course3' => $course3,
+            'course4' => $course4,
+            'course5' => $course5,
+            'course6' => $course6,
+            'all_grade' => $all_grade,
+            'total_marks' => $total_marks            
+        ]);
+         }
     }
 }

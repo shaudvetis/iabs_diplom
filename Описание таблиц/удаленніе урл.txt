@@ -1,0 +1,27 @@
+
+Route::get('/admink.kyraciya.ball_start', 'Admink\Kyraciya\CherevnaController@kyraciyaballstart');
+
+Route::post('/admink.kyraciya.ball_start', 'Admink\Kyraciya\CherevnaController@startsurgerypost');
+
+
+Route::get('/admink.kyraciya.proctologia', 'Admink\Kyraciya\CherevnaController@kyraciyproctologia');
+
+Route::post('/admink.kyraciya.proctologia', 'Admink\Kyraciya\CherevnaController@proctologiapost');
+
+Route::get('/admink.kyraciya.grydna', 'Admink\Kyraciya\CherevnaController@kyraciygrydna');
+Route::post('/admink.kyraciya.grydna', 'Admink\Kyraciya\CherevnaController@grudnasurgerypost');
+
+Route::get('/admink.kyraciya.yrologia', 'Admink\Kyraciya\CherevnaController@kyraciayrologia');
+Route::post('/admink.kyraciya.yrologia', 'Admink\Kyraciya\CherevnaController@yrologiasurgerypost');
+
+Route::get('/admink.kyraciya.gnoynaya', 'Admink\Kyraciya\CherevnaController@kyraciagnoynaya');
+Route::post('/admink.kyraciya.gnoynaya', 'Admink\Kyraciya\CherevnaController@gnoynayasurgerypost');
+
+Route::get('/admink.kyraciya.syduna', 'Admink\Kyraciya\CherevnaController@kyraciasyduna');
+Route::post('/admink.kyraciya.syduna', 'Admink\Kyraciya\CherevnaController@sydunasurgerypost');
+
+Route::get('/admink.kyraciya.kardio', 'Admink\Kyraciya\CherevnaController@kyraciakardio');
+Route::post('/admink.kyraciya.kardio', 'Admink\Kyraciya\CherevnaController@kardiosurgerypost');
+
+Route::get('/admink.kyraciya.opiku', 'Admink\Kyraciya\CherevnaController@kyraciaopiku');
+Route::post('/admink.kyraciya.opiku', 'Admink\Kyraciya\CherevnaController@kardiosurgerypost');

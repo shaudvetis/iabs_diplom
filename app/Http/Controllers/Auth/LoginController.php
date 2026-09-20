@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 use Auth;
+use DB;
+use Carbon\Carbon;
 
 class LoginController extends Controller
 {
@@ -41,26 +43,30 @@ class LoginController extends Controller
 
     public function authenticated()
     {
+
+
         switch(Auth::user()->role) {
             case 0:
-                return redirect('/students');
+                return redirect('/intern.students');
                 break;
                 
             case 1:
                 return redirect('/teacher');
                 break;
             case 2:
-                return redirect('/manager');
+                return redirect('/admink.dashboard');
                 break;
             case 3:
                 return redirect('/admin');
                 break;
             case 4:
-                return redirect('/admink');
+                return redirect('/admink.dashboard');
                 break;
             default:
                 return redirect('/home');
                 break;        
         }
+        
+    
     }
 }

@@ -15,16 +15,12 @@
   table {
     width: 100%;
    border: 1px solid #dee2e6;
-   
   }
-  
-  th {
+ th {
   border-radius: 0.25rem;
-   border: 1px solid #dee2e6;
-
+  border: 1px solid #dee2e6;
   }
- 
-   td { border: 1px solid #dee2e6;
+ td { border: 1px solid #dee2e6;
    } /**/
   thead {
   color: #495057;
@@ -33,7 +29,7 @@
   }
   .layer {
     overflow: scroll; /* Добавляем полосы прокрутки */
-     }
+   }
 </style>
 <div class="table-responsive">
     <table >

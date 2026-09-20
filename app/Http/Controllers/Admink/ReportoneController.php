@@ -11,4 +11,6 @@ class ReportoneController extends Controller
     	return view('admink.reportoneochno');
 }
 
+ 
+
 }

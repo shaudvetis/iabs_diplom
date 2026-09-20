@@ -26,6 +26,7 @@ class CreateUsersTable extends Migration
             $table->varchar('course_name', 20)->default(1)->comment('1:day; 2:noday;');;
             $table->rememberToken();
             $table->timestamps();
+            $table->timestamp("last_online_at")->useCurrent();
         });
 
         DB::table('users')->insert([

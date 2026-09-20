@@ -113,9 +113,6 @@ class DownloadController extends Controller
             //down_img - загружаеться или нет
             $down_img = true;
 
-        
-             
-  
 
             return view('download_profile', compact('get_pasport', 'get_diplom', 'get_ident_code', 'get_diplom_compl', 'get_certificate', 'get_health_book', 'get_foto', 'down_img', 'id_user'));
           }
@@ -128,6 +125,10 @@ class DownloadController extends Controller
 
     public function downloadIndex(Request $request) {
         
+
+        // dump($request);
+        // exit();
+
           $currentUser = Auth::user();
           if ($request->hasFile('pasport')) { 
                 // create string for db 'pasport'

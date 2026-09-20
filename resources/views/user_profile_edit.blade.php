@@ -1,13 +1,6 @@
 @extends('layouts.base')
-
+@include('layouts.instruction.intern.profile')
 @section('content')
-
-
-<style>
-.red {
-color: MediumVioletRed; 
-}
-</style>
 
 <div class="tab-content" id="nav-tabContent">
 
@@ -61,24 +54,23 @@ color: MediumVioletRed;
 <div class="col-3">
 <label>Стать</label>
 
+  <select name="gender" class="form-control select" style="width: 100%;">
+    <option> ... </option>
+   <option @if($details->gender == 'Жіноча') selected @endif>Жіноча</option>
+   <option @if($details->gender == 'Чоловіча') selected @endif >Чоловіча</option>
 
-@if($gender === 'true') 
-<select name="gender" class="form-control select1" style="width: 100%;">
-  <option value="Чоловіча" selected="selected">чоловіча</option>
-  <option value="Жіноча"> жіноча </option>
-@endif
-@if($gender === 'false')
-<select name="gender" class="form-control select1" style="width: 100%;">
-  <option value="Жіноча" selected="selected">жіноча</option>
-  <option value="Чоловіча">чоловіча</option>
-@endif
  </select>
 </div>
-       <div class="form-group col-3">
+  
+  <div class="form-group col-3">
     <label>Кафедра</label>
     <select name="kafedra" class="form-control select1" style="width: 100%;" value="{{$details->kafedra}}">
    <option>Хірургія №1</option>
- </select>  </div>
+ </select>  
+</div>
+
+
+
 <div class="form-group col-5">
     <label>ПІБ інтерна англійською мовою</label>
     <input type="text" class="form-control" name="fullname_en" value="{{$details->fullname_en}}">
@@ -96,12 +88,30 @@ color: MediumVioletRed;
     <label>Флюрографія норма</label>
     <input type="text" class="form-control" name="fl_norm" value="{{$details->fl_norm}}" placeholder="введіть норму">
 </div>
-
-
-  </div>
-
+<div class="col-3">
+<label>Курс</label>
+<select name="course" class="form-control select1" style="width: 100%;">
+  <option selected></option>
+   <option value="1" @if(isset($details->course)) @if($details->course == 1) selected @endif @endif>1</option>
+  <option value="2" @if(isset($details->course)) @if($details->course == 2) selected @endif @endif>2</option>
+  <option value="3" @if(isset($details->course)) @if($details->course == 3) selected @endif @endif>3</option>
+  </select>
 </div>
-    </div>
+<div class="col-2">
+    <label>Десяток</label>
+    <select name="decatki" class="form-control select1" style="width: 100%;">
+  <option selected></option>
+   <option value="1" @if(isset($details->decatki)) @if($details->decatki == 1) selected @endif @endif>1</option>
+   <option value="2" @if(isset($details->decatki)) @if($details->decatki == 2) selected @endif @endif >2</option>
+   <option value="3" @if(isset($details->decatki)) @if($details->decatki == 3) selected @endif @endif >3</option>
+   <option value="4" @if(isset($details->decatki)) @if($details->decatki == 4) selected @endif @endif >4</option>
+   <option value="5" @if(isset($details->decatki)) @if($details->decatki == 5) selected @endif @endif >5</option>
+   <option value="6" @if(isset($details->decatki)) @if($details->decatki == 6) selected @endif @endif >6</option>
+ </select>
+</div>
+</div>
+</div>
+</div>
     <!-- SELECT2 EXAMPLE -->
       <div class="card card-danger">
 

@@ -1,5 +1,5 @@
 @extends('layouts.base')
-
+@include('layouts.instruction.intern.xorurg')
 @section('content')
 
 <td colspan="2" >

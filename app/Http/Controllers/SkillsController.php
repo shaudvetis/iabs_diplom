@@ -10,6 +10,10 @@ class SkillsController extends Controller
 		
 	 return view('skills');
 	}
+public function kerivnukskills() {
+		
+	 return view('admink.kerivnuk.skills');
+	}
 
  }  
 

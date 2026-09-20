@@ -1,0 +1,38 @@
+@font-face {
+font-family: "e-Ukraine-head"; 
+ 
+src: url("/css/e-ukr/e-UkraineHead-Bold.woff") format("woff"),
+ url("/css/e-ukr/e-UkraineHead-Bold.ttf") format("truetype");
+
+font-style: normal; 
+font-weight: normal; 
+} 
+
+@font-face {
+font-family: "e-Ukrainehead-light"; 
+ 
+src: url("/css/e-ukr/e-UkraineHead-light.woff") format("woff"),
+ url("/css/e-ukr/e-UkraineHead-light.ttf") format("truetype");
+
+font-style: normal; 
+font-weight: normal; 
+} 
+
+@font-face {
+font-family: "e-Ukraine-Light"; 
+ 
+src: url("/css/e-ukr/e-Ukraine-light.woff") format("woff"),
+ url("/css/e-ukr/e-UkraineHead-light.ttf") format("truetype");
+
+font-style: normal; 
+font-weight: normal; 
+} 
+@font-face {
+font-family: "e-Ukraine-Regular"; 
+ 
+src: url("/css/e-ukr/e-Ukraine-Regular.woff") format("woff"),
+ url("/css/e-ukr/e-UkraineHead-Regular.ttf") format("truetype");
+
+font-style: normal; 
+font-weight: normal; 
+} 

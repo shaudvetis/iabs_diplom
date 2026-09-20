@@ -1,13 +1,10 @@
 @extends('layouts.base')
-
+@include('layouts.instruction.intern.literatyre')
 @section('content')
 
 <form role="form" method="post" action="{{asset('intern.read_literatyre')}}" >
   {{ csrf_field() }}
- @component('layouts.napravleniya')
 
-<div class="was-validated">
-   @endcomponent
        <!-- SELECT2 EXAMPLE -->
         <div class="card card-success">
           <div class="card-header">
@@ -22,45 +19,48 @@
           </div>
           <!-- /.card-header -->
           <div class="card-body">
-            <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-
-
-
-<label>Список прочитаної літератури:</label>
-<textarea class="form-control" name="literatyre" placeholder="Введіть автора, сторінку та тему з коротким описом"></textarea>
- </div>
-                <!-- /.form-group -->
-      
+          <div class="row" >
+           <label style="color:red;font-size: 23px">База навчання</label>
+           </div>
+            <div class="col-sm-6">
+             <div class="was-validated">
+              <div class="custom-control custom-radio">
+               <input id="myRadioButton1" type="radio" required="" name="baza" value="очна" class="custom-control-input">
+                <label class="custom-control-label" for="myRadioButton1" style="font-size: 18px;">Очна</label>
               </div>
-              <!-- /.col -->
-              
-                <!-- /.form-group -->
-  
-                </div>
-                   {!! Form::submit('Відправити', ['class' => 'btn btn-secondary btn-lg btn-block']) !!}
-                <!-- /.form-group -->
+              <div class="custom-control custom-radio">
+               <input id="myRadioButton2" type="radio" name="baza" value="заочна" class="custom-control-input">
+                <label class="custom-control-label" value="заочна" for="myRadioButton2" style="font-size: 18px">Заочна</label>
               </div>
-              <!-- /.col -->
+             </div>
             </div>
-            <!-- /.row -->
-          </div>
-          <!-- /.card-body -->
-
+            <p></p>
+            @component('layouts.napravleniya')
+           <div class="was-validated">
+           @endcomponent      
+           </div>
+           <div class="row" style="margin-left: 5px;">
+           <label>Список прочитаної літератури:</label>
+           <textarea  class="form-control copypaste"  name="literatyre" placeholder="Введіть автора, сторінку та тему з коротким описом" width="400px" ></textarea>
+           </div>
+           <p></p>
+         {!! Form::submit('Відправити', ['class' => 'btn btn-secondary btn-lg btn-block']) !!}
+                   {{ Form::close() }}  
  </div>
-        </div>
-        <!-- /.card -->
+</div>
 
+@endsection
 
+@section('js')
+<script>
+  $(document).ready(function () {
+   $('.copypaste').mousedown(function(event){
+    if(event.button == 2){
+  
+        alert('Будь ласка, не копіюйте прізвища авторів, вносіть дані з клавіатури, так є хоч трохи надії що ви запам"ятаєте хоч прізвище автора!');
+    }
+});
 
-         </div>
-          <!-- /.card-body -->
-
- </div>
-        </div>
-        <!-- /.card -->
- {{ Form::close() }}  
-
-
+});
+</script>
 @endsection

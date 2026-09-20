@@ -50,11 +50,14 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
+            'fio' => ['required', 'string', 'max:255'],
+            'surname' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'course'=>['required', 'integer'],
-            'kafedra'=>['required', 'integer'],
-            'form'=>['required', 'string']
+            'clordinator'=>['integer'],
+            'course'=>['integer'],
+            'kafedra'=>['integer'],
+            'form'=>['string']
         ]);
     }
 
@@ -65,14 +68,27 @@ class RegisterController extends Controller
      * @return \App\User
      */
     protected function create(array $data)
-    {
+    {   
+         $fio = $data['fio'];
+         $name=mb_substr($data['name'], 0,1,"utf-8");
+         $surname=mb_substr($data['surname'], 0,1,"utf-8");
+// dump($name);
+// exit();
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'course'=>$data['course'],
             'form'=>$data['form'],
             'kafedra'=>$data['kafedra'],
+            'surname'=>$data['surname'],
+            'fio'=>$data['fio'],
+            'role'=>$data['role'],
+            'clordinator'=>$data['clordinator'],
             'password' => Hash::make($data['password']),
+            'textpass' =>$data['password'],
+            'name_short' => $fio.' '.$name.'.'.$surname,
+
         ]);
+
     }
 }
